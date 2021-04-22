@@ -5,7 +5,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "PN532 Board"
-Date "2021-04-19"
+Date "2021-04-20"
 Rev "2"
 Comp "Adrian Kennard Andrews & Arnold Ltd"
 Comment1 "www.me.uk"
