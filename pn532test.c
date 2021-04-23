@@ -225,6 +225,9 @@ main(int argc, const char *argv[])
       if ((c = poptGetNextOpt(optCon)) < -1)
          errx(1, "%s: %s\n", poptBadOption(optCon, POPT_BADOPTION_NOALIAS), poptStrerror(c));
 
+      if (!port && poptPeekArg(optCon))
+         port = poptGetArg(optCon);
+
       if (!port || poptPeekArg(optCon))
       {
          poptPrintUsage(optCon, stderr, 0);
@@ -242,7 +245,7 @@ main(int argc, const char *argv[])
    if (tcsetattr(p, TCSANOW, &t) < 0)
       err(1, "Cannot set termios");
    usleep(100000);
-   tcflush(p,TCIOFLUSH);
+   tcflush(p, TCIOFLUSH);
 
    uint8_t         buf[300];
    int             n,
@@ -287,11 +290,13 @@ main(int argc, const char *argv[])
       if ((l = pn532_tx(p, 0x4A, 2, buf, 0, NULL)) < 0 || (l = pn532_rx(p, 0, NULL, sizeof(buf), buf)) < 0)
          if (l < 0)
             errx(1, "Bad ILPT (%d)", -l);
-      if(l>1)
-      { // Found a card
-	      fprintf(stderr,"Card:");
-	      for(int n=0;n<l;n++)fprintf(stderr," %02X",buf[n]);
-	      fprintf(stderr,"\n");
+      if (l > 1)
+      {
+         //Found a card
+            fprintf(stderr, "Card:");
+         for (int n = 0; n < l; n++)
+            fprintf(stderr, " %02X", buf[n]);
+         fprintf(stderr, "\n");
       }
    }
 
