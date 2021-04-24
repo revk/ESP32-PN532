@@ -940,8 +940,6 @@ Wire Wire Line
 Wire Wire Line
 	6300 4950 6300 4750
 Wire Wire Line
-	8450 800  8450 4950
-Wire Wire Line
 	8400 2800 6400 2800
 Wire Wire Line
 	6400 2800 6400 2950
@@ -1063,4 +1061,25 @@ F 3 "" H 10750 6750 50  0001 C CNN
 	1    10750 6850
 	1    0    0    -1  
 $EndComp
+$Comp
+L Connector:Conn_01x02_Male J4
+U 1 1 60841004
+P 6800 800
+F 0 "J4" H 6908 981 50  0000 C CNN
+F 1 "Tamper" H 6908 890 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 6800 800 50  0001 C CNN
+F 3 "~" H 6800 800 50  0001 C CNN
+	1    6800 800 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7550 800  7000 800 
+Connection ~ 7550 800 
+Wire Wire Line
+	7000 900  8450 900 
+Wire Wire Line
+	8450 800  8450 900 
+Connection ~ 8450 900 
+Wire Wire Line
+	8450 900  8450 4950
 $EndSCHEMATC
