@@ -589,7 +589,7 @@ P 9350 3200
 F 0 "J2" H 9458 3481 50  0000 C CNN
 F 1 "SPOX" H 9458 3390 50  0000 C CNN
 F 2 "Connector_Molex:Molex_SPOX_5268-04A_1x04_P2.50mm_Horizontal" H 9350 3200 50  0001 C CNN
-F 3 "~" H 9350 3200 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/Molex/22-05-7045" H 9350 3200 50  0001 C CNN
 	1    9350 3200
 	1    0    0    -1  
 $EndComp
@@ -600,7 +600,7 @@ P 9350 3950
 F 0 "J3" H 9458 4231 50  0000 C CNN
 F 1 "MiniGrid" H 9458 4140 50  0000 C CNN
 F 2 "RevK:Connector-MilliGrid-2x2" H 9350 3950 50  0001 C CNN
-F 3 "~" H 9350 3950 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/Molex/87831-0420" H 9350 3950 50  0001 C CNN
 	1    9350 3950
 	1    0    0    -1  
 $EndComp
