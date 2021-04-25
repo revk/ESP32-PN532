@@ -42,8 +42,8 @@ module base()
         if(spox)b(0,-8.9-2.38+4.9/2,-0.01,12.4+0.2,4.9+0.2,5+base);
         if(header)b(0,-12-3.62+4.82/2,-0.01,10.72+0.2,4.82+0.2,5+base);
         if(tamper)b(old?12:0,old?-12:12,-0.01,6+0.2,6+0.2,4.6);
-        if(tamper2)b(0,12-3.62+4.82/2,-0.01,5.64-0.2,4.82+0.2,5+base);
-        if(screws)for(t=[21-9,9-21])translate([t,-t*(old?-1:1),2.9])
+        if(tamper2)b(-6.6-3.62+4.82/2,12,-0.01,4.82+0.2,5.64+0.2,5+base);
+        if(screws)for(t=[21-9,9-21])translate([t,t,2.9])
         { // Screws in base
             translate([0,0,-1])cylinder(d=3.5,h=3+base+2);
             translate([0,0,-0.01])cylinder(d=7,h=0.5);
@@ -69,20 +69,20 @@ module top()
             for(x=[21-5,5-21])for(y=[21-5,5-21])translate([x,y,0])cylinder(r=5.2,h=1.6+4.9+1);
         }
         // LEDs
-        for(y=[21-9,21-9-6,21-9-6-6])
+        for(y=[-12,-6,0])
         {
-            b(-12,y,-0.01,1.6,1.4,1);
-            b(-12,y,cover+0.8-0.3,4.6,1.8,1);
+            b(-12,y*(old?-1:1),-0.01,1.6,1.4,1);
+            b(-12,y*(old?-1:1),cover+0.8-0.3,4.6,1.8,1);
         }
         if(header)b(0,-12,cover+0.5,4*2.54,2.54,1);
         if(spox||raspox)b(0,-8.9,cover+0.5,10,2.5,1);
         if(tamper)b((old?12:0)-3.25,old?-12:12,cover+0.5,2.5,7.5,1);
         if(tamper)b((old?12:0)+3.25,old?-12:12,cover+0.5,2.5,7.5,1);
-        if(tamper2)b(0,12,cover+0.5,2.54*2,2.54,1);
+        if(tamper2)b(-6.6,12,cover+0.5,2.54,2.54*2,1);
         if(milligrid)b(0,0,cover+0.5,4,4,1);
         if(raspox)b(0,-8.9-6.6+7.9-20,0.8+cover+1.6+1,8,40,4); // cable
     }
-    for(t=[9-21,21-9])translate([t,t,0])cylinder(d=3,h=0.8+cover+1.6);
+    for(t=[9-21,21-9])translate([t,-t*(old?-1:1),0])cylinder(d=3,h=0.8+cover+1.6);
     for(x=[-11,11])hull()
     {
         b(x,21*(old?-1:1),0.8+cover+1.6+3.9,8,1,1);
