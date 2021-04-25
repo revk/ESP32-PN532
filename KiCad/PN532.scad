@@ -2,7 +2,7 @@
 // Controls
 cover=0;    // How much to cover the SMD LEDs on antenna side
             // Note it is assumed leaded components cut flush
-base=0;     // How much extra base (e.g. for mounting off metal)
+base=1;     // How much extra base (e.g. for mounting off metal)
 thick=3;    // Wall thickness
 
 raspox=true;    // Right angle SPOX side cable
@@ -32,8 +32,8 @@ module base()
             hull()for(x=[21-5,5-21])for(y=[21-5,5-21])translate([x,y,0])cylinder(r=5.2,h=4.9+base); 
             if(base>0)hull()for(x=[21-5,5-21])for(y=[21-5,5-21])translate([x,y,4.9])
             {
-                if(base>1)translate([0,0,base-1])cylinder(r=5.2+base-1,h=1);
-                cylinder(r=5.2,h=base);
+                if(base>1)translate([0,0,base-1])cylinder(r=5+thick+base-1,h=1);
+                cylinder(r=5+thick,h=base);
             }
         }
         translate([0,0,-0.1])hull()for(x=[21-5,5-21])for(y=[21-5,5-21])translate([x,y,0])cylinder(r=1,h=3);
@@ -80,7 +80,7 @@ module top()
         if(tamper)b((old?12:0)+3.25,old?-12:12,cover+0.5,2.5,7.5,1);
         if(tamper2)b(0,12,cover+0.5,2.54*2,2.54,1);
         if(milligrid)b(0,0,cover+0.5,4,4,1);
-        if(raspox)b(0,-8.9-6.6+7.9-20,0.8+cover+1+1.6,8,40,5);
+        if(raspox)b(0,-8.9-6.6+7.9-20,0.8+cover+1.6+1,8,40,4); // cable
     }
     for(t=[9-21,21-9])translate([t,t,0])cylinder(d=3,h=0.8+cover+1.6);
     for(x=[-11,11])hull()
