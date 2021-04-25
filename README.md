@@ -7,6 +7,6 @@ PN532 (HSU) library
 
 Includes KiCad PCB design for PN532 based board which can be hand soldered (you need heat gun or oven for the PN532 itself).
 
-![PN532b](https://user-images.githubusercontent.com/996983/116002655-abec7080-a5f2-11eb-9afd-24c40fb83920.png)
+![PN532b](https://user-images.githubusercontent.com/996983/116004219-a0e90e80-a5f9-11eb-99da-040cb6438e82.png)
 
 Copyright © 2019-21 Adrian Kennard, Andrews & Arnold Ltd. See LICENCE file for details. GPL 3.0
