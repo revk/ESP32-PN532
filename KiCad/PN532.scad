@@ -40,10 +40,10 @@ module base()
             translate([0,0,-0.01])cylinder(d=7,h=0.5);
             translate([0,0,0.48])cylinder(d1=7,d2=3.5,h=2);
         }
-        for(x=[-11,11])hull()
+        if(base<2)for(x=[-11,11])hull()
         {
-            b(x,21*(old?-1:1),-0.01,8+0.2,1,1);
-            b(x,22*(old?-1:1),0.99,8+0.2,1,1);
+            b(x,21*(old?-1:1),base+3.901,8+0.2,1,1);
+            b(x,22*(old?-1:1),base+2.9,8+0.2,1,1);
         }
     }
 }
@@ -80,10 +80,10 @@ module top()
         if(raspox)b(0,-8.9-6.6+7.9-20,0.8+cover+1+1.6,12.4+0.2,40,5);
     }
     for(t=[9-21,21-9])translate([t,t,0])cylinder(d=3,h=0.8+cover+1.6);
-    for(x=[-11,11])hull()
+    if(base<2)for(x=[-11,11])hull()
     {
-        b(x,21*(old?-1:1),0.8+cover+1.6+3.9,8,1,1);
-        b(x,22*(old?-1:1),0.8+cover+1.6+3-1,8,1,1);
+        b(x,21*(old?-1:1),0.8+cover+1.6+3.9+base,8,1,1);
+        b(x,22*(old?-1:1),0.8+cover+1.6+3.9+base-1,8,1,1);
     }
 }
 
