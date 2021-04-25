@@ -5,12 +5,12 @@ cover=0;    // How much to cover the SMD LEDs on antenna side
 base=0;     // How much extra base (e.g. for mounting off metal)
 thick=3;    // Wall thickness
 
-raspox=false;    // Right angle SPOX side cable
+raspox=true;    // Right angle SPOX side cable
 header=false;   // 0.1" header rear
 spox=false;     // Straight SPOX rear
 tamper=true;   // Tamper button fitted
 tamper2=false;   // Tamper 2 pin header rear
-milligrid=true;    // Milli-grid at rear
+milligrid=false;    // Milli-grid at rear
 screws=false;
 
 // TODO remove
@@ -38,7 +38,11 @@ module base()
         }
         translate([0,0,-0.1])hull()for(x=[21-5,5-21])for(y=[21-5,5-21])translate([x,y,0])cylinder(r=1,h=3);
         if(milligrid)b(0,0,-0.01,6.65+0.2,6.3+0.2,5+base);
-        if(raspox)b(0,-8.9-6.6+7.9/2-2-20,-0.01,12.4+0.2,7.9+0.2+40,4.92);
+        if(raspox)
+        {
+            b(0,-8.9-6.6+7.9/2-2,-0.01,12.4+0.2,7.9+0.2,4.92);
+            b(0,-8.9-6.6+7.9/2-2-20,-0.01,8,7.9+0.2+40,4.92);
+        }
         if(spox)b(0,-8.9-2.38+4.9/2,-0.01,12.4+0.2,4.9+0.2,5+base);
         if(header)b(0,-12-3.62+4.82/2,-0.01,10.72+0.2,4.82+0.2,5+base);
         if(tamper)b(old?12:0,old?-12:12,-0.01,6+0.2,6+0.2,4.6);
