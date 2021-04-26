@@ -219,7 +219,6 @@ main(int argc, const char *argv[])
       };
 
       optCon = poptGetContext(NULL, argc, argv, optionsTable, 0);
-      poptSetOtherOptionHelp(optCon, "[aid/config] [reader] [username]");
 
       int             c;
       if ((c = poptGetNextOpt(optCon)) < -1)
