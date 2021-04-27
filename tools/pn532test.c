@@ -29,6 +29,12 @@ sread(int p, uint8_t * buf, int l)
    int             q = 0;
    while (q < l)
    {
+      fd_set          f;
+      FD_ZERO(&f);
+      FD_SET(p, &f);
+      struct timeval  t = {0, 100000};
+      if (select(p + 1, &f, NULL, NULL, &t) < 1)
+         return 0;
       int             r = read(p, buf + q, l - q);
       if (r <= 0)
          err(1, "Read failed (%d!=%d)", r, l);
@@ -249,15 +255,18 @@ main(int argc, const char *argv[])
    uint8_t         buf[300];
    int             n,
                    l;
-   /* SAM config */
-   n = 0;
-   buf[n++] = 0x01;             /* Normal */
-   buf[n++] = 20;               /* *50 ms timeout */
-   buf[n++] = 0x01;             /* Use IRQ */
-   if ((l = pn532_tx(p, 0x14, 0, NULL, n, buf)) < 0 || (l = pn532_rx(p, 0, NULL, sizeof(buf), buf)) < 0)
-      /* GetFirmwareVersion */
-      if ((l = pn532_tx(p, 0x02, 0, NULL, 0, NULL)) < 0 || (l = pn532_rx(p, 0, NULL, sizeof(buf), buf)) < 0)
-         errx(1, "GetFirmwareVersion fail (%d)", -l);
+   while (1)
+   {
+      /* SAM config */
+      n = 0;
+      buf[n++] = 0x01;          /* Normal */
+      buf[n++] = 20;            /* *50 ms timeout */
+      buf[n++] = 0x01;          /* Use IRQ */
+      if ((l = pn532_tx(p, 0x14, 0, NULL, n, buf)) < 0 || (l = pn532_rx(p, 0, NULL, sizeof(buf), buf)) < 0)
+         warnx("GetFirmwareVersion fail (%d)", -l);
+      else
+         break;
+   }
    /* RFConfiguration */
    n = 0;
    buf[n++] = 5;                /* Config item 5(MaxRetries) */
@@ -288,7 +297,7 @@ main(int argc, const char *argv[])
       buf[1] = 0;               /* 106 kbps type A(ISO / IEC14443 Type A) */
       if ((l = pn532_tx(p, 0x4A, 2, buf, 0, NULL)) < 0 || (l = pn532_rx(p, 0, NULL, sizeof(buf), buf)) < 0)
          if (l < 0)
-            errx(1, "Bad ILPT (%d)", -l);
+            warnx("Bad ILPT (%d)", -l);
       if (l > 1)
       {
          //Found a card
