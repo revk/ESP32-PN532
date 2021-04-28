@@ -36,7 +36,7 @@ module base()
                 cylinder(r=5+thick,h=base);
             }
         }
-        translate([0,0,-0.1])hull()for(x=[21-5,5-21])for(y=[21-5,5-21])translate([x,y,0])cylinder(r=1,h=3);
+        translate([0,0,-0.1])hull()for(x=[-13,13])for(y=[-13,13])translate([x,y,0])cylinder(r=3,h=3);
         if(milligrid)b(0,0,-0.01,6.65+0.2,6.3+0.2,5+base);
         if(raspox)b(0,-8.9-6.6+7.9/2-2-20,-0.01,12.4+0.2,7.9+0.2+40,4.92);
         if(spox)b(0,-8.9-2.38+4.9/2,-0.01,12.4+0.2,4.9+0.2,5+base);
