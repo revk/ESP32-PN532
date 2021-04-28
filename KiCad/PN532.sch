@@ -41,7 +41,7 @@ U 1 1 60756CAE
 P 2600 3700
 F 0 "C1" H 2715 3746 50  0000 L CNN
 F 1 "200pF" H 2715 3655 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 2638 3550 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 2638 3550 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C201F4HACTU" H 2600 3700 50  0001 C CNN
 	1    2600 3700
 	1    0    0    -1  
@@ -52,7 +52,7 @@ U 1 1 60757E92
 P 2600 4000
 F 0 "C2" H 2715 4046 50  0000 L CNN
 F 1 "200pF" H 2715 3955 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 2638 3850 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 2638 3850 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C201F4HACTU" H 2600 4000 50  0001 C CNN
 	1    2600 4000
 	1    0    0    -1  
@@ -63,7 +63,7 @@ U 1 1 60758CE7
 P 2950 3550
 F 0 "C3" V 2698 3550 50  0000 C CNN
 F 1 "22pF" V 2789 3550 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 2988 3400 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 2988 3400 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C220F1HACTU" H 2950 3550 50  0001 C CNN
 	1    2950 3550
 	0    1    1    0   
@@ -74,7 +74,7 @@ U 1 1 6075A7AA
 P 3300 3700
 F 0 "C5" H 3185 3654 50  0000 R CNN
 F 1 "220pF" H 3185 3745 50  0000 R CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 3338 3550 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 3338 3550 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C221F1HACTU" H 3300 3700 50  0001 C CNN
 	1    3300 3700
 	-1   0    0    1   
@@ -85,7 +85,7 @@ U 1 1 6075B113
 P 3300 4000
 F 0 "C6" H 3415 4046 50  0000 L CNN
 F 1 "220pF" H 3415 3955 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 3338 3850 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 3338 3850 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C221F1HACTU" H 3300 4000 50  0001 C CNN
 	1    3300 4000
 	1    0    0    -1  
@@ -96,7 +96,7 @@ U 1 1 6075BC21
 P 3850 3550
 F 0 "L1" V 3669 3550 50  0000 C CNN
 F 1 "560nH" V 3760 3550 50  0000 C CNN
-F 2 "Inductor_SMD:L_0805_2012Metric_Pad1.05x1.20mm_HandSolder" H 3850 3550 50  0001 C CNN
+F 2 "Inductor_SMD:L_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3850 3550 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/Fastron/0805AS-R56J-08" H 3850 3550 50  0001 C CNN
 	1    3850 3550
 	0    1    1    0   
@@ -107,7 +107,7 @@ U 1 1 6075C317
 P 3850 4150
 F 0 "L2" V 4040 4150 50  0000 C CNN
 F 1 "560nH" V 3949 4150 50  0000 C CNN
-F 2 "Inductor_SMD:L_0805_2012Metric_Pad1.05x1.20mm_HandSolder" H 3850 4150 50  0001 C CNN
+F 2 "Inductor_SMD:L_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3850 4150 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/Fastron/0805AS-R56J-08" H 3850 4150 50  0001 C CNN
 	1    3850 4150
 	0    -1   -1   0   
@@ -118,7 +118,7 @@ U 1 1 6075C646
 P 4000 4600
 F 0 "C8" V 4200 4600 50  0000 C CNN
 F 1 "1nF" V 3839 4600 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 4038 4450 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 4038 4450 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C102F5GACTU" H 4000 4600 50  0001 C CNN
 	1    4000 4600
 	0    1    1    0   
@@ -129,7 +129,7 @@ U 1 1 6075D8AC
 P 4350 4250
 F 0 "C10" V 4098 4250 50  0000 C CNN
 F 1 "0.1uF" V 4189 4250 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 4388 4100 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 4388 4100 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C104M3RACTU" H 4350 4250 50  0001 C CNN
 	1    4350 4250
 	0    1    1    0   
@@ -140,7 +140,7 @@ U 1 1 6075DE03
 P 3600 4600
 F 0 "R3" V 3800 4600 50  0000 C CNN
 F 1 "2K7" V 3484 4600 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 3530 4600 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" V 3530 4600 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KOA-Speer/RK73H2ATTD2701F" H 3600 4600 50  0001 C CNN
 	1    3600 4600
 	0    1    1    0   
@@ -151,7 +151,7 @@ U 1 1 6075E871
 P 4650 4450
 F 0 "R4" H 4580 4404 50  0000 R CNN
 F 1 "1K" H 4580 4495 50  0000 R CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 4580 4450 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" V 4580 4450 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KOA-Speer/RK73H2ATTDD1001F" H 4650 4450 50  0001 C CNN
 	1    4650 4450
 	-1   0    0    1   
@@ -162,7 +162,7 @@ U 1 1 6075F2FD
 P 4300 3000
 F 0 "C9" H 4415 3046 50  0000 L CNN
 F 1 "4.7uF" H 4415 2955 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 4338 2850 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 4338 2850 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C475M4RACTU" H 4300 3000 50  0001 C CNN
 	1    4300 3000
 	1    0    0    -1  
@@ -173,7 +173,7 @@ U 1 1 6075FD74
 P 3950 3000
 F 0 "C7" H 3700 3050 50  0000 L CNN
 F 1 "0.1uF" H 3600 2950 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 3988 2850 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 3988 2850 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C104M3RACTU" H 3950 3000 50  0001 C CNN
 	1    3950 3000
 	1    0    0    -1  
@@ -184,7 +184,7 @@ U 1 1 607608E5
 P 5150 2600
 F 0 "C14" H 5265 2646 50  0000 L CNN
 F 1 "0.1uF" H 5265 2555 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 5188 2450 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 5188 2450 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C104M3RACTU" H 5150 2600 50  0001 C CNN
 	1    5150 2600
 	1    0    0    -1  
@@ -195,7 +195,7 @@ U 1 1 607617F2
 P 4750 1950
 F 0 "C12" H 4450 2000 50  0000 L CNN
 F 1 "0.1uF" H 4350 1900 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 4788 1800 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 4788 1800 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C104M3RACTU" H 4750 1950 50  0001 C CNN
 	1    4750 1950
 	1    0    0    -1  
@@ -206,7 +206,7 @@ U 1 1 60761B18
 P 5100 1950
 F 0 "C13" H 5215 1996 50  0000 L CNN
 F 1 "4.7uF" H 5215 1905 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 5138 1800 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 5138 1800 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C475M4RACTU" H 5100 1950 50  0001 C CNN
 	1    5100 1950
 	1    0    0    -1  
@@ -217,7 +217,7 @@ U 1 1 60762055
 P 5550 1250
 F 0 "R5" V 5343 1250 50  0000 C CNN
 F 1 "10K" V 5434 1250 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 5480 1250 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" V 5480 1250 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KOA-Speer/RK73H2ATTED1002F" H 5550 1250 50  0001 C CNN
 	1    5550 1250
 	0    1    1    0   
@@ -228,7 +228,7 @@ U 1 1 607627AA
 P 7100 4300
 F 0 "C17" H 7215 4346 50  0000 L CNN
 F 1 "0.1uF" H 7215 4255 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 7138 4150 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 7138 4150 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C104M3RACTU" H 7100 4300 50  0001 C CNN
 	1    7100 4300
 	1    0    0    -1  
@@ -239,7 +239,7 @@ U 1 1 60762D5E
 P 5700 5850
 F 0 "C15" H 5400 5900 50  0000 L CNN
 F 1 "22pF" H 5400 5800 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 5738 5700 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 5738 5700 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C220F1HACTU" H 5700 5850 50  0001 C CNN
 	1    5700 5850
 	1    0    0    -1  
@@ -250,7 +250,7 @@ U 1 1 6076408B
 P 6000 5850
 F 0 "C16" H 6115 5896 50  0000 L CNN
 F 1 "22pF" H 6115 5805 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 6038 5700 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 6038 5700 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C220F1HACTU" H 6000 5850 50  0001 C CNN
 	1    6000 5850
 	1    0    0    -1  
@@ -366,7 +366,7 @@ U 1 1 6078DE67
 P 4500 5200
 F 0 "C11" H 4615 5246 50  0000 L CNN
 F 1 "0.1uF" H 4615 5155 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 4538 5050 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 4538 5050 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C104M3RACTU" H 4500 5200 50  0001 C CNN
 	1    4500 5200
 	1    0    0    -1  
@@ -553,7 +553,7 @@ U 1 1 60759861
 P 2950 4150
 F 0 "C4" V 2698 4150 50  0000 C CNN
 F 1 "22pF" V 2789 4150 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 2988 4000 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" H 2988 4000 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C220F1HACTU" H 2950 4150 50  0001 C CNN
 	1    2950 4150
 	0    -1   -1   0   
@@ -717,7 +717,7 @@ U 1 1 607EBC51
 P 8150 1200
 F 0 "R7" V 7943 1200 50  0000 C CNN
 F 1 "680R" V 8034 1200 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 8080 1200 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" V 8080 1200 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KOA-Speer/RK73H2ATTD6800F" H 8150 1200 50  0001 C CNN
 	1    8150 1200
 	0    1    1    0   
@@ -728,7 +728,7 @@ U 1 1 607ED1A6
 P 8150 1700
 F 0 "R8" V 7943 1700 50  0000 C CNN
 F 1 "680R" V 8034 1700 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 8080 1700 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" V 8080 1700 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KOA-Speer/RK73H2ATTD6800F" H 8150 1700 50  0001 C CNN
 	1    8150 1700
 	0    1    1    0   
@@ -739,7 +739,7 @@ U 1 1 607ED794
 P 8150 2250
 F 0 "R9" V 7943 2250 50  0000 C CNN
 F 1 "680R" V 8034 2250 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 8080 2250 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" V 8080 2250 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KOA-Speer/RK73H2ATTD6800F" H 8150 2250 50  0001 C CNN
 	1    8150 2250
 	0    1    1    0   
@@ -958,7 +958,7 @@ U 1 1 6080249E
 P 8600 800
 F 0 "R10" V 8393 800 50  0000 C CNN
 F 1 "10K" V 8484 800 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 8530 800 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" V 8530 800 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KOA-Speer/RK73H2ATTED1002F" H 8600 800 50  0001 C CNN
 	1    8600 800 
 	0    1    1    0   
@@ -991,7 +991,7 @@ U 1 1 6080809B
 P 5850 1250
 F 0 "R6" V 5643 1250 50  0000 C CNN
 F 1 "20K" V 5734 1250 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 5780 1250 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" V 5780 1250 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KOA-Speer/RK73H2ATTE2002F" H 5850 1250 50  0001 C CNN
 	1    5850 1250
 	0    1    1    0   
@@ -1014,8 +1014,8 @@ L Device:R R1
 U 1 1 607F6C62
 P 2350 3550
 F 0 "R1" V 2143 3550 50  0000 C CNN
-F 1 "2R" V 2234 3550 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 2280 3550 50  0001 C CNN
+F 1 "0R" V 2234 3550 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" V 2280 3550 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KOA-Speer/RK73H2ATTD2R00F" H 2350 3550 50  0001 C CNN
 	1    2350 3550
 	0    1    1    0   
@@ -1025,8 +1025,8 @@ L Device:R R2
 U 1 1 607F7DFF
 P 2350 4150
 F 0 "R2" V 2143 4150 50  0000 C CNN
-F 1 "2R" V 2234 4150 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 2280 4150 50  0001 C CNN
+F 1 "0R" V 2234 4150 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" V 2280 4150 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KOA-Speer/RK73H2ATTD2R00F" H 2350 4150 50  0001 C CNN
 	1    2350 4150
 	0    1    1    0   
@@ -1085,7 +1085,7 @@ U 1 1 6086E7E9
 P 8800 5600
 F 0 "R11" V 8593 5600 50  0000 C CNN
 F 1 "10K" V 8684 5600 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 8730 5600 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" V 8730 5600 50  0001 C CNN
 F 3 "~" H 8800 5600 50  0001 C CNN
 	1    8800 5600
 	0    1    1    0   
