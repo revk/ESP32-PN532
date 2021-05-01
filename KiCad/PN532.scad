@@ -12,7 +12,7 @@ spox=true;     // Straight SPOX rear
 tamper=true;   // Tamper button fitted
 tamper2=false;   // Tamper 2 pin header rear
 milligrid=true;    // Milli-grid at rear
-screws=false;
+screws=true;
 
 $fn=100;
 
