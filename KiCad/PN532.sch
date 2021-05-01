@@ -4,9 +4,9 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title "PN532 Board"
-Date "2021-04-20"
-Rev "2"
+Title "PN532 NFC Board"
+Date "2021-04-30"
+Rev "4"
 Comp "Adrian Kennard Andrews & Arnold Ltd"
 Comment1 "www.me.uk"
 Comment2 ""
@@ -871,7 +871,7 @@ L Device:Crystal_GND24 Y1
 U 1 1 6075CAF9
 P 5850 5500
 F 0 "Y1" H 6044 5546 50  0000 L CNN
-F 1 "27.12MHz (Mouser 830053099)" H 6044 5455 50  0000 L CNN
+F 1 "27.12MHz" H 6044 5455 50  0000 L CNN
 F 2 "RevK:Crystal-3.4x2.7" H 5850 5500 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/710-830053099" H 5850 5500 50  0001 C CNN
 	1    5850 5500
@@ -1071,12 +1071,12 @@ $EndComp
 $Comp
 L RevK:QR U2
 U 1 1 60859564
-P 10450 5900
-F 0 "U2" H 10450 5850 50  0001 C CNN
-F 1 "QR" H 10450 5850 50  0001 C CNN
-F 2 "RevK:QR-PN532" H 10450 5900 50  0001 C CNN
-F 3 "" H 10450 5900 50  0001 C CNN
-	1    10450 5900
+P 11050 6850
+F 0 "U2" H 11050 6800 50  0001 C CNN
+F 1 "QR" H 11050 6800 50  0001 C CNN
+F 2 "RevK:QR-PN532" H 11050 6850 50  0001 C CNN
+F 3 "" H 11050 6850 50  0001 C CNN
+	1    11050 6850
 	1    0    0    -1  
 $EndComp
 $Comp
