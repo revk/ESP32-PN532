@@ -766,17 +766,6 @@ F 3 "" H 7500 4350 50  0001 C CNN
 $EndComp
 Connection ~ 7500 4350
 $Comp
-L power:GND #PWR017
-U 1 1 60834040
-P 6500 4950
-F 0 "#PWR017" H 6500 4700 50  0001 C CNN
-F 1 "GND" H 6505 4777 50  0000 C CNN
-F 2 "" H 6500 4950 50  0001 C CNN
-F 3 "" H 6500 4950 50  0001 C CNN
-	1    6500 4950
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:GND #PWR016
 U 1 1 60832E77
 P 6400 4950
@@ -975,7 +964,7 @@ F 1 "20K" V 6134 1450 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" V 6180 1450 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/KOA-Speer/RK73H2ATTE2002F" H 6250 1450 50  0001 C CNN
 	1    6250 1450
-	0    1    1    0   
+	0    -1   -1   0   
 $EndComp
 $Comp
 L power:GND #PWR015
@@ -1147,8 +1136,49 @@ Wire Wire Line
 	3200 4350 3200 4800
 Wire Wire Line
 	3200 4800 3850 4800
-Connection ~ 6100 1450
 Connection ~ 8850 1000
 Wire Wire Line
 	4900 4350 4900 5150
+Connection ~ 6100 1450
+Wire Wire Line
+	6500 4950 6500 5350
+Wire Wire Line
+	6500 5350 7050 5350
+Wire Wire Line
+	7050 5350 7050 5850
+$Comp
+L power:GND #PWR0101
+U 1 1 60937436
+P 7600 6050
+F 0 "#PWR0101" H 7600 5800 50  0001 C CNN
+F 1 "GND" H 7605 5877 50  0000 C CNN
+F 2 "" H 7600 6050 50  0001 C CNN
+F 3 "" H 7600 6050 50  0001 C CNN
+	1    7600 6050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR0102
+U 1 1 60937B3C
+P 7600 5650
+F 0 "#PWR0102" H 7600 5500 50  0001 C CNN
+F 1 "+3.3V" H 7615 5823 50  0000 C CNN
+F 2 "" H 7600 5650 50  0001 C CNN
+F 3 "" H 7600 5650 50  0001 C CNN
+	1    7600 5650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_3_Bridged12 JP1
+U 1 1 609405DB
+P 7600 5850
+F 0 "JP1" V 7646 5918 50  0000 L CNN
+F 1 "I1" V 7555 5918 50  0000 L CNN
+F 2 "Jumper:SolderJumper-3_P1.3mm_Bridged2Bar12_RoundedPad1.0x1.5mm_NumberLabels" H 7600 5850 50  0001 C CNN
+F 3 "~" H 7600 5850 50  0001 C CNN
+	1    7600 5850
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	7050 5850 7450 5850
 $EndSCHEMATC
