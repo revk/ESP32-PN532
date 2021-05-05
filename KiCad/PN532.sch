@@ -569,7 +569,7 @@ U 1 1 607D486C
 P 9750 3400
 F 0 "J3" H 9858 3681 50  0000 C CNN
 F 1 "SPOX" H 9858 3590 50  0000 C CNN
-F 2 "Connector_Molex:Molex_SPOX_5268-04A_1x04_P2.50mm_Horizontal" H 9750 3400 50  0001 C CNN
+F 2 "RevK:Molex_MiniSPOX_H4RA" H 9750 3400 50  0001 C CNN
 F 3 "https://www.mouser.co.uk/ProductDetail/Molex/22-05-7045" H 9750 3400 50  0001 C CNN
 	1    9750 3400
 	1    0    0    -1  
