@@ -1,4 +1,4 @@
-all: PN532-wall.stl PN532-cable.stl PN532-thick.stl
+stl: PN532-wall.stl PN532-cable.stl PN532-thick.stl
 
 PN532-wall.stl: PN532.scad Makefile
 	/Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD $< -o $@ -Dbase=0 -Dthick=3 -Draspox=false -Dheader=false -Dspox=true -Dtamper=true -Dtamper2=false -Dmilligrid=false -Dscrews=true
