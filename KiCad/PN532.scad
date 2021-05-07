@@ -14,6 +14,8 @@ tamper2=false;   // Tamper 2 pin header rear
 milligrid=true;    // Milli-grid at rear
 screws=true;
 
+corner=5;       // PCB corner radius
+
 $fn=100;
 
 module b(cx,cy,z,w,l,h)
@@ -27,7 +29,7 @@ module base()
     {
         union()
         {
-            hull()for(x=[-12,12])for(y=[-12,12])translate([x,y,0])cylinder(r=9.2,h=4.9+base); 
+            hull()for(x=[corner-21,21-corner])for(y=[corner-21,21-corner])translate([x,y,0])cylinder(r=corner+0.2,h=4.9+base); 
             if(base>0)hull()for(x=[-12,12])for(y=[-12,12])translate([x,y,4.9])
             {
                 if(base>1)translate([0,0,base-1])cylinder(r=9+thick+base-1,h=1);
@@ -61,11 +63,11 @@ module top()
     difference()
     {
         hull()
-        for(x=[-12,12])for(y=[-12,12])translate([x,y,0])cylinder(r=9+thick,h=led+cover+1.6+4.9);
+        for(x=[corner-21,21-corner])for(y=[corner-21,21-corner])translate([x,y,0])cylinder(r=corner+thick,h=led+cover+1.6+4.9);
         translate([0,0,led+cover])
         hull()
         {
-            for(x=[-12,12])for(y=[-12,12])translate([x,y,0])cylinder(r=9.2,h=1.6+4.9+1);
+            for(x=[corner-21,21-corner])for(y=[corner-21,21-corner])translate([x,y,0])cylinder(r=corner+0.2,h=1.6+4.9+1);
         }
         // LEDs
         for(y=[-12,-6,0])
