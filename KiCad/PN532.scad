@@ -14,7 +14,7 @@ tamper2=false;   // Tamper 2 pin header rear
 milligrid=true;    // Milli-grid at rear
 screws=true;
 
-corner=5;       // PCB corner radius
+corner=9;       // PCB corner radius
 
 $fn=100;
 
