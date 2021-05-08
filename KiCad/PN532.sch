@@ -1025,7 +1025,7 @@ U 1 1 60841004
 P 8350 5900
 F 0 "J1" H 8458 6081 50  0000 C CNN
 F 1 "Bell" H 8458 5990 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8350 5900 50  0001 C CNN
+F 2 "TestPoint:TestPoint_2Pads_Pitch2.54mm_Drill0.8mm" H 8350 5900 50  0001 C CNN
 F 3 "~" H 8350 5900 50  0001 C CNN
 	1    8350 5900
 	1    0    0    -1  
