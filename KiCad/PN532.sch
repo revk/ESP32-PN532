@@ -744,7 +744,7 @@ $EndComp
 Wire Wire Line
 	6100 1450 6100 3150
 Wire Wire Line
-	10450 4700 9100 4700
+	10450 4700 9850 4700
 NoConn ~ 6200 3150
 NoConn ~ 6300 3150
 NoConn ~ 6400 3150
@@ -1025,7 +1025,7 @@ U 1 1 60841004
 P 8350 5900
 F 0 "J1" H 8458 6081 50  0000 C CNN
 F 1 "Bell" H 8458 5990 50  0000 C CNN
-F 2 "TestPoint:TestPoint_2Pads_Pitch2.54mm_Drill0.8mm" H 8350 5900 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8350 5900 50  0001 C CNN
 F 3 "~" H 8350 5900 50  0001 C CNN
 	1    8350 5900
 	1    0    0    -1  
@@ -1079,17 +1079,6 @@ $EndComp
 Wire Wire Line
 	9100 3950 9100 4700
 $Comp
-L Connector:TestPoint TP1
-U 1 1 608D5D1E
-P 4500 3950
-F 0 "TP1" V 4500 4200 50  0000 C CNN
-F 1 "TestPoint" V 4600 4150 50  0000 C CNN
-F 2 "RevK:TestPad" H 4700 3950 50  0001 C CNN
-F 3 "~" H 4700 3950 50  0001 C CNN
-	1    4500 3950
-	0    -1   -1   0   
-$EndComp
-$Comp
 L RevK:PN532-Antenna A1
 U 1 1 6074E4EC
 P 1350 4050
@@ -1100,23 +1089,10 @@ F 3 "" H 1350 4050 50  0001 C CNN
 	1    1350 4050
 	1    0    0    -1  
 $EndComp
-$Comp
-L Connector:TestPoint TP2
-U 1 1 608DBC63
-P 4500 4150
-F 0 "TP2" V 4500 4400 50  0000 C CNN
-F 1 "TestPoint" V 4400 4350 50  0000 C CNN
-F 2 "RevK:TestPad" H 4700 4150 50  0001 C CNN
-F 3 "~" H 4700 4150 50  0001 C CNN
-	1    4500 4150
-	0    -1   -1   0   
-$EndComp
-Connection ~ 4500 3950
-Connection ~ 4500 4150
 Wire Wire Line
-	4050 3750 4500 3750
+	4050 3750 4300 3750
 Wire Wire Line
-	4050 4350 4500 4350
+	4050 4350 4300 4350
 Wire Wire Line
 	3200 4350 3200 4800
 Wire Wire Line
@@ -1181,4 +1157,38 @@ Wire Wire Line
 Wire Wire Line
 	8200 3650 8200 5600
 NoConn ~ 6500 3150
+$Comp
+L Device:R R12
+U 1 1 6097C1FF
+P 9700 4700
+F 0 "R12" V 9900 4700 50  0000 C CNN
+F 1 "100R" V 9800 4700 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 9630 4700 50  0001 C CNN
+F 3 "~" H 9700 4700 50  0001 C CNN
+	1    9700 4700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9550 4700 9100 4700
+$Comp
+L Connector:TestPoint_2Pole TP1
+U 1 1 609B72F2
+P 4300 4050
+F 0 "TP1" V 4254 4108 50  0000 L CNN
+F 1 "TestPoint_2Pole" V 4345 4108 50  0000 L CNN
+F 2 "RevK:PN532-RF-Test" H 4300 4050 50  0001 C CNN
+F 3 "~" H 4300 4050 50  0001 C CNN
+	1    4300 4050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4300 3850 4300 3750
+Connection ~ 4300 3750
+Wire Wire Line
+	4300 3750 4500 3750
+Wire Wire Line
+	4300 4250 4300 4350
+Connection ~ 4300 4350
+Wire Wire Line
+	4300 4350 4500 4350
 $EndSCHEMATC
