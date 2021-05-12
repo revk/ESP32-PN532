@@ -5,7 +5,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "PN532 NFC Board"
-Date "2021-05-08"
+Date "2021-05-12"
 Rev "6"
 Comp "Adrian Kennard Andrews & Arnold Ltd"
 Comment1 "www.me.uk"
