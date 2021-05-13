@@ -5,8 +5,8 @@ PN532 (HSU) library
 - Can work with DESFireAES library for NXP MIFARE DESFire EV1 cards
 - See include file for details of functions
 
-Includes KiCad PCB design for PN532 based board which can be hand soldered (you need heat gun or oven for the PN532 itself).
+Includes KiCad PCB design for PN532 based NFC reader board and 3D case designs.
 
-![PN532](https://user-images.githubusercontent.com/996983/116004568-3638d280-a5fb-11eb-97f0-ad9a66970520.png)
+![PN532a](https://user-images.githubusercontent.com/996983/118099655-6d65fc80-b3cd-11eb-9115-c492db421f00.png)
 
 Copyright © 2019-21 Adrian Kennard, Andrews & Arnold Ltd. See LICENCE file for details. GPL 3.0
