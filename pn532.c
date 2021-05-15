@@ -207,30 +207,25 @@ pn532_t *pn532_init(int8_t uart, int8_t tx, int8_t rx, uint8_t outputs)
    }
    // WriteRegister
    n = 0;
-   if (outputs & 0x3F)
-   {                            // AB are 00=open drain, 10=quasi bidi, 01=input (high imp), 11=output (push/pull)
-      buf[n++] = 0xFF;          // P3CFGA
-      buf[n++] = 0xFC;          // P3CFGA
-      buf[n++] = (outputs & 0x3F);      // Define output bits
-      buf[n++] = 0xFF;          // P3CFGB
-      buf[n++] = 0xFD;          // P3CFGB
-      buf[n++] = 0xFF;
-      buf[n++] = 0xFF;          // P3
-      buf[n++] = 0xB0;          // P3
-      buf[n++] = 0xFF;          // All high
-   }
-   if (outputs & 0xC0)
-   {
-      buf[n++] = 0xFF;          // P7CFGA
-      buf[n++] = 0xF4;          // P7CFGA
-      buf[n++] = ((outputs >> 5) & 0x06);       // Define output bits
-      buf[n++] = 0xFF;          // P7CFGB
-      buf[n++] = 0xFF;          // P7CFGB
-      buf[n++] = 0xFF;
-      buf[n++] = 0xFF;          // P7
-      buf[n++] = 0xF7;          // P7
-      buf[n++] = 0xFF;          // All high
-   }
+   // AB are 00=open drain, 10=quasi bidi, 01=input (high imp), 11=output (push/pull)
+   buf[n++] = 0xFF;             // P3CFGA
+   buf[n++] = 0xFC;             // P3CFGA
+   buf[n++] = (outputs & 0x3F); // Define output bits
+   buf[n++] = 0xFF;             // P3CFGB
+   buf[n++] = 0xFD;             // P3CFGB
+   buf[n++] = 0xFF;             // 0xFF
+   buf[n++] = 0xFF;             // P3
+   buf[n++] = 0xB0;             // P3
+   buf[n++] = 0xFF;             // All high
+   buf[n++] = 0xFF;             // P7CFGA
+   buf[n++] = 0xF4;             // P7CFGA
+   buf[n++] = ((outputs >> 5) & 0x06);  // Define output bits
+   buf[n++] = 0xFF;             // P7CFGB
+   buf[n++] = 0xF5;             // P7CFGB
+   buf[n++] = 0xFF;             // 0xFF
+   buf[n++] = 0xFF;             // P7
+   buf[n++] = 0xF7;             // P7
+   buf[n++] = 0xFF;             // All high
    if (n && (pn532_tx(p, 0x08, 0, NULL, n, buf) < 0 || pn532_rx(p, 0, NULL, sizeof(buf), buf) < 0))
    {
       ESP_LOGE(TAG, "WriteRegister fail %s", pn532_err_to_name(pn532_lasterr(p)));
