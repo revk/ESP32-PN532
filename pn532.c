@@ -117,13 +117,7 @@ void *pn532_end(pn532_t * p)
 {                               // Close (don't uninstall)
    if (!p)
       return NULL;
-#if 1
-   // TODO messing about to try and clear UART issues
-   uart_flush_input(p->uart);
-   char x[] = { 0x55, 0x55, 0x55 };
-   uart_write_bytes(p->uart, x, sizeof(x));
-   uart_driver_delete(p->uart); // TODO test
-#endif
+   uart_driver_delete(p->uart);
    free(p);
    return NULL;
 }
@@ -166,7 +160,12 @@ pn532_t *pn532_init(int8_t uart, int8_t tx, int8_t rx, uint8_t outputs)
    gpio_set_drive_capability(tx, GPIO_DRIVE_CAP_3);     // Oomph?
    int n;
    uint8_t buf[30] = { };
+   buf[sizeof(buf) - 1] = 0x55;
+   buf[sizeof(buf) - 2] = 0x55;
+   buf[sizeof(buf) - 3] = 0x55;
    uart_tx(p, buf, 1);
+   uart_wait_tx_done(p->uart, 1000 / portTICK_PERIOD_MS);
+   uart_flush_input(p->uart);
    // Set up PN532 (SAM first as in vLowBat mode)
    // SAMConfiguration
    n = 0;
