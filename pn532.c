@@ -352,7 +352,7 @@ int pn532_rx_mutex(pn532_t * p, int max1, uint8_t * data1, int max2, uint8_t * d
 {                               // Recv data from PN532
    uint8_t pending = p->pending;
    p->pending = 0;
-   int l = uart_preamble(p, 500);
+   int l = uart_preamble(p, 100);
    if (l < 2)
       return -(p->lasterr = PN532_ERR_TIMEOUT);
    uint8_t buf[9];
