@@ -40,7 +40,7 @@ module base()
         if(spox)b(0,-8.9+3.1-4.9/2,-0.01,12.4+0.5,4.9+0.5,5+base);
         if(header)b(0,-12-3.62+4.82/2,-0.01,10.72+0.5,4.82+0.5,5+base);
         if(tamper)b(-11.5,0,-0.01,6+0.2,6+0.2,4.4);
-        if(bell)b(12-1.27,-6,-0.01,5.64+0.4,4.82+0.4,5+base);
+        if(bell)b(12,-6,-0.01,4.82+0.4,5.64+0.4,5+base);
         if(screws)for(t=[-12,12])translate([t,-t,2.9])
         { // Screws in base
             translate([0,0,-1])cylinder(d=3.5,h=3+base+2);
@@ -76,7 +76,7 @@ module top()
         if(spox||raspox)b(0,-8.9,cover+0.5,10,2.5,1);
         if(tamper)b(-11.5,-3.25,cover+0.5,7.5,2.5,1);
         if(tamper)b(-11.5,+3.25,cover+0.5,7.5,2.5,1);
-        if(bell)b(8,-6,cover+0.5,2.54,2.54*2,1);
+        if(bell)b(12,-6,cover+0.5,2.54,2.54*2,1);
         if(raspox)b(0,-8.9-6.6+7.9-20,led+cover+1.6+1,4,40,4); // cable
     }
     for(t=[-12,12])translate([t,-t,0])cylinder(d=3,h=led+cover+1.6);
