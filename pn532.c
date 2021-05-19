@@ -244,8 +244,7 @@ pn532_t *pn532_init(int8_t uart, int8_t tx, int8_t rx, uint8_t outputs)
    buf[n++] = 0x02;             // Various timings (100*2^(n-1))us
    buf[n++] = 0x00;             // RFU
    buf[n++] = 0x0B;             // Default (102.4 ms)
-   //buf[n++] = 0x0A;             // Default is 0x0A (51.2 ms)
-   buf[n++] = 0x0B;             // 102.4
+   buf[n++] = 0x0A;             // Default is 0x0A (51.2 ms)
    if (pn532_tx(p, 0x32, 0, NULL, n, buf) < 0 || pn532_rx(p, 0, NULL, sizeof(buf), buf) < 0)
    {
       ESP_LOGE(TAG, "RFConfiguration fail %s", pn532_err_to_name(pn532_lasterr(p)));
