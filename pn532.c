@@ -193,12 +193,12 @@ pn532_t *pn532_init(int8_t uart, int8_t tx, int8_t rx, uint8_t outputs)
       return pn532_end(p);
    }
    //uint32_t ver = (buf[0] << 24) + (buf[1] << 16) + (buf[2] << 8) + buf[3];
-   // RFConfiguration
+   // RFConfiguration (retries)
    n = 0;
    buf[n++] = 5;                // Config item 5 (MaxRetries)
    buf[n++] = 0xFF;             // MxRtyATR (default = 0xFF)
    buf[n++] = 0x01;             // MxRtyPSL (default = 0x01)
-   buf[n++] = 0x01;             // MxRtyPassiveActivation
+   buf[n++] = 0xFF;             // MxRtyPassiveActivation
    if (pn532_tx(p, 0x32, 0, NULL, n, buf) < 0 || pn532_rx(p, 0, NULL, sizeof(buf), buf) < 0)
    {
       ESP_LOGE(TAG, "RFConfiguration fail %s", pn532_err_to_name(pn532_lasterr(p)));
@@ -244,7 +244,8 @@ pn532_t *pn532_init(int8_t uart, int8_t tx, int8_t rx, uint8_t outputs)
    buf[n++] = 0x02;             // Various timings (100*2^(n-1))us
    buf[n++] = 0x00;             // RFU
    buf[n++] = 0x0B;             // Default (102.4 ms)
-   buf[n++] = 0x0A;             // Default is 0x0A (51.2 ms)
+   //buf[n++] = 0x0A;             // Default is 0x0A (51.2 ms)
+   buf[n++] = 0x0B;             // 102.4
    if (pn532_tx(p, 0x32, 0, NULL, n, buf) < 0 || pn532_rx(p, 0, NULL, sizeof(buf), buf) < 0)
    {
       ESP_LOGE(TAG, "RFConfiguration fail %s", pn532_err_to_name(pn532_lasterr(p)));
