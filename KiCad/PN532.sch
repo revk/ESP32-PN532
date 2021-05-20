@@ -5,7 +5,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "PN532 NFC Board"
-Date "2021-05-12"
+Date "2021-05-20"
 Rev "6"
 Comp "Adrian Kennard Andrews & Arnold Ltd"
 Comment1 "www.me.uk"
@@ -870,7 +870,7 @@ U 1 1 60841004
 P 8350 5900
 F 0 "J1" H 8458 6081 50  0000 C CNN
 F 1 "Bell" H 8458 5990 50  0000 C CNN
-F 2 "TestPoint:TestPoint_2Pads_Pitch2.54mm_Drill0.8mm" H 8350 5900 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8350 5900 50  0001 C CNN
 F 3 "~" H 8350 5900 50  0001 C CNN
 	1    8350 5900
 	1    0    0    -1  
