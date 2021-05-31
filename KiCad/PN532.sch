@@ -1467,4 +1467,6 @@ F 3 "" H 10625 6850 50  0001 C CNN
 	1    10625 6850
 	1    0    0    -1  
 $EndComp
+Text Notes 825  1050 0    50   ~ 0
+Notes:\nA slot for reverse mounted LED would be nice.\nConsider alt antenna to get tuning better?
 $EndSCHEMATC
