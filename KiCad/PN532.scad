@@ -13,7 +13,8 @@ tamper=true;   // Tamper button fitted
 bell=true;   // Tamper 2 pin header rear
 screws=true;
 
-corner=9;       // PCB corner radius
+corner=8;       // PCB corner radius
+size=20;        // PCB size/2
 
 $fn=100;
 
@@ -28,7 +29,7 @@ module base()
     {
         union()
         {
-            hull()for(x=[corner-21,21-corner])for(y=[corner-21,21-corner])translate([x,y,0])cylinder(r=corner+0.2,h=4.9+base); 
+            hull()for(x=[corner-size,size-corner])for(y=[corner-size,size-corner])translate([x,y,0])cylinder(r=corner+0.2,h=4.9+base); 
             if(base>0)hull()for(x=[-12,12])for(y=[-12,12])translate([x,y,4.9])
             {
                 if(base>1)translate([0,0,base-1])cylinder(r=9+thick+base-1,h=1);
@@ -48,10 +49,12 @@ module base()
             translate([0,0,0.48])cylinder(d1=7,d2=3.5,h=2);
         }
         for(y=[-9,9])hull()
-        {
-            b(-21,y,3.901,1,8+0.2,1);
-            b(-22,y,2.9,1,8+0.2,1);
+        { // Clip
+            b(-size,y,3.901,1,8+0.2,1);
+            b(-size-1,y,2.9,1,8+0.2,1);
         }
+        translate([-1,size-5,-0.01])
+        cube([2,6,1]);
     }
 }
 
@@ -60,11 +63,11 @@ module top()
     difference()
     {
         hull()
-        for(x=[corner-21,21-corner])for(y=[corner-21,21-corner])translate([x,y,0])cylinder(r=corner+thick,h=led+cover+1.6+4.9);
+        for(x=[corner-size,size-corner])for(y=[corner-size,size-corner])translate([x,y,0])cylinder(r=corner+thick,h=led+cover+1.6+4.9);
         translate([0,0,led+cover])
         hull()
         {
-            for(x=[corner-21,21-corner])for(y=[corner-21,21-corner])translate([x,y,0])cylinder(r=corner+0.2,h=1.6+4.9+1);
+            for(x=[corner-size,size-corner])for(y=[corner-size,size-corner])translate([x,y,0])cylinder(r=corner+0.2,h=1.6+4.9+1);
         }
         // LEDs
         for(y=[12,6,0])
@@ -81,9 +84,9 @@ module top()
     }
     for(t=[-12,12])translate([t,-t,0])cylinder(d=3,h=led+cover+1.6);
     for(y=[-9,9])hull()
-    {
-        b(-21,y,led+cover+1.6+3.9,1,8,1);
-        b(-22,y,led+cover+1.6+3.9-1,1,8,1);
+    { // Clip
+        b(-size,y,led+cover+1.6+3.9,1,8,1);
+        b(-size-1,y,led+cover+1.6+3.9-1,1,8,1);
     }
 }
 
