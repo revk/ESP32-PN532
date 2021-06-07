@@ -323,7 +323,7 @@ int pn532_tx_mutex(pn532_t * p, uint8_t cmd, int len1, uint8_t * data1, int len2
    uart_tx(p, buf, 2);
    uart_wait_tx_done(p->uart, 100 / portTICK_PERIOD_MS);
    // Get ACK and check it
-   l = uart_preamble(p, 10);
+   l = uart_preamble(p, 5);
    if (l < 2)
       return -(p->lasterr = PN532_ERR_TIMEOUTACK);
    l = uart_rx(p, buf, 3, 5);
