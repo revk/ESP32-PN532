@@ -174,7 +174,7 @@ pn532_t *pn532_init(int8_t uart, int8_t tx, int8_t rx, uint8_t outputs)
    buf[n++] = 0x01;             // Normal
    buf[n++] = 20;               // *50ms timeout
    buf[n++] = 0x00;             // Not use IRQ
-   if (pn532_tx(p, 0x14, 0, NULL, n, buf) < 0 || pn532_rx(p, 0, NULL, sizeof(buf), buf,50) < 0)
+   if (pn532_tx(p, 0x14, 0, NULL, n, buf) < 0 || pn532_rx(p, 0, NULL, sizeof(buf), buf, 50) < 0)
    {                            // Again
       uart_rx(p, buf, sizeof(buf), 100);        // Wait long enough for command response timeout before we try again
       // SAMConfiguration
@@ -182,14 +182,14 @@ pn532_t *pn532_init(int8_t uart, int8_t tx, int8_t rx, uint8_t outputs)
       buf[n++] = 0x01;          // Normal
       buf[n++] = 20;            // *50ms timeout
       buf[n++] = 0x00;          // Not use IRQ
-      if (pn532_tx(p, 0x14, 0, NULL, n, buf) < 0 || pn532_rx(p, 0, NULL, sizeof(buf), buf,50) < 0)
+      if (pn532_tx(p, 0x14, 0, NULL, n, buf) < 0 || pn532_rx(p, 0, NULL, sizeof(buf), buf, 50) < 0)
       {
          ESP_LOGE(TAG, "SAMConfiguration fail %s", pn532_err_to_name(pn532_lasterr(p)));
          return pn532_end(p);
       }
    }
    // GetFirmwareVersion
-   if (pn532_tx(p, 0x02, 0, NULL, 0, NULL) < 0 || pn532_rx(p, 0, NULL, sizeof(buf), buf,50) < 0)
+   if (pn532_tx(p, 0x02, 0, NULL, 0, NULL) < 0 || pn532_rx(p, 0, NULL, sizeof(buf), buf, 50) < 0)
    {
       ESP_LOGE(TAG, "GetFirmwareVersion fail %s", pn532_err_to_name(pn532_lasterr(p)));
       return pn532_end(p);
@@ -201,7 +201,7 @@ pn532_t *pn532_init(int8_t uart, int8_t tx, int8_t rx, uint8_t outputs)
    buf[n++] = 0xFF;             // MxRtyATR (default = 0xFF)
    buf[n++] = 0x01;             // MxRtyPSL (default = 0x01)
    buf[n++] = 0x01;             // MxRtyPassiveActivation
-   if (pn532_tx(p, 0x32, 0, NULL, n, buf) < 0 || pn532_rx(p, 0, NULL, sizeof(buf), buf,50) < 0)
+   if (pn532_tx(p, 0x32, 0, NULL, n, buf) < 0 || pn532_rx(p, 0, NULL, sizeof(buf), buf, 50) < 0)
    {
       ESP_LOGE(TAG, "RFConfiguration fail %s", pn532_err_to_name(pn532_lasterr(p)));
       return pn532_end(p);
@@ -227,7 +227,7 @@ pn532_t *pn532_init(int8_t uart, int8_t tx, int8_t rx, uint8_t outputs)
    buf[n++] = 0xFF;             // P7
    buf[n++] = 0xF7;             // P7
    buf[n++] = 0xFF;             // All high
-   if (n && (pn532_tx(p, 0x08, 0, NULL, n, buf) < 0 || pn532_rx(p, 0, NULL, sizeof(buf), buf,50) < 0))
+   if (n && (pn532_tx(p, 0x08, 0, NULL, n, buf) < 0 || pn532_rx(p, 0, NULL, sizeof(buf), buf, 50) < 0))
    {
       ESP_LOGE(TAG, "WriteRegister fail %s", pn532_err_to_name(pn532_lasterr(p)));
       return pn532_end(p);
@@ -236,7 +236,7 @@ pn532_t *pn532_init(int8_t uart, int8_t tx, int8_t rx, uint8_t outputs)
    n = 0;
    buf[n++] = 0x04;             // MaxRtyCOM
    buf[n++] = 1;                // Retries (default 0)
-   if (pn532_tx(p, 0x32, 0, NULL, n, buf) < 0 || pn532_rx(p, 0, NULL, sizeof(buf), buf,50) < 0)
+   if (pn532_tx(p, 0x32, 0, NULL, n, buf) < 0 || pn532_rx(p, 0, NULL, sizeof(buf), buf, 50) < 0)
    {
       ESP_LOGE(TAG, "RFConfiguration fail %s", pn532_err_to_name(pn532_lasterr(p)));
       return pn532_end(p);
@@ -247,7 +247,7 @@ pn532_t *pn532_init(int8_t uart, int8_t tx, int8_t rx, uint8_t outputs)
    buf[n++] = 0x00;             // RFU
    buf[n++] = 0x0B;             // Default (102.4 ms)
    buf[n++] = 0x0A;             // Default is 0x0A (51.2 ms)
-   if (pn532_tx(p, 0x32, 0, NULL, n, buf) < 0 || pn532_rx(p, 0, NULL, sizeof(buf), buf,50) < 0)
+   if (pn532_tx(p, 0x32, 0, NULL, n, buf) < 0 || pn532_rx(p, 0, NULL, sizeof(buf), buf, 50) < 0)
    {
       ESP_LOGE(TAG, "RFConfiguration fail %s", pn532_err_to_name(pn532_lasterr(p)));
       return pn532_end(p);
@@ -323,7 +323,7 @@ int pn532_tx_mutex(pn532_t * p, uint8_t cmd, int len1, uint8_t * data1, int len2
    uart_tx(p, buf, 2);
    uart_wait_tx_done(p->uart, 100 / portTICK_PERIOD_MS);
    // Get ACK and check it
-   l = uart_preamble(p, 5);
+   l = uart_preamble(p, 10);
    if (l < 2)
       return -(p->lasterr = PN532_ERR_TIMEOUTACK);
    l = uart_rx(p, buf, 3, 5);
@@ -350,7 +350,7 @@ int pn532_tx(pn532_t * p, uint8_t cmd, int len1, uint8_t * data1, int len2, uint
    return l;
 }
 
-int pn532_rx_mutex(pn532_t * p, int max1, uint8_t * data1, int max2, uint8_t * data2,int ms)
+int pn532_rx_mutex(pn532_t * p, int max1, uint8_t * data1, int max2, uint8_t * data2, int ms)
 {                               // Recv data from PN532
    uint8_t pending = p->pending;
    p->pending = 0;
@@ -429,13 +429,13 @@ int pn532_rx_mutex(pn532_t * p, int max1, uint8_t * data1, int max2, uint8_t * d
    return res;
 }
 
-int pn532_rx(pn532_t * p, int max1, uint8_t * data1, int max2, uint8_t * data2,int ms)
+int pn532_rx(pn532_t * p, int max1, uint8_t * data1, int max2, uint8_t * data2, int ms)
 {                               // Recv data from PN532
    if (!p)
       return -PN532_ERR_NULL;
    if (!p->pending)
       return -(p->lasterr = PN532_ERR_NOTPENDING);
-   int l = pn532_rx_mutex(p, max1, data1, max2, data2,ms);
+   int l = pn532_rx_mutex(p, max1, data1, max2, data2, ms);
    xSemaphoreGive(p->mutex);
    return l;
 }
@@ -466,7 +466,7 @@ int pn532_dx(void *pv, unsigned int len, uint8_t * data, unsigned int max, const
    if (l >= 0)
    {
       uint8_t status;
-      l = pn532_rx(p, 1, &status, max, data,500);
+      l = pn532_rx(p, 1, &status, max, data, 500);
       if (!l)
          l = -PN532_ERR_SHORT;
       else if (l >= 1 && status)
@@ -508,7 +508,7 @@ int pn532_Present(pn532_t * p)
       buf[0] = 6;               // Test 6 Attention Request Test or ISO/IEC14443-4 card presence detection
       int l = pn532_tx(p, 0x00, 1, buf, 0, NULL);
       if (l >= 0)
-         l = pn532_rx(p, 0, NULL, sizeof(buf), buf,110);
+         l = pn532_rx(p, 0, NULL, sizeof(buf), buf, 110);
       if (l < 0)
          return l;
       if (l < 1)
@@ -528,7 +528,7 @@ int pn532_write_GPIO(pn532_t * p, uint8_t value)
    buf[1] = 0x80 | ((value >> 5) & 0x06);
    int l = pn532_tx(p, 0x0E, 2, buf, 0, NULL);
    if (l >= 0)
-      l = pn532_rx(p, 0, NULL, sizeof(buf), buf,50);
+      l = pn532_rx(p, 0, NULL, sizeof(buf), buf, 50);
    return l;
 }
 
@@ -539,7 +539,7 @@ int pn532_read_GPIO(pn532_t * p)
    uint8_t buf[3];
    int l = pn532_tx(p, 0x0C, 0, NULL, 0, NULL);
    if (l >= 0)
-      l = pn532_rx(p, 0, NULL, sizeof(buf), buf,50);
+      l = pn532_rx(p, 0, NULL, sizeof(buf), buf, 50);
    if (l < 0)
       return l;
    if (l < 3)
@@ -557,7 +557,7 @@ int pn532_Cards(pn532_t * p)
       pn532_ILPT_Send(p);
    if (p->pending != 0x4B)
       return -(p->lasterr = PN532_ERR_CMDMISMATCH);     // We expect to be waiting for InListPassiveTarget response
-   int l = pn532_rx(p, 0, NULL, sizeof(buf), buf,110);
+   int l = pn532_rx(p, 0, NULL, sizeof(buf), buf, 110);
    if (l < 0)
       return l;
    memset(p->nfcid, 0, sizeof(p->nfcid));
