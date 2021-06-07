@@ -4,6 +4,6 @@ menu "PN532"
 	bool "Debug"
 	default n
 	help
-		Dump hex and errors for all PN532
+		Info log dump hex and errors for all PN532
 
 endmenu
