@@ -2,6 +2,7 @@
 // Copyright © 2019 Adrian Kennard, Andrews & Arnold Ltd. See LICENCE file for details. GPL 3.0
 static const char TAG[] = "PN532";
 
+#include "sdkconfig.h"
 #include "pn532.h"
 #include "esp_log.h"
 #include <driver/uart.h>
