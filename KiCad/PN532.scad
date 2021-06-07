@@ -13,7 +13,9 @@ tamper=true;   // Tamper button fitted
 bell=true;   // Tamper 2 pin header rear
 screws=true;
 
-corner=9;       // PCB corner radius
+corner=8;       // PCB corner radius
+size=20;        // PCB size/2
+pcb=0.8;        // PCB thickness
 
 $fn=100;
 
@@ -28,18 +30,18 @@ module base()
     {
         union()
         {
-            hull()for(x=[corner-21,21-corner])for(y=[corner-21,21-corner])translate([x,y,0])cylinder(r=corner+0.2,h=4.9+base); 
+            hull()for(x=[corner-size,size-corner])for(y=[corner-size,size-corner])translate([x,y,0])cylinder(r=corner+0.2,h=4.9+base); 
             if(base>0)hull()for(x=[-12,12])for(y=[-12,12])translate([x,y,4.9])
             {
                 if(base>1)translate([0,0,base-1])cylinder(r=9+thick+base-1,h=1);
-                cylinder(r=9+thick,h=base);
+                cylinder(r=corner+thick,h=base);
             }
         }
         translate([0,0,-0.1])hull()for(x=[-12,12])for(y=[-12,12])translate([x,y,0])cylinder(r=5,h=3);
         if(raspox)b(0,-8.9-6.6+7.9/2-2-20,-0.01,12.4+0.2,7.9+0.2+40,4.92);
         if(spox)b(0,-8.9+3.1-4.9/2,-0.01,12.4+0.5,4.9+0.5,5+base);
         if(header)b(0,-12-3.62+4.82/2,-0.01,10.72+0.5,4.82+0.5,5+base);
-        if(tamper)b(-11.5,0,-0.01,6+0.2,6+0.2,4.4);
+        if(tamper)b(-11.5,0,-0.01,6+0.2,6+0.2,4);
         if(bell)b(12,-6,-0.01,4.82+0.4,5.64+0.4,5+base);
         if(screws)for(t=[-12,12])translate([t,-t,2.9])
         { // Screws in base
@@ -48,10 +50,12 @@ module base()
             translate([0,0,0.48])cylinder(d1=7,d2=3.5,h=2);
         }
         for(y=[-9,9])hull()
-        {
-            b(-21,y,3.901,1,8+0.2,1);
-            b(-22,y,2.9,1,8+0.2,1);
+        { // Clip
+            b(-size,y,3.901,1,8+0.2,1);
+            b(-size-1,y,2.9,1,8+0.2,1);
         }
+        translate([-1,size-5,-0.01])
+        cube([2,6,1]); // Resistor to ground on antenna
     }
 }
 
@@ -59,12 +63,11 @@ module top()
 {
     difference()
     {
-        hull()
-        for(x=[corner-21,21-corner])for(y=[corner-21,21-corner])translate([x,y,0])cylinder(r=corner+thick,h=led+cover+1.6+4.9);
+        hull()for(x=[corner-size,size-corner])for(y=[corner-size,size-corner])translate([x,y,0])cylinder(r=corner+thick,h=led+cover+pcb+4.9);
         translate([0,0,led+cover])
         hull()
         {
-            for(x=[corner-21,21-corner])for(y=[corner-21,21-corner])translate([x,y,0])cylinder(r=corner+0.2,h=1.6+4.9+1);
+            for(x=[corner-size,size-corner])for(y=[corner-size,size-corner])translate([x,y,0])cylinder(r=corner+0.2,h=pcb+4.9+1);
         }
         // LEDs
         for(y=[12,6,0])
@@ -77,13 +80,13 @@ module top()
         if(tamper)b(-11.5,-3.25,cover+0.5,7.5,2.5,1);
         if(tamper)b(-11.5,+3.25,cover+0.5,7.5,2.5,1);
         if(bell)b(12,-6,cover+0.5,2.54,2.54*2,1);
-        if(raspox)b(0,-8.9-6.6+7.9-20,led+cover+1.6+1,4,40,4); // cable
+        if(raspox)b(0,-8.9-6.6+7.9-20,led+cover+pcb+1,4,40,4); // cable
     }
-    for(t=[-12,12])translate([t,-t,0])cylinder(d=3,h=led+cover+1.6);
+    for(t=[-12,12])translate([t,-t,0])cylinder(d=3,h=led+cover+pcb);
     for(y=[-9,9])hull()
-    {
-        b(-21,y,led+cover+1.6+3.9,1,8,1);
-        b(-22,y,led+cover+1.6+3.9-1,1,8,1);
+    { // Clip
+        b(-size,y,led+cover+pcb+3.9,1,8,1);
+        b(-size-1,y,led+cover+pcb+3.9-1,1,8,1);
     }
 }
 
