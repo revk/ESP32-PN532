@@ -7,8 +7,9 @@ static const char TAG[] = "PN532";
 #include <driver/uart.h>
 #include <driver/gpio.h>
 
-// TODO Kconfig for these maybe?
-//#define       HEXLOG ESP_LOG_INFO
+#ifdef	CONFIG_PN532_DEBUG
+#define	HEXLOG ESP_LOG_INFO
+#endif
 #define	RX_BUF	280
 #define	TX_BUF	UART_FIFO_LEN+1
 

@@ -1,0 +1,9 @@
+menu "PN532"
+
+	config PN532_DEBUG
+	bool "Debug"
+	default n
+	help
+		Dump hex and errors for all PN532
+
+endmenu
