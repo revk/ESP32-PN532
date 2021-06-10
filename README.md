@@ -7,6 +7,6 @@ PN532 (HSU) library
 
 Includes KiCad PCB design for PN532 based NFC reader board and 3D case designs. Unlike some NFC boards this includes three traffic light LEDs, a tamper switch, and external contacts for a door bell push, all accessable as GPIO over the HSU connection.
 
-![PN532a](https://user-images.githubusercontent.com/996983/118099655-6d65fc80-b3cd-11eb-9115-c492db421f00.png)
+![222646](https://user-images.githubusercontent.com/996983/121532575-6267b180-c9f7-11eb-9d81-e5eaee1c6fb6.jpg)
 
 Copyright © 2019-21 Adrian Kennard, Andrews & Arnold Ltd. See LICENCE file for details. GPL 3.0
