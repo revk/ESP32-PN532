@@ -165,7 +165,7 @@ pn532_t *pn532_init(int8_t uart, int8_t tx, int8_t rx, uint8_t outputs)
    buf[sizeof(buf) - 1] = 0x55;
    buf[sizeof(buf) - 2] = 0x55;
    buf[sizeof(buf) - 3] = 0x55;
-   uart_tx(p, buf, 1);
+   uart_tx(p, buf, sizeof(buf));
    uart_wait_tx_done(p->uart, 1000 / portTICK_PERIOD_MS);
    uart_flush_input(p->uart);
    // Set up PN532 (SAM first as in vLowBat mode)
