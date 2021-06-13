@@ -107,7 +107,7 @@ static int uart_preamble(pn532_t * p, int ms)
 }
 
 void *pn532_end(pn532_t * p)
-{                             
+{
    if (!p)
       return NULL;
    free(p);
@@ -141,7 +141,10 @@ pn532_t *pn532_init(int8_t uart, int8_t tx, int8_t rx, uint8_t outputs)
       if (!err)
          err = uart_set_pin(uart, tx, rx, -1, -1);
       if (!err && !uart_is_driver_installed(uart))
+      {
+         ESP_LOGI(TAG, "Installing UART driver %d", uart);
          err = uart_driver_install(uart, RX_BUF, TX_BUF, 0, NULL, 0);
+      }
       if (err)
       {
          ESP_LOGE(TAG, "UART fail %s", esp_err_to_name(err));
