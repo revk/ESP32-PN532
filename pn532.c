@@ -108,9 +108,8 @@ static int uart_preamble(pn532_t * p, int ms)
 
 void *pn532_end(pn532_t * p)
 {
-   if (!p)
-      return NULL;
-   free(p);
+   if (p)
+      free(p);
    return NULL;
 }
 
