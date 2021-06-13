@@ -69,8 +69,7 @@ typedef struct pn532_s pn532_t;
 // Functions
 
 pn532_t *pn532_init (int8_t uart, int8_t tx, int8_t rx, uint8_t p3);    // Init PN532 (P3 is port 3 output bits in use)
-void *pn532_end (pn532_t * p); // Close only
-void *pn532_destroy (pn532_t * p); // Close and remove driver
+void *pn532_end (pn532_t * p); // Close and free
 
 pn532_err_t pn532_lasterr (pn532_t *);
 const char *pn532_err_to_name (pn532_err_t);

@@ -106,20 +106,10 @@ static int uart_preamble(pn532_t * p, int ms)
    }
 }
 
-void *pn532_destroy(pn532_t * p)
-{                               // Close and uninstall
-   if (!p)
-      return NULL;
-   uart_driver_delete(p->uart);
-   free(p);
-   return NULL;
-}
-
 void *pn532_end(pn532_t * p)
-{                               // Close (don't uninstall)
+{                             
    if (!p)
       return NULL;
-   uart_driver_delete(p->uart);
    free(p);
    return NULL;
 }
