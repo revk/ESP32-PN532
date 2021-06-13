@@ -109,7 +109,10 @@ static int uart_preamble(pn532_t * p, int ms)
 void *pn532_end(pn532_t * p)
 {
    if (p)
+   {
+      vSemaphoreDelete(p->mutex);
       free(p);
+   }
    return NULL;
 }
 
