@@ -523,7 +523,8 @@ int pn532_deselect(pn532_t * p, uint8_t n)
    int l = pn532_tx(p, 0x44, 1, buf, 0, NULL);
    if (l >= 0)
       l = pn532_rx(p, 0, NULL, sizeof(buf), buf, 100);
-return l}
+   return l;
+}
 
 int pn532_release(pn532_t * p, uint8_t n)
 {                               // Send a release
@@ -534,7 +535,8 @@ int pn532_release(pn532_t * p, uint8_t n)
    int l = pn532_tx(p, 0x52, 1, buf, 0, NULL);
    if (l >= 0)
       l = pn532_rx(p, 0, NULL, sizeof(buf), buf, 100);
-return l}
+   return l;
+}
 
 int pn532_write_GPIO(pn532_t * p, uint8_t value)
 {                               // Write P3/P7 (P72/P71 in top bits, P35-30 in rest)
