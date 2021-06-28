@@ -55,8 +55,7 @@
 	s(0x2E,NADMISSING)	\
 	s(0x2F,MAX)		\
 
-typedef enum
-{
+typedef enum {
 #define p(n)	PN532_ERR_##n,
 #define s(v,n)	PN532_ERR_STATUS_##n=PN532_ERR_STATUS+v,
    pn532_errs
@@ -68,28 +67,30 @@ typedef struct pn532_s pn532_t;
 
 // Functions
 
-pn532_t *pn532_init (int8_t uart, int8_t tx, int8_t rx, uint8_t p3);    // Init PN532 (P3 is port 3 output bits in use)
-void *pn532_end (pn532_t * p); // Close and free
+pn532_t *pn532_init(int8_t uart, int8_t tx, int8_t rx, uint8_t p3);     // Init PN532 (P3 is port 3 output bits in use)
+void *pn532_end(pn532_t * p);   // Close and free
 
-pn532_err_t pn532_lasterr (pn532_t *);
-const char *pn532_err_to_name (pn532_err_t);
+pn532_err_t pn532_lasterr(pn532_t *);
+const char *pn532_err_to_name(pn532_err_t);
 
 // Low level access functions
-int pn532_tx (pn532_t *, uint8_t cmd, int, uint8_t *, int, uint8_t *);  // Send data to PN532 (up to two blocks) return 0 or negative for error. Starts byte after cmd
-int pn532_ready (pn532_t * p);  // For async command handling: >0 if response ready, 0 if not, -ve if error (e.g. no response expected)
-int pn532_rx (pn532_t *, int, uint8_t *, int, uint8_t *,int ms);       // Recv data from PN532, (in to up to two blocks) return total length or -ve for error, checks res=cmd+1 and returns from byte after
-uint8_t *pn532_nfcid (pn532_t *, char text[21]);        // Get NFCID (first byte is len of following)
-uint8_t *pn532_ats (pn532_t *); // Get ATS (first byte is len of following - note, not as received were it is len inc the length byte)
+int pn532_tx(pn532_t *, uint8_t cmd, int, uint8_t *, int, uint8_t *);   // Send data to PN532 (up to two blocks) return 0 or negative for error. Starts byte after cmd
+int pn532_ready(pn532_t * p);   // For async command handling: >0 if response ready, 0 if not, -ve if error (e.g. no response expected)
+int pn532_rx(pn532_t *, int, uint8_t *, int, uint8_t *, int ms);        // Recv data from PN532, (in to up to two blocks) return total length or -ve for error, checks res=cmd+1 and returns from byte after
+uint8_t *pn532_nfcid(pn532_t *, char text[21]); // Get NFCID (first byte is len of following)
+uint8_t *pn532_ats(pn532_t *);  // Get ATS (first byte is len of following - note, not as received were it is len inc the length byte)
 
 // Card access function - sends to card starting CMD byte, and receives reply in to same buffer, starting status byte, returns len
-int pn532_dx (void *, unsigned int len, uint8_t * data, unsigned int max, const char **errstr);
+int pn532_dx(void *, unsigned int len, uint8_t * data, unsigned int max, const char **errstr);
 
 // Higher level useful PN532 functions
-int pn532_write_GPIO (pn532_t * p, uint8_t value);      // (P72/P71 in top bits, P35-30 in rest)
-int pn532_read_GPIO (pn532_t * p);      // P72/P71 in top bits, P35-30 in rest)
-int pn532_ILPT_Send (pn532_t * p);      // Async InListPassiveTarget - used pn532_ready to check when to do pn532_Cards
-int pn532_Cards (pn532_t * p);  // How many cards present (does pn532_ILPT_Send if needed)
-int pn532_Present (pn532_t * p);        // Check if present still
+int pn532_deselect(pn532_t * p, uint8_t n);     // Send deselect ID 1 or 2
+int pn532_release(pn532_t * p, uint8_t n);      // Send release ID 1 or 2
+int pn532_write_GPIO(pn532_t * p, uint8_t value);       // (P72/P71 in top bits, P35-30 in rest)
+int pn532_read_GPIO(pn532_t * p);       // P72/P71 in top bits, P35-30 in rest)
+int pn532_ILPT_Send(pn532_t * p);       // Async InListPassiveTarget - used pn532_ready to check when to do pn532_Cards
+int pn532_Cards(pn532_t * p);   // How many cards present (does pn532_ILPT_Send if needed)
+int pn532_Present(pn532_t * p); // Check if present still
 
 
 #endif
