@@ -455,7 +455,7 @@ int pn532_dx(void *pv, unsigned int len, uint8_t * data, unsigned int max, const
       return -PN532_ERR_NULL;
    if (!p->cards)
       return 0;                 // No card
-#ifdef	PN532_DEBUG
+#ifdef	CONFIG_PN532_DEBUG
    ESP_LOG_BUFFER_HEX_LEVEL("NFCTx", data, len, HEXLOG);
 #endif
    int l = pn532_tx(p, 0x40, 1, &p->tg, len, data);
@@ -467,7 +467,7 @@ int pn532_dx(void *pv, unsigned int len, uint8_t * data, unsigned int max, const
          l = -PN532_ERR_SHORT;
       else if (l >= 1 && status)
          l = -PN532_ERR_STATUS - status;
-#ifdef	PN532_DEBUG
+#ifdef	CONFIG_PN532_DEBUG
       if (l > 0)
          ESP_LOG_BUFFER_HEX_LEVEL("NFCRx", data, ln, HEXLOG);
 #endif
@@ -475,7 +475,7 @@ int pn532_dx(void *pv, unsigned int len, uint8_t * data, unsigned int max, const
    if (l < 0)
    {
       p->lasterr = -l;
-#ifdef	PN532_DEBUG
+#ifdef	CONFIG_PN532_DEBUG
       ESP_LOG_LEVEL("NFCErr", "%s", pn532_err_to_name(p->lasterr));
 #endif
       if (strerr)
