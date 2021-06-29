@@ -8,9 +8,7 @@ static const char TAG[] = "PN532";
 #include <driver/uart.h>
 #include <driver/gpio.h>
 
-#ifdef	CONFIG_PN532_DEBUG
 #define	HEXLOG ESP_LOG_INFO
-#endif
 #define	RX_BUF	280
 #define	TX_BUF	UART_FIFO_LEN+1
 
@@ -66,7 +64,7 @@ static int uart_rx(pn532_t * p, uint8_t * buf, uint32_t length, int ms)
    if (ms < 2)
       ms = 2;                   // Ensure some timeout
    int l = uart_read_bytes(p->uart, buf, length, ms);
-#ifdef HEXLOG
+#ifdef CONFIG_PN532_DUMP
    if (l > 0)
       ESP_LOG_BUFFER_HEX_LEVEL("NFCRx", buf, l, HEXLOG);
    if (l != length)
@@ -80,7 +78,7 @@ static int uart_tx(pn532_t * p, const uint8_t * src, size_t size)
    if (!p)
       return -PN532_ERR_NULL;
    int l = uart_write_bytes(p->uart, (char *) src, size);
-#ifdef HEXLOG
+#ifdef CONFIG_PN532_DUMP
    if (l > 0)
       ESP_LOG_BUFFER_HEX_LEVEL("NFCTx", src, l, HEXLOG);
    if (l != size)
@@ -457,6 +455,9 @@ int pn532_dx(void *pv, unsigned int len, uint8_t * data, unsigned int max, const
       return -PN532_ERR_NULL;
    if (!p->cards)
       return 0;                 // No card
+#ifdef	PN532_DEBUG
+   ESP_LOG_BUFFER_HEX_LEVEL("NFCTx", data, len, HEXLOG);
+#endif
    int l = pn532_tx(p, 0x40, 1, &p->tg, len, data);
    if (l >= 0)
    {
@@ -466,11 +467,19 @@ int pn532_dx(void *pv, unsigned int len, uint8_t * data, unsigned int max, const
          l = -PN532_ERR_SHORT;
       else if (l >= 1 && status)
          l = -PN532_ERR_STATUS - status;
+#ifdef	PN532_DEBUG
+      if (l > 0)
+         ESP_LOG_BUFFER_HEX_LEVEL("NFCRx", data, ln, HEXLOG);
+#endif
    }
    if (l < 0)
    {
+      p->lasterr = -l;
+#ifdef	PN532_DEBUG
+      ESP_LOG_LEVEL("NFCErr", "%s", pn532_err_to_name(p->lasterr));
+#endif
       if (strerr)
-         *strerr = pn532_err_to_name(p->lasterr = -l);
+         *strerr = pn532_err_to_name(p->lasterr);
    } else
       l--;                      // Allow for status
    return l;

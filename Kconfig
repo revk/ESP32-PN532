@@ -4,6 +4,12 @@ menu "PN532"
 	bool "Debug"
 	default n
 	help
-		Info log dump hex and errors for all PN532
+		Debug messages and errors
+
+	config PN532_DUMP
+	bool "Dump"
+	default n
+	help
+		Dump all serial data to/from PN532
 
 endmenu
