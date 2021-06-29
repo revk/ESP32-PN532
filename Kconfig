@@ -1,13 +1,13 @@
 menu "PN532"
 
 	config PN532_DEBUG_DX
-	bool "Debug"
+	bool "Debug DX"
 	default n
 	help
 		Debug DESFire messages and errors
 
 	config PN532_DUMP
-	bool "Dump"
+	bool "Dump Serial"
 	default n
 	help
 		Dump all serial data to/from PN532
