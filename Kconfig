@@ -1,10 +1,10 @@
 menu "PN532"
 
-	config PN532_DEBUG
+	config PN532_DEBUG_DX
 	bool "Debug"
 	default n
 	help
-		Debug messages and errors
+		Debug DESFire messages and errors
 
 	config PN532_DUMP
 	bool "Dump"
