@@ -469,7 +469,7 @@ int pn532_dx(void *pv, unsigned int len, uint8_t * data, unsigned int max, const
          l = -PN532_ERR_STATUS - status;
 #ifdef	CONFIG_PN532_DEBUG
       if (l > 0)
-         ESP_LOG_BUFFER_HEX_LEVEL("NFCRx", data, ln, HEXLOG);
+         ESP_LOG_BUFFER_HEX_LEVEL("NFCRx", data, l, HEXLOG);
 #endif
    }
    if (l < 0)
