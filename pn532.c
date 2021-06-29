@@ -476,7 +476,7 @@ int pn532_dx(void *pv, unsigned int len, uint8_t * data, unsigned int max, const
    {
       p->lasterr = -l;
 #ifdef	CONFIG_PN532_DEBUG
-      ESP_LOG_LEVEL("NFCErr", "%s", pn532_err_to_name(p->lasterr));
+      ESP_LOG_LEVEL(HEXLOG, "NFCErr", "%s", pn532_err_to_name(p->lasterr));
 #endif
       if (strerr)
          *strerr = pn532_err_to_name(p->lasterr);
