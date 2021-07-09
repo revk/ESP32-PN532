@@ -20,7 +20,7 @@ P 6450 5500
 F 0 "U1" H 7244 6996 50  0000 L CNN
 F 1 "PN532" H 7244 6905 50  0000 L CNN
 F 2 "RevK:QFN-40-1EP_6x6mm_P0.5mm_EP4.6x4.6mm" H 6450 5500 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/NXP-Semiconductors/PN5321A3HN-C10655" H 6450 5500 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/771-PN5321A3HN10" H 6450 5500 50  0001 C CNN
 	1    6450 5500
 	1    0    0    -1  
 $EndComp
@@ -31,7 +31,7 @@ P 2550 3850
 F 0 "C1" H 2350 3850 50  0000 L CNN
 F 1 "150pF" H 2200 3750 50  0000 L CNN
 F 2 "RevK:Cx2_0603" H 2588 3700 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C201F4HACTU" H 2550 3850 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/80-C0603C151F1HACTU" H 2550 3850 50  0001 C CNN
 	1    2550 3850
 	1    0    0    -1  
 $EndComp
@@ -42,7 +42,7 @@ P 2550 4250
 F 0 "C2" H 2350 4250 50  0000 L CNN
 F 1 "150pF" H 2200 4350 50  0000 L CNN
 F 2 "RevK:Cx2_0603" H 2588 4100 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C201F4HACTU" H 2550 4250 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/80-C0603C151F1HACTU" H 2550 4250 50  0001 C CNN
 	1    2550 4250
 	1    0    0    -1  
 $EndComp
@@ -53,7 +53,7 @@ P 3000 3650
 F 0 "C3" V 2748 3650 50  0000 C CNN
 F 1 "22pF" V 2839 3650 50  0000 C CNN
 F 2 "RevK:C_0603" H 3038 3500 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C220F1HACTU" H 3000 3650 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/791-0603N220F500CT" H 3000 3650 50  0001 C CNN
 	1    3000 3650
 	0    1    1    0   
 $EndComp
@@ -64,7 +64,7 @@ P 3350 3850
 F 0 "C5" H 3250 3800 50  0000 R CNN
 F 1 "220pF" H 3250 3900 50  0000 R CNN
 F 2 "RevK:C_0603" H 3388 3700 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C221F1HACTU" H 3350 3850 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/77-VJ0603A221GXAPBC" H 3350 3850 50  0001 C CNN
 	1    3350 3850
 	-1   0    0    1   
 $EndComp
@@ -75,7 +75,7 @@ P 3350 4250
 F 0 "C6" H 3450 4300 50  0000 L CNN
 F 1 "220pF" H 3450 4200 50  0000 L CNN
 F 2 "RevK:C_0603" H 3388 4100 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C221F1HACTU" H 3350 4250 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/77-VJ0603A221GXAPBC" H 3350 4250 50  0001 C CNN
 	1    3350 4250
 	1    0    0    -1  
 $EndComp
@@ -86,7 +86,7 @@ P 3900 3650
 F 0 "L1" V 3719 3650 50  0000 C CNN
 F 1 "560nH" V 3810 3650 50  0000 C CNN
 F 2 "RevK:L_1206_1008" H 3900 3650 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/Fastron/0805AS-R56J-08" H 3900 3650 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/81-LQW2UASR56G00L" H 3900 3650 50  0001 C CNN
 	1    3900 3650
 	0    1    1    0   
 $EndComp
@@ -97,7 +97,7 @@ P 3900 4450
 F 0 "L2" V 4090 4450 50  0000 C CNN
 F 1 "560nH" V 3999 4450 50  0000 C CNN
 F 2 "RevK:L_1206_1008" H 3900 4450 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/Fastron/0805AS-R56J-08" H 3900 4450 50  0001 C CNN
+F 3 "" H 3900 4450 50  0001 C CNN
 	1    3900 4450
 	0    -1   -1   0   
 $EndComp
@@ -108,7 +108,7 @@ P 4400 5000
 F 0 "C8" V 4600 5000 50  0000 C CNN
 F 1 "1nF" V 4239 5000 50  0000 C CNN
 F 2 "RevK:C_0603" H 4438 4850 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C102F5GACTU" H 4400 5000 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/77-VJ0603A102GXAPBC" H 4400 5000 50  0001 C CNN
 	1    4400 5000
 	0    1    1    0   
 $EndComp
@@ -119,7 +119,7 @@ P 4650 4650
 F 0 "C10" V 4398 4650 50  0000 C CNN
 F 1 "0.1uF" V 4489 4650 50  0000 C CNN
 F 2 "RevK:C_0603" H 4688 4500 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C104M3RACTU" H 4650 4650 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/80-C0603C104M4R" H 4650 4650 50  0001 C CNN
 	1    4650 4650
 	0    1    1    0   
 $EndComp
@@ -130,7 +130,7 @@ P 4000 5000
 F 0 "R3" V 4200 5000 50  0000 C CNN
 F 1 "2K7" V 3884 5000 50  0000 C CNN
 F 2 "RevK:R_0603" V 3930 5000 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KOA-Speer/RK73H2ATTD2701F" H 4000 5000 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/603-RC0603FR-102K7L" H 4000 5000 50  0001 C CNN
 	1    4000 5000
 	0    1    1    0   
 $EndComp
@@ -141,7 +141,7 @@ P 5050 4850
 F 0 "R4" H 4980 4804 50  0000 R CNN
 F 1 "1K" H 4980 4895 50  0000 R CNN
 F 2 "RevK:R_0603" V 4980 4850 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KOA-Speer/RK73H2ATTDD1001F" H 5050 4850 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/71-CRCW06031K00FKEAC" H 5050 4850 50  0001 C CNN
 	1    5050 4850
 	-1   0    0    1   
 $EndComp
@@ -152,7 +152,7 @@ P 4700 3200
 F 0 "C9" H 4815 3246 50  0000 L CNN
 F 1 "4.7uF" H 4815 3155 50  0000 L CNN
 F 2 "RevK:C_0603" H 4738 3050 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C475M4RACTU" H 4700 3200 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/187-CL03A475MQ5C65C" H 4700 3200 50  0001 C CNN
 	1    4700 3200
 	1    0    0    -1  
 $EndComp
@@ -163,7 +163,7 @@ P 4350 3200
 F 0 "C7" H 4100 3250 50  0000 L CNN
 F 1 "0.1uF" H 4000 3150 50  0000 L CNN
 F 2 "RevK:C_0603" H 4388 3050 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C104M3RACTU" H 4350 3200 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/80-C0603C104M4R" H 4350 3200 50  0001 C CNN
 	1    4350 3200
 	1    0    0    -1  
 $EndComp
@@ -174,7 +174,7 @@ P 5550 2800
 F 0 "C14" H 5665 2846 50  0000 L CNN
 F 1 "0.1uF" H 5665 2755 50  0000 L CNN
 F 2 "RevK:C_0603" H 5588 2650 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C104M3RACTU" H 5550 2800 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/80-C0603C104M4R" H 5550 2800 50  0001 C CNN
 	1    5550 2800
 	1    0    0    -1  
 $EndComp
@@ -185,7 +185,7 @@ P 4850 2150
 F 0 "C12" H 4550 2200 50  0000 L CNN
 F 1 "0.1uF" H 4450 2100 50  0000 L CNN
 F 2 "RevK:C_0603" H 4888 2000 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C104M3RACTU" H 4850 2150 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/80-C0603C104M4R" H 4850 2150 50  0001 C CNN
 	1    4850 2150
 	1    0    0    -1  
 $EndComp
@@ -196,7 +196,7 @@ P 5200 2150
 F 0 "C13" H 5315 2196 50  0000 L CNN
 F 1 "4.7uF" H 5315 2105 50  0000 L CNN
 F 2 "RevK:C_0603" H 5238 2000 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C475M4RACTU" H 5200 2150 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/187-CL03A475MQ5C65C" H 5200 2150 50  0001 C CNN
 	1    5200 2150
 	1    0    0    -1  
 $EndComp
@@ -207,7 +207,7 @@ P 5950 1450
 F 0 "R5" V 5743 1450 50  0000 C CNN
 F 1 "10K" V 5834 1450 50  0000 C CNN
 F 2 "RevK:R_0603" V 5880 1450 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KOA-Speer/RK73H2ATTED1002F" H 5950 1450 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/652-CR0603FX-1002ELF" H 5950 1450 50  0001 C CNN
 	1    5950 1450
 	0    1    1    0   
 $EndComp
@@ -218,7 +218,7 @@ P 7500 4500
 F 0 "C17" H 7615 4546 50  0000 L CNN
 F 1 "0.1uF" H 7615 4455 50  0000 L CNN
 F 2 "RevK:C_0603" H 7538 4350 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C104M3RACTU" H 7500 4500 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/80-C0603C104M4R" H 7500 4500 50  0001 C CNN
 	1    7500 4500
 	1    0    0    -1  
 $EndComp
@@ -229,7 +229,7 @@ P 6100 6050
 F 0 "C15" H 5800 6100 50  0000 L CNN
 F 1 "22pF" H 5800 6000 50  0000 L CNN
 F 2 "RevK:C_0603" H 6138 5900 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C220F1HACTU" H 6100 6050 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/791-0603N220F500CT" H 6100 6050 50  0001 C CNN
 	1    6100 6050
 	1    0    0    -1  
 $EndComp
@@ -240,7 +240,7 @@ P 6400 6050
 F 0 "C16" H 6515 6096 50  0000 L CNN
 F 1 "22pF" H 6515 6005 50  0000 L CNN
 F 2 "RevK:C_0603" H 6438 5900 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C220F1HACTU" H 6400 6050 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/791-0603N220F500CT" H 6400 6050 50  0001 C CNN
 	1    6400 6050
 	1    0    0    -1  
 $EndComp
@@ -325,7 +325,7 @@ P 4900 5600
 F 0 "C11" H 5015 5646 50  0000 L CNN
 F 1 "0.1uF" H 5015 5555 50  0000 L CNN
 F 2 "RevK:C_0603" H 4938 5450 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C104M3RACTU" H 4900 5600 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/80-C0603C104M4R" H 4900 5600 50  0001 C CNN
 	1    4900 5600
 	1    0    0    -1  
 $EndComp
@@ -509,7 +509,7 @@ P 3000 4450
 F 0 "C4" V 2748 4450 50  0000 C CNN
 F 1 "22pF" V 2839 4450 50  0000 C CNN
 F 2 "RevK:C_0603" H 3038 4300 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C220F1HACTU" H 3000 4450 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/791-0603N220F500CT" H 3000 4450 50  0001 C CNN
 	1    3000 4450
 	0    -1   -1   0   
 $EndComp
@@ -535,7 +535,7 @@ P 9750 3100
 F 0 "J3" H 9858 3381 50  0000 C CNN
 F 1 "SPOX" H 9858 3290 50  0000 C CNN
 F 2 "RevK:Molex_MiniSPOX_H4RA" H 9750 3100 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/Molex/22-05-7045" H 9750 3100 50  0001 C CNN
+F 3 "" H 9750 3100 50  0001 C CNN
 	1    9750 3100
 	1    0    0    -1  
 $EndComp
@@ -598,7 +598,7 @@ P 7850 1200
 F 0 "D1" H 7843 1417 50  0000 C CNN
 F 1 "G" H 7843 1326 50  0000 C CNN
 F 2 "RevK:LED_D3.0mm_and_SMD" H 7850 1200 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/749-SM0805HCL" H 7850 1200 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/604-APTD1608LCGCK" H 7850 1200 50  0001 C CNN
 	1    7850 1200
 	1    0    0    -1  
 $EndComp
@@ -609,7 +609,7 @@ P 7850 1800
 F 0 "D2" H 7843 2017 50  0000 C CNN
 F 1 "A" H 7843 1926 50  0000 C CNN
 F 2 "RevK:LED_D3.0mm_and_SMD" H 7850 1800 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/749-SM0805YCL" H 7850 1800 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/604-APHD1608LSYCK" H 7850 1800 50  0001 C CNN
 	1    7850 1800
 	1    0    0    -1  
 $EndComp
@@ -620,7 +620,7 @@ P 7850 2450
 F 0 "D3" H 7843 2667 50  0000 C CNN
 F 1 "R" H 7843 2576 50  0000 C CNN
 F 2 "RevK:LED_D3.0mm_and_SMD" H 7850 2450 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/749-SM0805GCL" H 7850 2450 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/604-APHD1608LSURCK" H 7850 2450 50  0001 C CNN
 	1    7850 2450
 	1    0    0    -1  
 $EndComp
@@ -631,7 +631,7 @@ P 8400 1200
 F 0 "R7" V 8193 1200 50  0000 C CNN
 F 1 "470R" V 8284 1200 50  0000 C CNN
 F 2 "RevK:R_0603" V 8330 1200 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KOA-Speer/RK73H2ATTD6800F" H 8400 1200 50  0001 C CNN
+F 3 "" H 8400 1200 50  0001 C CNN
 	1    8400 1200
 	0    1    1    0   
 $EndComp
@@ -642,7 +642,7 @@ P 8400 1800
 F 0 "R8" V 8193 1800 50  0000 C CNN
 F 1 "680R" V 8284 1800 50  0000 C CNN
 F 2 "RevK:R_0603" V 8330 1800 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KOA-Speer/RK73H2ATTD6800F" H 8400 1800 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/603-RC0603JR-07680RL" H 8400 1800 50  0001 C CNN
 	1    8400 1800
 	0    1    1    0   
 $EndComp
@@ -653,7 +653,7 @@ P 8400 2450
 F 0 "R9" V 8193 2450 50  0000 C CNN
 F 1 "680R" V 8284 2450 50  0000 C CNN
 F 2 "RevK:R_0603" V 8330 2450 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KOA-Speer/RK73H2ATTD6800F" H 8400 2450 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/603-RC0603JR-07680RL" H 8400 2450 50  0001 C CNN
 	1    8400 2450
 	0    1    1    0   
 $EndComp
@@ -791,7 +791,7 @@ P 9000 800
 F 0 "R10" V 8793 800 50  0000 C CNN
 F 1 "10K" V 8884 800 50  0000 C CNN
 F 2 "RevK:R_0603" V 8930 800 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KOA-Speer/RK73H2ATTED1002F" H 9000 800 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/652-CR0603FX-1002ELF" H 9000 800 50  0001 C CNN
 	1    9000 800 
 	0    1    1    0   
 $EndComp
@@ -824,7 +824,7 @@ P 6250 1450
 F 0 "R6" V 6043 1450 50  0000 C CNN
 F 1 "20K" V 6134 1450 50  0000 C CNN
 F 2 "RevK:R_0603" V 6180 1450 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KOA-Speer/RK73H2ATTE2002F" H 6250 1450 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/603-RC0603JR-1020KL" H 6250 1450 50  0001 C CNN
 	1    6250 1450
 	0    -1   -1   0   
 $EndComp
@@ -846,7 +846,7 @@ P 2400 3650
 F 0 "R1" V 2193 3650 50  0000 C CNN
 F 1 "0R" V 2284 3650 50  0000 C CNN
 F 2 "RevK:R_0603" V 2330 3650 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KOA-Speer/RK73H2ATTD2R00F" H 2400 3650 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/652-CR0603-J-000ELF" H 2400 3650 50  0001 C CNN
 	1    2400 3650
 	0    1    1    0   
 $EndComp
@@ -857,7 +857,7 @@ P 2400 4450
 F 0 "R2" V 2500 4450 50  0000 C CNN
 F 1 "0R" V 2600 4450 50  0000 C CNN
 F 2 "RevK:R_0603" V 2330 4450 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KOA-Speer/RK73H2ATTD2R00F" H 2400 4450 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/652-CR0603-J-000ELF" H 2400 4450 50  0001 C CNN
 	1    2400 4450
 	0    1    1    0   
 $EndComp
@@ -893,7 +893,7 @@ P 9850 6000
 F 0 "R11" V 9643 6000 50  0000 C CNN
 F 1 "10K" V 9734 6000 50  0000 C CNN
 F 2 "RevK:R_0603" V 9780 6000 50  0001 C CNN
-F 3 "~" H 9850 6000 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/652-CR0603FX-1002ELF" H 9850 6000 50  0001 C CNN
 	1    9850 6000
 	0    1    1    0   
 $EndComp
@@ -934,8 +934,6 @@ F 3 "" H 1350 4050 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4050 3650 4300 3650
-Wire Wire Line
-	4050 4450 4300 4450
 Connection ~ 8850 800 
 Connection ~ 6100 1450
 Wire Wire Line
@@ -997,29 +995,15 @@ P 9700 4700
 F 0 "R12" V 9900 4700 50  0000 C CNN
 F 1 "100R" V 9800 4700 50  0000 C CNN
 F 2 "RevK:R_0603" V 9630 4700 50  0001 C CNN
-F 3 "~" H 9700 4700 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/603-RC0603JR-07100RL" H 9700 4700 50  0001 C CNN
 	1    9700 4700
 	0    1    1    0   
 $EndComp
 Wire Wire Line
 	9550 4700 9250 4700
-$Comp
-L Connector:TestPoint_2Pole TP1
-U 1 1 609B72F2
-P 4300 4050
-F 0 "TP1" V 4254 4108 50  0000 L CNN
-F 1 "TestPoint_2Pole" V 4345 4108 50  0000 L CNN
-F 2 "RevK:PN532-RF-Test" H 4300 4050 50  0001 C CNN
-F 3 "~" H 4300 4050 50  0001 C CNN
-	1    4300 4050
-	0    1    1    0   
-$EndComp
 Connection ~ 4300 3650
 Wire Wire Line
 	4300 3650 4500 3650
-Connection ~ 4300 4450
-Wire Wire Line
-	4300 4450 4500 4450
 $Comp
 L Device:C C18
 U 1 1 60993DC2
@@ -1027,7 +1011,7 @@ P 5650 2150
 F 0 "C18" H 5765 2196 50  0000 L CNN
 F 1 "4.7uF" H 5765 2105 50  0000 L CNN
 F 2 "RevK:C_0603" H 5688 2000 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C475M4RACTU" H 5650 2150 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/187-CL03A475MQ5C65C" H 5650 2150 50  0001 C CNN
 	1    5650 2150
 	1    0    0    -1  
 $EndComp
@@ -1047,7 +1031,7 @@ P 9700 4600
 F 0 "R13" V 9500 4600 50  0000 C CNN
 F 1 "100R" V 9600 4600 50  0000 C CNN
 F 2 "RevK:R_0603" V 9630 4600 50  0001 C CNN
-F 3 "~" H 9700 4600 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/603-RC0603JR-07100RL" H 9700 4600 50  0001 C CNN
 	1    9700 4600
 	0    1    1    0   
 $EndComp
@@ -1071,14 +1055,9 @@ Wire Wire Line
 Wire Wire Line
 	1950 4050 2650 4050
 Connection ~ 2650 4050
-Wire Wire Line
-	4300 4200 4300 4250
 Connection ~ 3350 4050
 Wire Wire Line
 	3350 4050 3700 4050
-Connection ~ 4300 4250
-Wire Wire Line
-	4300 4250 4300 4450
 Wire Wire Line
 	4500 4150 4500 4450
 Wire Wire Line
@@ -1129,7 +1108,7 @@ P 8400 4950
 F 0 "D5" H 8400 5167 50  0000 C CNN
 F 1 "BAV99S" H 8400 5076 50  0000 C CNN
 F 2 "RevK:SOT-363_SC-70-6" H 8400 4450 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/BAV99_SER.pdf" H 8400 4950 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/771-BAV99S-T-R" H 8400 4950 50  0001 C CNN
 	2    8400 4950
 	0    1    -1   0   
 $EndComp
@@ -1140,7 +1119,7 @@ P 8900 4700
 F 0 "D6" V 8946 4779 50  0000 L CNN
 F 1 "BAV99S" V 8855 4779 50  0000 L CNN
 F 2 "RevK:SOT-363_SC-70-6" H 8900 4200 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/BAV99_SER.pdf" H 8900 4700 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/771-BAV99S-T-R" H 8900 4700 50  0001 C CNN
 	2    8900 4700
 	0    -1   -1   0   
 $EndComp
@@ -1151,7 +1130,7 @@ P 9400 3850
 F 0 "D6" V 9354 3930 50  0000 L CNN
 F 1 "BAV99S" V 9445 3930 50  0000 L CNN
 F 2 "RevK:SOT-363_SC-70-6" H 9400 3350 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/BAV99_SER.pdf" H 9400 3850 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/771-BAV99S-T-R" H 9400 3850 50  0001 C CNN
 	1    9400 3850
 	0    1    -1   0   
 $EndComp
@@ -1162,7 +1141,7 @@ P 8000 1400
 F 0 "D5" V 7954 1480 50  0000 L CNN
 F 1 "BAV99S" V 8045 1480 50  0000 L CNN
 F 2 "RevK:SOT-363_SC-70-6" H 8000 900 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/BAV99_SER.pdf" H 8000 1400 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/771-BAV99S-T-R" H 8000 1400 50  0001 C CNN
 	1    8000 1400
 	1    0    0    1   
 $EndComp
@@ -1279,7 +1258,7 @@ P 8000 2650
 F 0 "D4" H 8000 2867 50  0000 C CNN
 F 1 "BAV99S" H 8000 2776 50  0000 C CNN
 F 2 "RevK:SOT-363_SC-70-6" H 8000 2150 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/BAV99_SER.pdf" H 8000 2650 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/771-BAV99S-T-R" H 8000 2650 50  0001 C CNN
 	2    8000 2650
 	1    0    0    1   
 $EndComp
@@ -1368,7 +1347,7 @@ P 8000 2000
 F 0 "D4" H 8000 2125 50  0000 C CNN
 F 1 "BAV99S" H 8000 2216 50  0000 C CNN
 F 2 "RevK:SOT-363_SC-70-6" H 8000 1500 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/BAV99_SER.pdf" H 8000 2000 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/771-BAV99S-T-R" H 8000 2000 50  0001 C CNN
 	1    8000 2000
 	1    0    0    1   
 $EndComp
@@ -1427,7 +1406,7 @@ P 9250 4850
 F 0 "C19" H 9365 4896 50  0000 L CNN
 F 1 "33pF" H 9365 4805 50  0000 L CNN
 F 2 "RevK:C_0603" H 9288 4700 50  0001 C CNN
-F 3 "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C104M3RACTU" H 9250 4850 50  0001 C CNN
+F 3 "https://www.mouser.co.uk/ProductDetail/80-C0603C330G8HACTU" H 9250 4850 50  0001 C CNN
 	1    9250 4850
 	1    0    0    -1  
 $EndComp
@@ -1467,4 +1446,22 @@ F 3 "" H 10625 6850 50  0001 C CNN
 	1    10625 6850
 	1    0    0    -1  
 $EndComp
+$Comp
+L Connector:TestPoint_2Pole TP1
+U 1 1 609B72F2
+P 4300 4050
+F 0 "TP1" V 4254 4108 50  0000 L CNN
+F 1 "TestPoint_2Pole" V 4345 4108 50  0000 L CNN
+F 2 "RevK:PN532-RF-Test" H 4300 4050 50  0001 C CNN
+F 3 "~" H 4300 4050 50  0001 C CNN
+	1    4300 4050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4050 4450 4300 4450
+Wire Wire Line
+	4300 4250 4300 4450
+Connection ~ 4300 4450
+Wire Wire Line
+	4300 4450 4500 4450
 $EndSCHEMATC
