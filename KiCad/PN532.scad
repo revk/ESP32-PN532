@@ -46,8 +46,8 @@ module base()
         if(screws)for(t=[-12,12])translate([t,-t,2.9])
         { // Screws in base
             translate([0,0,-1])cylinder(d=3.5,h=3+base+2);
-            translate([0,0,-0.01])cylinder(d=7,h=0.5);
-            translate([0,0,0.48])cylinder(d1=7,d2=3.5,h=2);
+            translate([0,0,-0.01])cylinder(d=7,h=base/2+0.5);
+            translate([0,0,0.48+base/2])cylinder(d1=7,d2=3.5,h=2);
         }
         for(y=[-9,9])hull()
         { // Clip
