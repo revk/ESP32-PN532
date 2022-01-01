@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>/Users/adrian/git/ESP32-PN532/KiCad/PN532.kicad_sch</source>
-    <date>Saturday, 01 January 2022 at 19:17:04</date>
+    <date>Saturday, 01 January 2022 at 19:33:48</date>
     <tool>Eeschema (6.0.0-0)</tool>
     <textvar name="DATE">2022-01-01</textvar>
     <sheet number="1" name="/" tstamps="/">
@@ -26,7 +26,7 @@
   </design>
   <components>
     <comp ref="C1">
-      <value>160pF</value>
+      <value>160pF 1%</value>
       <footprint>RevK:Cx2_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/80-C0603X161F1HACTU</datasheet>
       <libsource lib="" part="Cx2_1" description=""/>
@@ -37,7 +37,7 @@
       <tstamps>00000000-0000-0000-0000-000060756cae</tstamps>
     </comp>
     <comp ref="C2">
-      <value>160pF</value>
+      <value>160pF 1%</value>
       <footprint>RevK:Cx2_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/80-C0603X161F1HACTU</datasheet>
       <libsource lib="RevK" part="Cx2" description=""/>
@@ -48,7 +48,7 @@
       <tstamps>00000000-0000-0000-0000-000060757e92</tstamps>
     </comp>
     <comp ref="C3">
-      <value>22pF</value>
+      <value>22pF 1%</value>
       <footprint>RevK:C_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/791-0603N220F500CT</datasheet>
       <fields>
@@ -62,7 +62,7 @@
       <tstamps>00000000-0000-0000-0000-000060758ce7</tstamps>
     </comp>
     <comp ref="C4">
-      <value>22pF</value>
+      <value>22pF 1%</value>
       <footprint>RevK:C_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/791-0603N220F500CT</datasheet>
       <fields>
@@ -118,7 +118,7 @@
       <tstamps>00000000-0000-0000-0000-00006075fd74</tstamps>
     </comp>
     <comp ref="C8">
-      <value>1nF</value>
+      <value>1nF 2%</value>
       <footprint>RevK:C_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/77-VJ0603A102GXAPBC</datasheet>
       <fields>
@@ -361,7 +361,11 @@
       <value>560nH</value>
       <footprint>RevK:L_1206_1008</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/81-LQW2UASR56G00L</datasheet>
+      <fields>
+        <field name="Note">High quality inductor</field>
+      </fields>
       <libsource lib="Device" part="L" description="Inductor"/>
+      <property name="Note" value="High quality inductor"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -371,7 +375,11 @@
       <value>560nH</value>
       <footprint>RevK:L_1206_1008</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/81-LQW2UASR56G00L</datasheet>
+      <fields>
+        <field name="Note">High quality inductor</field>
+      </fields>
       <libsource lib="Device" part="L" description="Inductor"/>
+      <property name="Note" value="High quality inductor"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -423,7 +431,7 @@
       <tstamps>ee60c444-4c3e-49fb-aea9-ab1291effc35</tstamps>
     </comp>
     <comp ref="R4">
-      <value>2K7</value>
+      <value>2K7 1%</value>
       <footprint>RevK:R_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/603-RC0603FR-102K7L</datasheet>
       <fields>
@@ -437,7 +445,7 @@
       <tstamps>00000000-0000-0000-0000-00006075de03</tstamps>
     </comp>
     <comp ref="R5">
-      <value>1K</value>
+      <value>1K 1%</value>
       <footprint>RevK:R_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/71-CRCW06031K00FKEAC</datasheet>
       <fields>
@@ -1176,22 +1184,22 @@
       <node ref="R7" pin="1" pintype="passive"/>
       <node ref="U1" pin="38" pinfunction="RSTPD_N" pintype="input"/>
     </net>
-    <net code="26" name="Net-(R9-Pad1)">
+    <net code="26" name="Net-(R8-Pad1)">
+      <node ref="R8" pin="1" pintype="passive"/>
+      <node ref="U1" pin="31" pinfunction="P31/DBG_TX" pintype="bidirectional"/>
+    </net>
+    <net code="27" name="Net-(R9-Pad1)">
       <node ref="R9" pin="1" pintype="passive"/>
       <node ref="U1" pin="32" pinfunction="P32_INT0" pintype="bidirectional"/>
     </net>
-    <net code="27" name="Net-(R10-Pad1)">
+    <net code="28" name="Net-(R10-Pad1)">
       <node ref="R10" pin="1" pintype="passive"/>
       <node ref="U1" pin="33" pinfunction="P33_INT1" pintype="bidirectional"/>
     </net>
-    <net code="28" name="Net-(R11-Pad2)">
+    <net code="29" name="Net-(R11-Pad2)">
       <node ref="R11" pin="2" pintype="passive"/>
       <node ref="SW1" pin="2" pinfunction="2" pintype="passive"/>
       <node ref="U1" pin="24" pinfunction="P30/UART_RX" pintype="bidirectional"/>
-    </net>
-    <net code="29" name="Net-(U1-Pad31)">
-      <node ref="R8" pin="1" pintype="passive"/>
-      <node ref="U1" pin="31" pinfunction="P31/DBG_TX" pintype="bidirectional"/>
     </net>
     <net code="30" name="unconnected-(R1-Pad~)">
       <node ref="R1" pin="" pintype="no_connect"/>
