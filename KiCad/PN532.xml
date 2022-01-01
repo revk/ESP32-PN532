@@ -2,15 +2,15 @@
 <export version="E">
   <design>
     <source>/Users/adrian/git/ESP32-PN532/KiCad/PN532.kicad_sch</source>
-    <date>Saturday, 01 January 2022 at 11:54:45</date>
+    <date>Saturday, 01 January 2022 at 19:17:04</date>
     <tool>Eeschema (6.0.0-0)</tool>
-    <textvar name="DATE">2021-12-31</textvar>
+    <textvar name="DATE">2022-01-01</textvar>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
         <title>PN532 NFC Board</title>
         <company>Adrian Kennard Andrews &amp; Arnold Ltd</company>
         <rev>7</rev>
-        <date>2021-12-31</date>
+        <date>2022-01-01</date>
         <source>PN532.kicad_sch</source>
         <comment number="1" value="www.me.uk"/>
         <comment number="2" value=""/>
@@ -25,54 +25,12 @@
     </sheet>
   </design>
   <components>
-    <comp ref="A1">
-      <value>PN532-Antenna</value>
-      <footprint>RevK:PN532-Antenna4</footprint>
-      <fields>
-        <field name="Note">No part, PCB printed</field>
-      </fields>
-      <libsource lib="RevK" part="PN532-Antenna" description=""/>
-      <property name="Note" value="No part, PCB printed"/>
-      <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="PN532.kicad_sch"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamps>00000000-0000-0000-0000-00006074e4ec</tstamps>
-    </comp>
-    <comp ref="AJK1">
-      <value>AJK</value>
-      <footprint>RevK:AJK</footprint>
-      <fields>
-        <field name="Note">No part, PCB printed</field>
-      </fields>
-      <libsource lib="RevK" part="AJK" description=""/>
-      <property name="Note" value="No part, PCB printed"/>
-      <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="PN532.kicad_sch"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamps>00000000-0000-0000-0000-00006185d41b</tstamps>
-    </comp>
-    <comp ref="AJK2">
-      <value>AJK</value>
-      <footprint>RevK:AJK</footprint>
-      <fields>
-        <field name="Note">No part, PCB printed</field>
-      </fields>
-      <libsource lib="RevK" part="AJK" description=""/>
-      <property name="Note" value="No part, PCB printed"/>
-      <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="PN532.kicad_sch"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamps>00000000-0000-0000-0000-0000607f5b4a</tstamps>
-    </comp>
     <comp ref="C1">
       <value>160pF</value>
       <footprint>RevK:Cx2_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/80-C0603X161F1HACTU</datasheet>
-      <fields>
-        <field name="Note">0603</field>
-      </fields>
-      <libsource lib="RevK" part="Cx2" description=""/>
-      <property name="Note" value="0603"/>
+      <libsource lib="" part="Cx2_1" description=""/>
+      <property name="Note" value=""/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -82,11 +40,8 @@
       <value>160pF</value>
       <footprint>RevK:Cx2_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/80-C0603X161F1HACTU</datasheet>
-      <fields>
-        <field name="Note">0603</field>
-      </fields>
       <libsource lib="RevK" part="Cx2" description=""/>
-      <property name="Note" value="0603"/>
+      <property name="Note" value=""/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -402,84 +357,6 @@
       <sheetpath names="/" tstamps="/"/>
       <tstamps>00000000-0000-0000-0000-0000609c6100 00000000-0000-0000-0000-0000609c1d90</tstamps>
     </comp>
-    <comp ref="H1">
-      <value>MountingHole</value>
-      <footprint>RevK:ISO7380-M3-NoPad</footprint>
-      <fields>
-        <field name="Note">No part, PCB printed</field>
-      </fields>
-      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
-      <property name="Note" value="No part, PCB printed"/>
-      <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="PN532.kicad_sch"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamps>00000000-0000-0000-0000-0000607a1f8b</tstamps>
-    </comp>
-    <comp ref="H2">
-      <value>MountingHole</value>
-      <footprint>RevK:ISO7380-M3-NoPad</footprint>
-      <fields>
-        <field name="Note">No part, PCB printed</field>
-      </fields>
-      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
-      <property name="Note" value="No part, PCB printed"/>
-      <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="PN532.kicad_sch"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamps>00000000-0000-0000-0000-0000607a2c4f</tstamps>
-    </comp>
-    <comp ref="J1">
-      <value>Bell</value>
-      <footprint>RevK:PinHeader_1x02_P2.54mm_Vertical</footprint>
-      <fields>
-        <field name="Note">Non fit</field>
-      </fields>
-      <libsource lib="Connector" part="Conn_01x02_Male" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
-      <property name="Note" value="Non fit"/>
-      <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="PN532.kicad_sch"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamps>00000000-0000-0000-0000-000060841004</tstamps>
-    </comp>
-    <comp ref="J2">
-      <value>Header</value>
-      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical</footprint>
-      <fields>
-        <field name="Note">Non fit</field>
-      </fields>
-      <libsource lib="Connector" part="Conn_01x04_Male" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
-      <property name="Note" value="Non fit"/>
-      <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="PN532.kicad_sch"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamps>00000000-0000-0000-0000-0000607d09fb</tstamps>
-    </comp>
-    <comp ref="J3">
-      <value>SPOX</value>
-      <footprint>RevK:Molex_MiniSPOX_H4RA</footprint>
-      <fields>
-        <field name="Note">Non fit</field>
-      </fields>
-      <libsource lib="Connector" part="Conn_01x04_Male" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
-      <property name="Note" value="Non fit"/>
-      <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="PN532.kicad_sch"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamps>00000000-0000-0000-0000-0000607d486c</tstamps>
-    </comp>
-    <comp ref="JP1">
-      <value>I1</value>
-      <footprint>Jumper:SolderJumper-3_P1.3mm_Bridged2Bar12_RoundedPad1.0x1.5mm_NumberLabels</footprint>
-      <fields>
-        <field name="Note">No part, PCB printed</field>
-      </fields>
-      <libsource lib="Jumper" part="SolderJumper_3_Bridged12" description="3-pole Solder Jumper, pins 1+2 closed/bridged"/>
-      <property name="Note" value="No part, PCB printed"/>
-      <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="PN532.kicad_sch"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamps>00000000-0000-0000-0000-0000609405db</tstamps>
-    </comp>
     <comp ref="L1">
       <value>560nH</value>
       <footprint>RevK:L_1206_1008</footprint>
@@ -507,7 +384,7 @@
       <fields>
         <field name="Note">0603</field>
       </fields>
-      <libsource lib="RevK" part="Hidden" description=""/>
+      <libsource lib="" part="Hidden_2" description=""/>
       <property name="Note" value="0603"/>
       <property name="Part No" value=""/>
       <property name="Sheetname" value=""/>
@@ -518,6 +395,7 @@
     <comp ref="R2">
       <value>0R</value>
       <footprint>RevK:Hidden</footprint>
+      <datasheet>https://www.mouser.co.uk/ProductDetail/603-RC0603FR-102K7L</datasheet>
       <fields>
         <field name="Note">0805</field>
       </fields>
@@ -536,7 +414,7 @@
       <fields>
         <field name="Note">0603</field>
       </fields>
-      <libsource lib="RevK" part="Hidden" description=""/>
+      <libsource lib="" part="Hidden_1" description=""/>
       <property name="Note" value="0603"/>
       <property name="Part No" value=""/>
       <property name="Sheetname" value=""/>
@@ -603,7 +481,12 @@
     <comp ref="R8">
       <value>470R</value>
       <footprint>RevK:R_0603</footprint>
+      <datasheet>https://www.mouser.co.uk/ProductDetail/603-AC0603JR-07470RL</datasheet>
+      <fields>
+        <field name="Note">0603</field>
+      </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Note" value="0603"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -717,19 +600,6 @@
       <sheetpath names="/" tstamps="/"/>
       <tstamps>00000000-0000-0000-0000-00006076e91e</tstamps>
     </comp>
-    <comp ref="TP1">
-      <value>TestPoint_2Pole</value>
-      <footprint>RevK:PN532-RF-Test</footprint>
-      <fields>
-        <field name="Note">No part, PCB printed</field>
-      </fields>
-      <libsource lib="Connector" part="TestPoint_2Pole" description="2-polar test point"/>
-      <property name="Note" value="No part, PCB printed"/>
-      <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="PN532.kicad_sch"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamps>00000000-0000-0000-0000-0000609b72f2</tstamps>
-    </comp>
     <comp ref="U1">
       <value>PN532</value>
       <footprint>RevK:QFN-40-1EP_6x6mm_P0.5mm_EP4.6x4.6mm</footprint>
@@ -739,32 +609,6 @@
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>00000000-0000-0000-0000-000060753706</tstamps>
-    </comp>
-    <comp ref="U2">
-      <value>QR</value>
-      <footprint>RevK:QR-PN532</footprint>
-      <fields>
-        <field name="Note">No part, PCB printed</field>
-      </fields>
-      <libsource lib="RevK" part="QR" description=""/>
-      <property name="Note" value="No part, PCB printed"/>
-      <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="PN532.kicad_sch"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamps>00000000-0000-0000-0000-00006184cc73</tstamps>
-    </comp>
-    <comp ref="U3">
-      <value>QR</value>
-      <footprint>RevK:QR-PN532</footprint>
-      <fields>
-        <field name="Note">No part, PCB printed</field>
-      </fields>
-      <libsource lib="RevK" part="QR" description=""/>
-      <property name="Note" value="No part, PCB printed"/>
-      <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="PN532.kicad_sch"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamps>00000000-0000-0000-0000-000060859564</tstamps>
     </comp>
     <comp ref="Y1">
       <value>27.12MHz</value>
@@ -778,6 +622,68 @@
     </comp>
   </components>
   <libparts>
+    <libpart lib="" part="AJK_1">
+      <fields>
+        <field name="Reference">Logo</field>
+        <field name="Value">AJK_1</field>
+        <field name="Footprint">RevK:AJK</field>
+        <field name="Note">Non part, PCB printed</field>
+      </fields>
+    </libpart>
+    <libpart lib="" part="Cx2_1">
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">Cx2_1</field>
+        <field name="Footprint">RevK:Cx2_0603</field>
+        <field name="Note">May be two 0603 parts</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="" part="Hidden_1">
+      <fields>
+        <field name="Reference">Z</field>
+        <field name="Value">Hidden_1</field>
+        <field name="Footprint">RevK:Hidden</field>
+      </fields>
+      <pins>
+        <pin num="~" name="" type="no_connect"/>
+      </pins>
+    </libpart>
+    <libpart lib="" part="Hidden_2">
+      <fields>
+        <field name="Reference">Z</field>
+        <field name="Value">Hidden_2</field>
+        <field name="Footprint">RevK:Hidden</field>
+      </fields>
+      <pins>
+        <pin num="~" name="" type="no_connect"/>
+      </pins>
+    </libpart>
+    <libpart lib="" part="MountingHole_1">
+      <description>Mounting Hole without connection</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>MountingHole*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">H</field>
+        <field name="Value">MountingHole_1</field>
+        <field name="Datasheet">~</field>
+      </fields>
+    </libpart>
+    <libpart lib="" part="QR_1">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">QR_1</field>
+        <field name="Note">Non part, PCB printed</field>
+      </fields>
+    </libpart>
     <libpart lib="Connector" part="Conn_01x02_Male">
       <description>Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
       <docs>~</docs>
@@ -971,6 +877,7 @@
         <field name="Reference">Logo</field>
         <field name="Value">AJK</field>
         <field name="Footprint">RevK:AJK</field>
+        <field name="Note">Non part, PCB printed</field>
       </fields>
     </libpart>
     <libpart lib="RevK" part="Cx2">
@@ -981,6 +888,7 @@
         <field name="Reference">C</field>
         <field name="Value">Cx2</field>
         <field name="Footprint">RevK:Cx2_0603</field>
+        <field name="Note">May be two 0603 parts</field>
       </fields>
       <pins>
         <pin num="1" name="" type="passive"/>
@@ -1051,6 +959,7 @@
       <fields>
         <field name="Reference">A</field>
         <field name="Value">PN532-Antenna</field>
+        <field name="Note">Non part, PCB printed</field>
       </fields>
       <pins>
         <pin num="1" name="" type="bidirectional"/>
@@ -1062,6 +971,7 @@
       <fields>
         <field name="Reference">U</field>
         <field name="Value">QR</field>
+        <field name="Note">Non part, PCB printed</field>
       </fields>
     </libpart>
     <libpart lib="Switch" part="SW_Push">
@@ -1116,7 +1026,6 @@
       <node ref="D5" pin="5" pinfunction="K4" pintype="passive"/>
       <node ref="D6" pin="2" pinfunction="K2" pintype="passive"/>
       <node ref="D6" pin="5" pinfunction="K4" pintype="passive"/>
-      <node ref="JP1" pin="3" pinfunction="B" pintype="passive"/>
       <node ref="R11" pin="1" pintype="passive"/>
       <node ref="R15" pin="1" pintype="passive"/>
       <node ref="U1" pin="23" pinfunction="PVDD" pintype="power_in"/>
@@ -1126,13 +1035,10 @@
     </net>
     <net code="2" name="+5V">
       <node ref="C14" pin="1" pintype="passive"/>
-      <node ref="J2" pin="2" pinfunction="Pin_2" pintype="passive"/>
-      <node ref="J3" pin="2" pinfunction="Pin_2" pintype="passive"/>
       <node ref="R6" pin="2" pintype="passive"/>
       <node ref="U1" pin="40" pinfunction="VBAT" pintype="power_in"/>
     </net>
     <net code="3" name="GND">
-      <node ref="A1" pin="2" pintype="bidirectional"/>
       <node ref="C1" pin="2" pintype="passive"/>
       <node ref="C10" pin="2" pintype="passive"/>
       <node ref="C11" pin="2" pintype="passive"/>
@@ -1158,10 +1064,6 @@
       <node ref="D5" pin="4" pinfunction="A3" pintype="passive"/>
       <node ref="D6" pin="1" pinfunction="A1" pintype="passive"/>
       <node ref="D6" pin="4" pinfunction="A3" pintype="passive"/>
-      <node ref="J1" pin="1" pinfunction="Pin_1" pintype="passive"/>
-      <node ref="J2" pin="1" pinfunction="Pin_1" pintype="passive"/>
-      <node ref="J3" pin="1" pinfunction="Pin_1" pintype="passive"/>
-      <node ref="JP1" pin="1" pinfunction="A" pintype="passive"/>
       <node ref="R7" pin="2" pintype="passive"/>
       <node ref="SW1" pin="1" pinfunction="1" pintype="passive"/>
       <node ref="U1" pin="1" pinfunction="DVSS" pintype="power_in"/>
@@ -1175,12 +1077,10 @@
       <node ref="Y1" pin="4" pinfunction="4" pintype="passive"/>
     </net>
     <net code="4" name="Net-(A1-Pad1)">
-      <node ref="A1" pin="1" pintype="bidirectional"/>
       <node ref="C1" pin="1" pintype="passive"/>
       <node ref="C3" pin="2" pintype="passive"/>
     </net>
     <net code="5" name="Net-(A1-Pad3)">
-      <node ref="A1" pin="3" pintype="bidirectional"/>
       <node ref="C2" pin="2" pintype="passive"/>
       <node ref="C4" pin="1" pintype="passive"/>
     </net>
@@ -1252,31 +1152,23 @@
       <node ref="U1" pin="28" pinfunction="MOSI/SDA/HSU_TX" pintype="bidirectional"/>
     </net>
     <net code="19" name="Net-(J1-Pad2)">
-      <node ref="J1" pin="2" pinfunction="Pin_2" pintype="passive"/>
       <node ref="R12" pin="2" pintype="passive"/>
     </net>
     <net code="20" name="Net-(J2-Pad3)">
-      <node ref="J2" pin="3" pinfunction="Pin_3" pintype="passive"/>
-      <node ref="J3" pin="3" pinfunction="Pin_3" pintype="passive"/>
       <node ref="R13" pin="1" pintype="passive"/>
     </net>
     <net code="21" name="Net-(J2-Pad4)">
-      <node ref="J2" pin="4" pinfunction="Pin_4" pintype="passive"/>
-      <node ref="J3" pin="4" pinfunction="Pin_4" pintype="passive"/>
       <node ref="R14" pin="1" pintype="passive"/>
     </net>
     <net code="22" name="Net-(JP1-Pad2)">
-      <node ref="JP1" pin="2" pinfunction="C" pintype="input"/>
       <node ref="U1" pin="17" pinfunction="I1" pintype="input"/>
     </net>
     <net code="23" name="Net-(L1-Pad1)">
       <node ref="L1" pin="1" pinfunction="1" pintype="passive"/>
-      <node ref="TP1" pin="1" pinfunction="1" pintype="passive"/>
       <node ref="U1" pin="4" pinfunction="TX1" pintype="output"/>
     </net>
     <net code="24" name="Net-(L2-Pad2)">
       <node ref="L2" pin="2" pinfunction="2" pintype="passive"/>
-      <node ref="TP1" pin="2" pinfunction="2" pintype="passive"/>
       <node ref="U1" pin="6" pinfunction="TX2" pintype="output"/>
     </net>
     <net code="25" name="Net-(R6-Pad1)">
@@ -1284,22 +1176,22 @@
       <node ref="R7" pin="1" pintype="passive"/>
       <node ref="U1" pin="38" pinfunction="RSTPD_N" pintype="input"/>
     </net>
-    <net code="26" name="Net-(R8-Pad1)">
-      <node ref="R8" pin="1" pintype="passive"/>
-      <node ref="U1" pin="31" pinfunction="P31/DBG_TX" pintype="bidirectional"/>
-    </net>
-    <net code="27" name="Net-(R9-Pad1)">
+    <net code="26" name="Net-(R9-Pad1)">
       <node ref="R9" pin="1" pintype="passive"/>
       <node ref="U1" pin="32" pinfunction="P32_INT0" pintype="bidirectional"/>
     </net>
-    <net code="28" name="Net-(R10-Pad1)">
+    <net code="27" name="Net-(R10-Pad1)">
       <node ref="R10" pin="1" pintype="passive"/>
       <node ref="U1" pin="33" pinfunction="P33_INT1" pintype="bidirectional"/>
     </net>
-    <net code="29" name="Net-(R11-Pad2)">
+    <net code="28" name="Net-(R11-Pad2)">
       <node ref="R11" pin="2" pintype="passive"/>
       <node ref="SW1" pin="2" pinfunction="2" pintype="passive"/>
       <node ref="U1" pin="24" pinfunction="P30/UART_RX" pintype="bidirectional"/>
+    </net>
+    <net code="29" name="Net-(U1-Pad31)">
+      <node ref="R8" pin="1" pintype="passive"/>
+      <node ref="U1" pin="31" pinfunction="P31/DBG_TX" pintype="bidirectional"/>
     </net>
     <net code="30" name="unconnected-(R1-Pad~)">
       <node ref="R1" pin="" pintype="no_connect"/>
