@@ -107,7 +107,7 @@
         "allow_microvias": false,
         "max_error": 0.005,
         "min_clearance": 0.0,
-        "min_copper_edge_clearance": 0.024999999999999998,
+        "min_copper_edge_clearance": 0.0,
         "min_hole_clearance": 0.19999999999999998,
         "min_hole_to_hole": 0.19999999999999998,
         "min_microvia_diameter": 0.19999999999999998,
@@ -121,6 +121,7 @@
       },
       "track_widths": [
         0.0,
+        0.25,
         0.4,
         0.5
       ],
@@ -433,6 +434,6 @@
     ]
   ],
   "text_variables": {
-    "DATE": "2021-12-31"
+    "DATE": "2022-01-01"
   }
 }
