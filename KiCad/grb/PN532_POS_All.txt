@@ -1,10 +1,11 @@
-### Module positions - created on 2022-01-01 19:33
+### Module positions - created on 2022-01-01 19:43
 ### Printed by pcb_positions plugin
 ## Unit = mm, Angle = deg.
 ## Pcb Height 40.050mm, Pcb Width 40.050mm [based on Edge bounding box]
 ## Side : ALL
 ## Board Aux Origin: 0.000mm ,0.000mm
 # Ref         Val                 Package                       PosX       PosY       Pin1_PosX  Pin1_PosY    Rot     Side      Type
+A1            PN532-Antenna       PN532-Antenna4                100.0000   -100.0000  102.0000   -84.8500    -90.0    top       VIRTUAL
 Y1            27.12MHz            Crystal-3.4x2.7               94.0000    -100.0000  93.2000    -98.6500     90.0    top       THD
 H2            MountingHole        ISO7380-M3-NoPad              88.0000    -88.0000   0.0000     0.0000        0.0    top       VIRTUAL
 H1            MountingHole        ISO7380-M3-NoPad              112.0000   -112.0000  0.0000     0.0000        0.0    top       VIRTUAL
@@ -47,7 +48,6 @@ R14           100R                R_0603                        101.6500   -104.
 L1            560nH               L_1206_1008                   103.2500   -91.0000   102.5429   -91.7071     45.0    top       SMD
 L2            560nH               L_1206_1008                   96.7500    -91.0000   95.7601    -90.0101    -45.0    top       SMD
 C4            22pF 1%             C_0603                        96.2000    -87.5250   96.2000    -86.7500    -90.0    top       SMD
-A1            PN532-Antenna       PN532-Antenna4                100.0000   -100.0000  102.0000   -84.8500    -90.0    top       VIRTUAL
 R12           100R                R_0603                        105.6000   -105.1500  105.6000   -104.3250   -90.0    top       SMD
 D5            BAV99S              SOT-363_SC-70-6               109.0000   -93.9000   108.0500   -93.2500      0.0    top       SMD
 C2            160pF 1%            Cx2_0603                      98.3000    -85.9000   99.0750    -87.1000    180.0    top       SMD
