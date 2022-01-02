@@ -1,4 +1,4 @@
-### Module positions - created on 2022-01-02 15:34
+### Module positions - created on 2022-01-02 17:17
 ### Printed by pcb_positions plugin
 ## Unit = mm, Angle = deg.
 ## Pcb Height 40.050mm, Pcb Width 40.050mm [based on Edge bounding box]
@@ -50,7 +50,7 @@ C4            22pF 1%             C_0603                        96.2000    -87.5
 R12           100R                R_0603                        104.0000   -105.1500  104.0000   -104.3250   -90.0    top       SMD
 D5            BAV99S              SOT-363_SC-70-6               109.0000   -93.9000   108.0500   -93.2500      0.0    top       SMD
 C2            160pF 1%            Cx2_0603                      98.3000    -85.9000   99.0750    -87.1000    180.0    top       SMD
-U2            QR                  QR-PN532                      88.5000    -110.6000  0.0000     0.0000      180.0    top       VIRTUAL
+U2            QR                  QR-PN532                      89.4000    -110.6000  0.0000     0.0000      180.0    top       VIRTUAL
 C19           33pF                C_0603                        109.0000   -108.2000  108.2250   -108.2000     0.0    top       SMD
 D4            BAV99S              SOT-363_SC-70-6               109.0000   -103.7000  108.0500   -103.0500     0.0    top       SMD
 D6            BAV99S              SOT-363_SC-70-6               109.0000   -106.3000  109.9500   -106.9500   180.0    top       SMD
@@ -59,7 +59,7 @@ A1            PN532-Antenna       PN532-Antenna5                100.0000   -100.
 R2            0R                  Hidden                        100.0000   -82.0000   0.0000     0.0000       90.0    top       SMD
 R3            0R                  Hidden                        102.0000   -84.0000   0.0000     0.0000      -90.0    top       SMD
 R1            0R                  Hidden                        98.0000    -84.0000   0.0000     0.0000       90.0    top       SMD
-U3            QR                  QR-PN532                      88.5000    -110.6000  0.0000     0.0000      -90.0    bottom    VIRTUAL
+U3            QR                  QR-PN532                      89.4000    -110.6000  0.0000     0.0000      -90.0    bottom    VIRTUAL
 ## End
 ## 150 SMD pads
 ## 19 TH pads
