@@ -1,4 +1,4 @@
-### Module positions - created on 2022-01-01 19:43
+### Module positions - created on 2022-01-02 08:41
 ### Printed by pcb_positions plugin
 ## Unit = mm, Angle = deg.
 ## Pcb Height 40.050mm, Pcb Width 40.050mm [based on Edge bounding box]
@@ -6,6 +6,5 @@
 ## Board Aux Origin: 0.000mm ,0.000mm
 # Ref         Val                 Package                       PosX       PosY       Pin1_PosX  Pin1_PosY    Rot     Side      Type
 J2            Header              PinHeader_1x04_P2.54mm_Vert.. 96.1900    -112.0000  96.1900    -112.0000   -90.0    bottom    VIRTUAL
-U3            QR                  QR-PN532                      88.5000    -111.5000  0.0000     0.0000      -90.0    bottom    VIRTUAL
-AJK2          AJK                 AJK                           87.9000    -92.2000   0.0000     0.0000      180.0    bottom    VIRTUAL
+U3            QR                  QR-PN532                      88.5000    -110.6000  0.0000     0.0000      -90.0    bottom    VIRTUAL
 ## End
