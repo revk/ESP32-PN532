@@ -1,10 +1,11 @@
-### Module positions - created on 2022-01-02 11:13
+### Module positions - created on 2022-01-02 15:34
 ### Printed by pcb_positions plugin
 ## Unit = mm, Angle = deg.
 ## Pcb Height 40.050mm, Pcb Width 40.050mm [based on Edge bounding box]
 ## Side : top
 ## Board Aux Origin: 0.000mm ,0.000mm
 # Ref         Val                 Package                       PosX       PosY       Pin1_PosX  Pin1_PosY    Rot     Side      Type
+SW1           TAMPER              SW_PUSH_6mm_SMD               88.5000    -100.0000  90.7500    -104.2000   -90.0    top       SMD
 C7            0.1uF               C_0603                        101.3750   -95.3500   100.6000   -95.3500      0.0    top       SMD
 C3            22pF 1%             C_0603                        103.8000   -87.5250   103.8000   -88.3000     90.0    top       SMD
 C5            220pF               C_0603                        101.7000   -88.2750   100.9250   -88.2750      0.0    top       SMD

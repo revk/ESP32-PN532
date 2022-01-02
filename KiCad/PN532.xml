@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>/Users/adrian/git/ESP32-PN532/KiCad/PN532.kicad_sch</source>
-    <date>Saturday, 01 January 2022 at 19:33:48</date>
+    <date>Sunday, 02 January 2022 at 15:26:57</date>
     <tool>Eeschema (6.0.0-0)</tool>
     <textvar name="DATE">2022-01-01</textvar>
     <sheet number="1" name="/" tstamps="/">
@@ -600,7 +600,7 @@
     </comp>
     <comp ref="SW1">
       <value>TAMPER</value>
-      <footprint>RevK:SW_PUSH_6mm_PTH_SMD</footprint>
+      <footprint>RevK:SW_PUSH_6mm_SMD</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/612-LL3301NF065QG</datasheet>
       <libsource lib="Switch" part="SW_Push" description="Push button switch, generic, two pins"/>
       <property name="Sheetname" value=""/>
@@ -630,14 +630,6 @@
     </comp>
   </components>
   <libparts>
-    <libpart lib="" part="AJK_1">
-      <fields>
-        <field name="Reference">Logo</field>
-        <field name="Value">AJK_1</field>
-        <field name="Footprint">RevK:AJK</field>
-        <field name="Note">Non part, PCB printed</field>
-      </fields>
-    </libpart>
     <libpart lib="" part="Cx2_1">
       <footprints>
         <fp>C_*</fp>
@@ -1162,10 +1154,10 @@
     <net code="19" name="Net-(J1-Pad2)">
       <node ref="R12" pin="2" pintype="passive"/>
     </net>
-    <net code="20" name="Net-(J2-Pad3)">
+    <net code="20" name="Net-(J3-Pad3)">
       <node ref="R13" pin="1" pintype="passive"/>
     </net>
-    <net code="21" name="Net-(J2-Pad4)">
+    <net code="21" name="Net-(J3-Pad4)">
       <node ref="R14" pin="1" pintype="passive"/>
     </net>
     <net code="22" name="Net-(JP1-Pad2)">

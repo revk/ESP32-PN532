@@ -1,4 +1,4 @@
-### Module positions - created on 2022-01-02 11:13
+### Module positions - created on 2022-01-02 15:34
 ### Printed by pcb_positions plugin
 ## Unit = mm, Angle = deg.
 ## Pcb Height 40.050mm, Pcb Width 40.050mm [based on Edge bounding box]
@@ -10,7 +10,7 @@ H2            MountingHole        ISO7380-M3-NoPad              88.0000    -88.0
 H1            MountingHole        ISO7380-M3-NoPad              112.0000   -112.0000  0.0000     0.0000        0.0    top       VIRTUAL
 D2            A                   LED_Reverse                   112.0000   -94.0000   112.0000   -94.9000     90.0    top       THD
 D3            R                   LED_Reverse                   112.0000   -88.0000   112.0000   -88.9000     90.0    top       THD
-SW1           TAMPER              SW_PUSH_6mm_PTH_SMD           88.5000    -100.0000  90.7500    -103.2500   -90.0    top       THD
+SW1           TAMPER              SW_PUSH_6mm_SMD               88.5000    -100.0000  90.7500    -104.2000   -90.0    top       SMD
 D1            G                   LED_Reverse                   112.0000   -100.0000  112.0000   -100.9000    90.0    top       THD
 C7            0.1uF               C_0603                        101.3750   -95.3500   100.6000   -95.3500      0.0    top       SMD
 C3            22pF 1%             C_0603                        103.8000   -87.5250   103.8000   -88.3000     90.0    top       SMD
@@ -34,7 +34,7 @@ R10           680R                R_0603                        109.0000   -98.8
 C18           0.1uF               C_0603                        97.7000    -105.1500  97.7000    -105.9250    90.0    top       SMD
 C11           0.1uF               C_0603                        104.7500   -99.6000   104.7500   -98.8250    -90.0    top       SMD
 C8            1nF 2%              C_0603                        93.1000    -90.2000   93.1000    -90.9750     90.0    top       SMD
-J3            SPOX                Molex_MiniSPOX_H4RA           100.0000   -108.9000  96.2500    -108.9000     0.0    top       VIRTUAL
+J3            SPOX                Molex_MiniSPOX_H4V            100.0000   -108.9000  96.2500    -108.9000     0.0    top       VIRTUAL
 C10           4.7uF               C_0603                        101.3750   -93.8500   100.6000   -93.8500      0.0    top       SMD
 C1            160pF 1%            Cx2_0603                      101.7000   -85.9000   102.4750   -87.1000    180.0    top       SMD
 C6            220pF               C_0603                        98.3000    -88.2750   99.0750    -88.2750    180.0    top       SMD
@@ -59,15 +59,14 @@ A1            PN532-Antenna       PN532-Antenna5                100.0000   -100.
 R2            0R                  Hidden                        100.0000   -82.0000   0.0000     0.0000       90.0    top       SMD
 R3            0R                  Hidden                        102.0000   -84.0000   0.0000     0.0000      -90.0    top       SMD
 R1            0R                  Hidden                        98.0000    -84.0000   0.0000     0.0000       90.0    top       SMD
-J2            Header              PinHeader_1x04_P2.54mm_Vert.. 96.1900    -112.0000  96.1900    -112.0000   -90.0    bottom    VIRTUAL
 U3            QR                  QR-PN532                      88.5000    -110.6000  0.0000     0.0000      -90.0    bottom    VIRTUAL
 ## End
-## 146 SMD pads
-## 31 TH pads
-## 175 Virtual pads
-## 5 Top TH modules
+## 150 SMD pads
+## 19 TH pads
+## 171 Virtual pads
+## 4 Top TH modules
 ## 0 Bot TH modules
-## 40 Top SMD modules
+## 41 Top SMD modules
 ## 0 Bot SMD modules
 ## 9 Top Virtual modules
-## 2 Bot Virtual modules
+## 1 Bot Virtual modules
