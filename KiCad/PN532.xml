@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>/Users/adrian/git/ESP32-PN532/KiCad/PN532.kicad_sch</source>
-    <date>Sunday, 02 January 2022 at 15:26:57</date>
+    <date>Monday, 03 January 2022 at 09:10:21</date>
     <tool>Eeschema (6.0.0-0)</tool>
     <textvar name="DATE">2022-01-01</textvar>
     <sheet number="1" name="/" tstamps="/">
@@ -29,8 +29,14 @@
       <value>160pF 1%</value>
       <footprint>RevK:Cx2_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/80-C0603X161F1HACTU</datasheet>
+      <fields>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Part No">C0603X161F1HACTU</field>
+      </fields>
       <libsource lib="" part="Cx2_1" description=""/>
       <property name="Note" value=""/>
+      <property name="Part No" value="C0603X161F1HACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -40,22 +46,32 @@
       <value>160pF 1%</value>
       <footprint>RevK:Cx2_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/80-C0603X161F1HACTU</datasheet>
-      <libsource lib="RevK" part="Cx2" description=""/>
+      <fields>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Part No">C0603X161F1HACTU</field>
+      </fields>
+      <libsource lib="" part="Cx2_1" description=""/>
       <property name="Note" value=""/>
+      <property name="Part No" value="C0603X161F1HACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>00000000-0000-0000-0000-000060757e92</tstamps>
+      <tstamps>4b8d25e0-f830-4864-9f16-698fc7486e15</tstamps>
     </comp>
     <comp ref="C3">
       <value>22pF 1%</value>
       <footprint>RevK:C_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/791-0603N220F500CT</datasheet>
       <fields>
+        <field name="Manufacturer">Walsin</field>
         <field name="Note">0603</field>
+        <field name="Part No">0603N220F500CT</field>
       </fields>
       <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="0603N220F500CT"/>
+      <property name="Manufacturer" value="Walsin"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -66,10 +82,14 @@
       <footprint>RevK:C_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/791-0603N220F500CT</datasheet>
       <fields>
+        <field name="Manufacturer">Walsin</field>
         <field name="Note">0603</field>
+        <field name="Part No">0603N220F500CT</field>
       </fields>
       <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="0603N220F500CT"/>
+      <property name="Manufacturer" value="Walsin"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -80,10 +100,14 @@
       <footprint>RevK:C_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/77-VJ0603A221GXAPBC</datasheet>
       <fields>
+        <field name="Manufacturer">Vishay / Vitramon</field>
         <field name="Note">0603</field>
+        <field name="Part No">VJ0603A221GXAPW1BC</field>
       </fields>
       <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="VJ0603A221GXAPW1BC"/>
+      <property name="Manufacturer" value="Vishay / Vitramon"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -94,10 +118,14 @@
       <footprint>RevK:C_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/77-VJ0603A221GXAPBC</datasheet>
       <fields>
+        <field name="Manufacturer">Vishay / Vitramon</field>
         <field name="Note">0603</field>
+        <field name="Part No">VJ0603A221GXAPW1BC</field>
       </fields>
       <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="VJ0603A221GXAPW1BC"/>
+      <property name="Manufacturer" value="Vishay / Vitramon"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -108,10 +136,14 @@
       <footprint>RevK:C_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/80-C0603C104M4R</datasheet>
       <fields>
+        <field name="Manufacturer">KEMET</field>
         <field name="Note">0603</field>
+        <field name="Part No">C0603C104M4RACTU</field>
       </fields>
       <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="C0603C104M4RACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -122,10 +154,14 @@
       <footprint>RevK:C_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/77-VJ0603A102GXAPBC</datasheet>
       <fields>
+        <field name="Manufacturer">Vishay / Vitramon</field>
         <field name="Note">0603</field>
+        <field name="Part No">VJ0603A102GXAPW1BC</field>
       </fields>
       <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="VJ0603A102GXAPW1BC"/>
+      <property name="Manufacturer" value="Vishay / Vitramon"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -136,10 +172,14 @@
       <footprint>RevK:C_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/80-C0603C104M4R</datasheet>
       <fields>
+        <field name="Manufacturer">KEMET</field>
         <field name="Note">0603</field>
+        <field name="Part No">C0603C104M4RACTU</field>
       </fields>
       <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="C0603C104M4RACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -150,10 +190,14 @@
       <footprint>RevK:C_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/187-CL10A475KP8NNNC</datasheet>
       <fields>
+        <field name="Manufacturer">Samsung Electro-Mechanics</field>
         <field name="Note">0603</field>
+        <field name="Part No">CL10A475KP8NNNC</field>
       </fields>
       <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="CL10A475KP8NNNC"/>
+      <property name="Manufacturer" value="Samsung Electro-Mechanics"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -164,10 +208,14 @@
       <footprint>RevK:C_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/80-C0603C104M4R</datasheet>
       <fields>
+        <field name="Manufacturer">KEMET</field>
         <field name="Note">0603</field>
+        <field name="Part No">C0603C104M4RACTU</field>
       </fields>
       <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="C0603C104M4RACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -178,10 +226,14 @@
       <footprint>RevK:C_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/80-C0603C104M4R</datasheet>
       <fields>
+        <field name="Manufacturer">KEMET</field>
         <field name="Note">0603</field>
+        <field name="Part No">C0603C104M4RACTU</field>
       </fields>
       <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="C0603C104M4RACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -192,10 +244,14 @@
       <footprint>RevK:C_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/187-CL10A475KP8NNNC</datasheet>
       <fields>
+        <field name="Manufacturer">Samsung Electro-Mechanics</field>
         <field name="Note">0603</field>
+        <field name="Part No">CL10A475KP8NNNC</field>
       </fields>
       <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="CL10A475KP8NNNC"/>
+      <property name="Manufacturer" value="Samsung Electro-Mechanics"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -220,10 +276,14 @@
       <footprint>RevK:C_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/187-CL10A475KP8NNNC</datasheet>
       <fields>
+        <field name="Manufacturer">Samsung Electro-Mechanics</field>
         <field name="Note">0603</field>
+        <field name="Part No">CL10A475KP8NNNC</field>
       </fields>
       <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="CL10A475KP8NNNC"/>
+      <property name="Manufacturer" value="Samsung Electro-Mechanics"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -234,10 +294,14 @@
       <footprint>RevK:C_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/791-0603N220F500CT</datasheet>
       <fields>
+        <field name="Manufacturer">Walsin</field>
         <field name="Note">0603</field>
+        <field name="Part No">0603N220F500CT</field>
       </fields>
       <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="0603N220F500CT"/>
+      <property name="Manufacturer" value="Walsin"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -248,10 +312,14 @@
       <footprint>RevK:C_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/791-0603N220F500CT</datasheet>
       <fields>
+        <field name="Manufacturer">Walsin</field>
         <field name="Note">0603</field>
+        <field name="Part No">0603N220F500CT</field>
       </fields>
       <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="0603N220F500CT"/>
+      <property name="Manufacturer" value="Walsin"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -262,10 +330,14 @@
       <footprint>RevK:C_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/80-C0603C104M4R</datasheet>
       <fields>
+        <field name="Manufacturer">KEMET</field>
         <field name="Note">0603</field>
+        <field name="Part No">C0603C104M4RACTU</field>
       </fields>
       <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="C0603C104M4RACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -276,10 +348,14 @@
       <footprint>RevK:C_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/80-C0603C330G8HACTU</datasheet>
       <fields>
+        <field name="Manufacturer">KEMET</field>
         <field name="Note">0603</field>
+        <field name="Part No">C0603C330G8HACTU</field>
       </fields>
       <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="C0603C330G8HACTU"/>
+      <property name="Manufacturer" value="KEMET"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -290,10 +366,14 @@
       <footprint>RevK:LED_Reverse</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/604-APTD1608LCGCK</datasheet>
       <fields>
+        <field name="Manufacturer">Kingbright</field>
         <field name="Note">0603 mounted face down</field>
+        <field name="Part No">APTD1608LCGCK</field>
       </fields>
       <libsource lib="Device" part="LED" description="Light emitting diode"/>
       <property name="Note" value="0603 mounted face down"/>
+      <property name="Part No" value="APTD1608LCGCK"/>
+      <property name="Manufacturer" value="Kingbright"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -304,10 +384,14 @@
       <footprint>RevK:LED_Reverse</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/604-APHD1608LSYCK</datasheet>
       <fields>
+        <field name="Manufacturer">Kingbright</field>
         <field name="Note">0603 mounted face down</field>
+        <field name="Part No">APHD1608LSYCK</field>
       </fields>
       <libsource lib="Device" part="LED" description="Light emitting diode"/>
       <property name="Note" value="0603 mounted face down"/>
+      <property name="Part No" value="APHD1608LSYCK"/>
+      <property name="Manufacturer" value="Kingbright"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -318,10 +402,14 @@
       <footprint>RevK:LED_Reverse</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/604-APHD1608LSURCK</datasheet>
       <fields>
+        <field name="Manufacturer">Kingbright</field>
         <field name="Note">0603 mounted face down</field>
+        <field name="Part No">APHD1608LSURCK</field>
       </fields>
       <libsource lib="Device" part="LED" description="Light emitting diode"/>
       <property name="Note" value="0603 mounted face down"/>
+      <property name="Part No" value="APHD1608LSURCK"/>
+      <property name="Manufacturer" value="Kingbright"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -331,7 +419,13 @@
       <value>BAV99S</value>
       <footprint>RevK:SOT-363_SC-70-6</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/771-BAV99S-T-R</datasheet>
+      <fields>
+        <field name="Manufacturer">Nexperia</field>
+        <field name="Part No">BAV99S,115</field>
+      </fields>
       <libsource lib="Diode" part="BAV99S" description="High-speed switching diodes, dual series, SOT-363"/>
+      <property name="Part No" value="BAV99S,115"/>
+      <property name="Manufacturer" value="Nexperia"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -341,7 +435,13 @@
       <value>BAV99S</value>
       <footprint>RevK:SOT-363_SC-70-6</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/771-BAV99S-T-R</datasheet>
+      <fields>
+        <field name="Manufacturer">Nexperia</field>
+        <field name="Part No">BAV99S,115</field>
+      </fields>
       <libsource lib="Diode" part="BAV99S" description="High-speed switching diodes, dual series, SOT-363"/>
+      <property name="Part No" value="BAV99S,115"/>
+      <property name="Manufacturer" value="Nexperia"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -351,7 +451,13 @@
       <value>BAV99S</value>
       <footprint>RevK:SOT-363_SC-70-6</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/771-BAV99S-T-R</datasheet>
+      <fields>
+        <field name="Manufacturer">Nexperia</field>
+        <field name="Part No">BAV99S,115</field>
+      </fields>
       <libsource lib="Diode" part="BAV99S" description="High-speed switching diodes, dual series, SOT-363"/>
+      <property name="Part No" value="BAV99S,115"/>
+      <property name="Manufacturer" value="Nexperia"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -362,10 +468,14 @@
       <footprint>RevK:L_1206_1008</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/81-LQW2UASR56G00L</datasheet>
       <fields>
+        <field name="Manufacturer">Murata Electronics</field>
         <field name="Note">High quality inductor</field>
+        <field name="Part No">LQW2UASR56G00L</field>
       </fields>
       <libsource lib="Device" part="L" description="Inductor"/>
       <property name="Note" value="High quality inductor"/>
+      <property name="Part No" value="LQW2UASR56G00L"/>
+      <property name="Manufacturer" value="Murata Electronics"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -376,10 +486,14 @@
       <footprint>RevK:L_1206_1008</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/81-LQW2UASR56G00L</datasheet>
       <fields>
+        <field name="Manufacturer">Murata Electronics</field>
         <field name="Note">High quality inductor</field>
+        <field name="Part No">LQW2UASR56G00L</field>
       </fields>
       <libsource lib="Device" part="L" description="Inductor"/>
       <property name="Note" value="High quality inductor"/>
+      <property name="Part No" value="LQW2UASR56G00L"/>
+      <property name="Manufacturer" value="Murata Electronics"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -390,11 +504,14 @@
       <footprint>RevK:Hidden</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/652-CR0603-J-000ELF</datasheet>
       <fields>
+        <field name="Manufacturer">Bourns</field>
         <field name="Note">0603</field>
+        <field name="Part No">CR0603-J/-000ELF</field>
       </fields>
       <libsource lib="" part="Hidden_2" description=""/>
       <property name="Note" value="0603"/>
-      <property name="Part No" value=""/>
+      <property name="Part No" value="CR0603-J/-000ELF"/>
+      <property name="Manufacturer" value="Bourns"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -405,11 +522,14 @@
       <footprint>RevK:Hidden</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/603-RC0603FR-102K7L</datasheet>
       <fields>
+        <field name="Manufacturer">YAGEO</field>
         <field name="Note">0805</field>
+        <field name="Part No">RC0603FR-102K7L</field>
       </fields>
       <libsource lib="RevK" part="Hidden" description=""/>
       <property name="Note" value="0805"/>
-      <property name="Part No" value=""/>
+      <property name="Part No" value="RC0603FR-102K7L"/>
+      <property name="Manufacturer" value="YAGEO"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -420,25 +540,32 @@
       <footprint>RevK:Hidden</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/652-CR0603-J-000ELF</datasheet>
       <fields>
+        <field name="Manufacturer">Bourns</field>
         <field name="Note">0603</field>
+        <field name="Part No">CR0603-J/-000ELF</field>
       </fields>
-      <libsource lib="" part="Hidden_1" description=""/>
+      <libsource lib="" part="Hidden_2" description=""/>
       <property name="Note" value="0603"/>
-      <property name="Part No" value=""/>
+      <property name="Part No" value="CR0603-J/-000ELF"/>
+      <property name="Manufacturer" value="Bourns"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>ee60c444-4c3e-49fb-aea9-ab1291effc35</tstamps>
+      <tstamps>01990a6a-0667-4329-811a-e07a4a9e79e9</tstamps>
     </comp>
     <comp ref="R4">
       <value>2K7 1%</value>
       <footprint>RevK:R_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/603-RC0603FR-102K7L</datasheet>
       <fields>
+        <field name="Manufacturer">YAGEO</field>
         <field name="Note">0603</field>
+        <field name="Part No">RC0603FR-102K7L</field>
       </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="RC0603FR-102K7L"/>
+      <property name="Manufacturer" value="YAGEO"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -449,10 +576,14 @@
       <footprint>RevK:R_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/71-CRCW06031K00FKEAC</datasheet>
       <fields>
+        <field name="Manufacturer">Vishay / Dale</field>
         <field name="Note">0603</field>
+        <field name="Part No">CRCW06031K00FKEAC</field>
       </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="CRCW06031K00FKEAC"/>
+      <property name="Manufacturer" value="Vishay / Dale"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -463,10 +594,14 @@
       <footprint>RevK:R_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/652-CR0603FX-1002ELF</datasheet>
       <fields>
+        <field name="Manufacturer">Bourns</field>
         <field name="Note">0603</field>
+        <field name="Part No">CR0603-FX-1002ELF</field>
       </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="CR0603-FX-1002ELF"/>
+      <property name="Manufacturer" value="Bourns"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -477,10 +612,14 @@
       <footprint>RevK:R_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/603-RC0603JR-1020KL</datasheet>
       <fields>
+        <field name="Manufacturer">YAGEO</field>
         <field name="Note">0603</field>
+        <field name="Part No">RC0603JR-1020KL</field>
       </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="RC0603JR-1020KL"/>
+      <property name="Manufacturer" value="YAGEO"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -491,10 +630,14 @@
       <footprint>RevK:R_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/603-AC0603JR-07470RL</datasheet>
       <fields>
+        <field name="Manufacturer">YAGEO</field>
         <field name="Note">0603</field>
+        <field name="Part No">AC0603JR-07470RL</field>
       </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="AC0603JR-07470RL"/>
+      <property name="Manufacturer" value="YAGEO"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -505,10 +648,14 @@
       <footprint>RevK:R_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/603-RC0603JR-07680RL</datasheet>
       <fields>
+        <field name="Manufacturer">YAGEO</field>
         <field name="Note">0603</field>
+        <field name="Part No">RC0603JR-07680RL</field>
       </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="RC0603JR-07680RL"/>
+      <property name="Manufacturer" value="YAGEO"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -519,10 +666,14 @@
       <footprint>RevK:R_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/603-RC0603JR-07680RL</datasheet>
       <fields>
+        <field name="Manufacturer">YAGE</field>
         <field name="Note">0603</field>
+        <field name="Part No">RC0603JR-07680RL</field>
       </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="RC0603JR-07680RL"/>
+      <property name="Manufacturer" value="YAGE"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -533,10 +684,14 @@
       <footprint>RevK:R_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/652-CR0603FX-1002ELF</datasheet>
       <fields>
+        <field name="Manufacturer">Bourns</field>
         <field name="Note">0603</field>
+        <field name="Part No">CR0603-FX-1002ELF</field>
       </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="CR0603-FX-1002ELF"/>
+      <property name="Manufacturer" value="Bourns"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -547,10 +702,14 @@
       <footprint>RevK:R_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/603-RC0603JR-07100RL</datasheet>
       <fields>
+        <field name="Manufacturer">YAGEO</field>
         <field name="Note">0603</field>
+        <field name="Part No">RC0603JR-07100RL</field>
       </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="RC0603JR-07100RL"/>
+      <property name="Manufacturer" value="YAGEO"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -561,10 +720,14 @@
       <footprint>RevK:R_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/603-RC0603JR-07100RL</datasheet>
       <fields>
+        <field name="Manufacturer">YAGEO</field>
         <field name="Note">0603</field>
+        <field name="Part No">RC0603JR-07100RL</field>
       </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="RC0603JR-07100RL"/>
+      <property name="Manufacturer" value="YAGEO"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -575,10 +738,14 @@
       <footprint>RevK:R_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/603-RC0603JR-07100RL</datasheet>
       <fields>
+        <field name="Manufacturer">YAGEO</field>
         <field name="Note">0603</field>
+        <field name="Part No">RC0603JR-07100RL</field>
       </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="RC0603JR-07100RL"/>
+      <property name="Manufacturer" value="YAGEO"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -589,10 +756,14 @@
       <footprint>RevK:R_0603</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/652-CR0603FX-1002ELF</datasheet>
       <fields>
+        <field name="Manufacturer">Bourns</field>
         <field name="Note">0603</field>
+        <field name="Part No">CR0603-FX-1002ELF</field>
       </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
       <property name="Note" value="0603"/>
+      <property name="Part No" value="CR0603-FX-1002ELF"/>
+      <property name="Manufacturer" value="Bourns"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -602,7 +773,13 @@
       <value>TAMPER</value>
       <footprint>RevK:SW_PUSH_6mm_SMD</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/612-LL3301NF065QG</datasheet>
+      <fields>
+        <field name="Manufacturer">E-Switch</field>
+        <field name="Part No">LL3301NF065QG</field>
+      </fields>
       <libsource lib="Switch" part="SW_Push" description="Push button switch, generic, two pins"/>
+      <property name="Part No" value="LL3301NF065QG"/>
+      <property name="Manufacturer" value="E-Switch"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -612,7 +789,13 @@
       <value>PN532</value>
       <footprint>RevK:QFN-40-1EP_6x6mm_P0.5mm_EP4.6x4.6mm</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/771-PN5321A3HN10</datasheet>
+      <fields>
+        <field name="Manufacturer">NXP Semiconductors</field>
+        <field name="Part No">PN5321A3HN/C106,51</field>
+      </fields>
       <libsource lib="RevK" part="PN532" description=""/>
+      <property name="Part No" value="PN5321A3HN/C106,51"/>
+      <property name="Manufacturer" value="NXP Semiconductors"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -622,7 +805,13 @@
       <value>27.12MHz</value>
       <footprint>RevK:Crystal-3.4x2.7</footprint>
       <datasheet>https://www.mouser.co.uk/ProductDetail/710-830053099</datasheet>
+      <fields>
+        <field name="Manufacturer">Wurth Elektronik</field>
+        <field name="Part No">830053099</field>
+      </fields>
       <libsource lib="Device" part="Crystal_GND24" description="Four pin crystal, GND on pins 2 and 4"/>
+      <property name="Part No" value="830053099"/>
+      <property name="Manufacturer" value="Wurth Elektronik"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -643,16 +832,6 @@
       <pins>
         <pin num="1" name="" type="passive"/>
         <pin num="2" name="" type="passive"/>
-      </pins>
-    </libpart>
-    <libpart lib="" part="Hidden_1">
-      <fields>
-        <field name="Reference">Z</field>
-        <field name="Value">Hidden_1</field>
-        <field name="Footprint">RevK:Hidden</field>
-      </fields>
-      <pins>
-        <pin num="~" name="" type="no_connect"/>
       </pins>
     </libpart>
     <libpart lib="" part="Hidden_2">
@@ -879,21 +1058,6 @@
         <field name="Footprint">RevK:AJK</field>
         <field name="Note">Non part, PCB printed</field>
       </fields>
-    </libpart>
-    <libpart lib="RevK" part="Cx2">
-      <footprints>
-        <fp>C_*</fp>
-      </footprints>
-      <fields>
-        <field name="Reference">C</field>
-        <field name="Value">Cx2</field>
-        <field name="Footprint">RevK:Cx2_0603</field>
-        <field name="Note">May be two 0603 parts</field>
-      </fields>
-      <pins>
-        <pin num="1" name="" type="passive"/>
-        <pin num="2" name="" type="passive"/>
-      </pins>
     </libpart>
     <libpart lib="RevK" part="Hidden">
       <fields>
@@ -1154,10 +1318,10 @@
     <net code="19" name="Net-(J1-Pad2)">
       <node ref="R12" pin="2" pintype="passive"/>
     </net>
-    <net code="20" name="Net-(J3-Pad3)">
+    <net code="20" name="Net-(J2-Pad3)">
       <node ref="R13" pin="1" pintype="passive"/>
     </net>
-    <net code="21" name="Net-(J3-Pad4)">
+    <net code="21" name="Net-(J2-Pad4)">
       <node ref="R14" pin="1" pintype="passive"/>
     </net>
     <net code="22" name="Net-(JP1-Pad2)">

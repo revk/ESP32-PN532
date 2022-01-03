@@ -1,4 +1,4 @@
-### Module positions - created on 2022-01-03 08:15
+### Module positions - created on 2022-01-03 09:05
 ### Printed by pcb_positions plugin
 ## Unit = mm, Angle = deg.
 ## Pcb Height 40.050mm, Pcb Width 40.050mm [based on Edge bounding box]
@@ -8,7 +8,7 @@
 H2            MountingHole        ISO7380-M3-NoPad              88.0000    -88.0000   0.0000     0.0000        0.0    top       VIRTUAL
 H1            MountingHole        ISO7380-M3-NoPad              112.0000   -112.0000  0.0000     0.0000        0.0    top       VIRTUAL
 J1            Bell                PinHeader_1x02_P2.54mm_Vert.. 112.0000   -107.2700  112.0000   -107.2700   180.0    top       VIRTUAL
-J3            SPOX                Molex_MiniSPOX_H4V            100.0000   -108.9000  96.2500    -108.9000     0.0    top       VIRTUAL
+J2            SPOX                Molex_MiniSPOX_H4V            100.0000   -108.9000  96.2500    -108.9000     0.0    top       VIRTUAL
 TP1           TestPoint_2Pole     PN532-RF-Test                 100.0000   -92.4000   101.2500   -92.4000    180.0    top       VIRTUAL
 JP1           I1                  SolderJumper-3_P1.3mm_Bridg.. 94.6500    -105.4000  93.3500    -105.4000     0.0    top       VIRTUAL
 U2            QR                  QR-PN532                      89.4000    -110.6000  0.0000     0.0000      180.0    top       VIRTUAL
