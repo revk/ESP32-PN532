@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>/Users/adrian/git/ESP32-PN532/KiCad/PN532.kicad_sch</source>
-    <date>Monday, 03 January 2022 at 09:10:21</date>
+    <date>Monday, 03 January 2022 at 16:38:50</date>
     <tool>Eeschema (6.0.0-0)</tool>
     <textvar name="DATE">2022-01-01</textvar>
     <sheet number="1" name="/" tstamps="/">
@@ -363,17 +363,17 @@
     </comp>
     <comp ref="D1">
       <value>G</value>
-      <footprint>RevK:LED_Reverse</footprint>
-      <datasheet>https://www.mouser.co.uk/ProductDetail/604-APTD1608LCGCK</datasheet>
+      <footprint>RevK:STP_156120xx7530</footprint>
+      <datasheet>https://www.mouser.co.uk/ProductDetail/710-156120VS75300</datasheet>
       <fields>
-        <field name="Manufacturer">Kingbright</field>
-        <field name="Note">0603 mounted face down</field>
-        <field name="Part No">APTD1608LCGCK</field>
+        <field name="Manufacturer">Wurth Elektronik</field>
+        <field name="Note">Reverse mount LED</field>
+        <field name="Part No">156120VS75300</field>
       </fields>
       <libsource lib="Device" part="LED" description="Light emitting diode"/>
-      <property name="Note" value="0603 mounted face down"/>
-      <property name="Part No" value="APTD1608LCGCK"/>
-      <property name="Manufacturer" value="Kingbright"/>
+      <property name="Note" value="Reverse mount LED"/>
+      <property name="Part No" value="156120VS75300"/>
+      <property name="Manufacturer" value="Wurth Elektronik"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -381,17 +381,17 @@
     </comp>
     <comp ref="D2">
       <value>A</value>
-      <footprint>RevK:LED_Reverse</footprint>
-      <datasheet>https://www.mouser.co.uk/ProductDetail/604-APHD1608LSYCK</datasheet>
+      <footprint>RevK:STP_156120xx7530</footprint>
+      <datasheet>https://www.mouser.co.uk/ProductDetail/710-156120YS75300</datasheet>
       <fields>
-        <field name="Manufacturer">Kingbright</field>
-        <field name="Note">0603 mounted face down</field>
-        <field name="Part No">APHD1608LSYCK</field>
+        <field name="Manufacturer">Wurth Elektronik</field>
+        <field name="Note">Reverse mount LED</field>
+        <field name="Part No">156120YS75300</field>
       </fields>
       <libsource lib="Device" part="LED" description="Light emitting diode"/>
-      <property name="Note" value="0603 mounted face down"/>
-      <property name="Part No" value="APHD1608LSYCK"/>
-      <property name="Manufacturer" value="Kingbright"/>
+      <property name="Note" value="Reverse mount LED"/>
+      <property name="Part No" value="156120YS75300"/>
+      <property name="Manufacturer" value="Wurth Elektronik"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -399,17 +399,17 @@
     </comp>
     <comp ref="D3">
       <value>R</value>
-      <footprint>RevK:LED_Reverse</footprint>
-      <datasheet>https://www.mouser.co.uk/ProductDetail/604-APHD1608LSURCK</datasheet>
+      <footprint>RevK:STP_156120xx7530</footprint>
+      <datasheet>https://www.mouser.co.uk/ProductDetail/710-156120RS75300</datasheet>
       <fields>
-        <field name="Manufacturer">Kingbright</field>
-        <field name="Note">0603 mounted face down</field>
-        <field name="Part No">APHD1608LSURCK</field>
+        <field name="Manufacturer">Wurth Elektronik</field>
+        <field name="Note">Reverse mount LED</field>
+        <field name="Part No">156120RS75300</field>
       </fields>
       <libsource lib="Device" part="LED" description="Light emitting diode"/>
-      <property name="Note" value="0603 mounted face down"/>
-      <property name="Part No" value="APHD1608LSURCK"/>
-      <property name="Manufacturer" value="Kingbright"/>
+      <property name="Note" value="Reverse mount LED"/>
+      <property name="Part No" value="156120RS75300"/>
+      <property name="Manufacturer" value="Wurth Elektronik"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -626,17 +626,17 @@
       <tstamps>00000000-0000-0000-0000-00006080809b</tstamps>
     </comp>
     <comp ref="R8">
-      <value>470R</value>
+      <value>100R</value>
       <footprint>RevK:R_0603</footprint>
-      <datasheet>https://www.mouser.co.uk/ProductDetail/603-AC0603JR-07470RL</datasheet>
+      <datasheet>https://www.mouser.co.uk/ProductDetail/603-RC0603JR-07100RL</datasheet>
       <fields>
         <field name="Manufacturer">YAGEO</field>
         <field name="Note">0603</field>
-        <field name="Part No">AC0603JR-07470RL</field>
+        <field name="Part No">RC0603JR-07100RL</field>
       </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
       <property name="Note" value="0603"/>
-      <property name="Part No" value="AC0603JR-07470RL"/>
+      <property name="Part No" value="RC0603JR-07100RL"/>
       <property name="Manufacturer" value="YAGEO"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
@@ -644,17 +644,17 @@
       <tstamps>00000000-0000-0000-0000-0000607ebc51</tstamps>
     </comp>
     <comp ref="R9">
-      <value>680R</value>
+      <value>100R</value>
       <footprint>RevK:R_0603</footprint>
-      <datasheet>https://www.mouser.co.uk/ProductDetail/603-RC0603JR-07680RL</datasheet>
+      <datasheet>https://www.mouser.co.uk/ProductDetail/603-RC0603JR-07100RL</datasheet>
       <fields>
         <field name="Manufacturer">YAGEO</field>
         <field name="Note">0603</field>
-        <field name="Part No">RC0603JR-07680RL</field>
+        <field name="Part No">RC0603JR-07100RL</field>
       </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
       <property name="Note" value="0603"/>
-      <property name="Part No" value="RC0603JR-07680RL"/>
+      <property name="Part No" value="RC0603JR-07100RL"/>
       <property name="Manufacturer" value="YAGEO"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
@@ -662,17 +662,17 @@
       <tstamps>00000000-0000-0000-0000-0000607ed1a6</tstamps>
     </comp>
     <comp ref="R10">
-      <value>680R</value>
+      <value>100R</value>
       <footprint>RevK:R_0603</footprint>
-      <datasheet>https://www.mouser.co.uk/ProductDetail/603-RC0603JR-07680RL</datasheet>
+      <datasheet>https://www.mouser.co.uk/ProductDetail/603-RC0603JR-07100RL</datasheet>
       <fields>
         <field name="Manufacturer">YAGE</field>
         <field name="Note">0603</field>
-        <field name="Part No">RC0603JR-07680RL</field>
+        <field name="Part No">RC0603JR-07100RL</field>
       </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
       <property name="Note" value="0603"/>
-      <property name="Part No" value="RC0603JR-07680RL"/>
+      <property name="Part No" value="RC0603JR-07100RL"/>
       <property name="Manufacturer" value="YAGE"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>

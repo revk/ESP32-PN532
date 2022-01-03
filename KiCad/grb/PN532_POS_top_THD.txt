@@ -1,4 +1,4 @@
-### Module positions - created on 2022-01-03 09:05
+### Module positions - created on 2022-01-03 16:53
 ### Printed by pcb_positions plugin
 ## Unit = mm, Angle = deg.
 ## Pcb Height 40.050mm, Pcb Width 40.050mm [based on Edge bounding box]
@@ -6,7 +6,4 @@
 ## Board Aux Origin: 0.000mm ,0.000mm
 # Ref         Val                 Package                       PosX       PosY       Pin1_PosX  Pin1_PosY    Rot     Side      Type
 Y1            27.12MHz            Crystal-3.4x2.7               93.8750    -100.0000  93.0750    -98.6500     90.0    top       THD
-D2            A                   LED_Reverse                   112.0000   -94.0000   112.0000   -94.9000     90.0    top       THD
-D3            R                   LED_Reverse                   112.0000   -88.0000   112.0000   -88.9000     90.0    top       THD
-D1            G                   LED_Reverse                   112.0000   -100.0000  112.0000   -100.9000    90.0    top       THD
 ## End
