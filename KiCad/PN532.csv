@@ -1,5 +1,5 @@
 "Source:","/Users/adrian/git/ESP32-PN532/KiCad/PN532.kicad_sch"
-"Date:","Tuesday, 04 January 2022 at 07:30:50"
+"Date:","Wednesday, 05 January 2022 at 12:42:05"
 "Tool:","Eeschema (6.0.0-0)"
 "Generator:","/Applications/KiCad/KiCad.app/Contents/SharedSupport/plugins/bom_csv_grouped_by_value.py"
 "Component Count:","45"
@@ -51,7 +51,7 @@
 "","","R15","10K","Device:R","RevK:R_0603","~","","","0603-10K"
 "","","SW1","TAMPER","Switch:SW_Push","RevK:SW_PUSH_6mm_SMD","https://www.mouser.co.uk/ProductDetail/612-LL3301NF065QG","E-Switch","","LL3301NF065QG"
 "","","U1","PN532","RevK:PN532","RevK:QFN-40-1EP_6x6mm_P0.5mm_EP4.6x4.6mm","https://www.mouser.co.uk/ProductDetail/771-PN5321A3HN10","NXP Semiconductors","","PN5321A3HN/C106,51"
-"","","Y1","27.12MHz","Device:Crystal_GND24","RevK:Crystal-3.4x2.7","https://www.mouser.co.uk/ProductDetail/710-830053099","Wurth Elektronik","","830053099"
+"","","Y1","27.12MHz","Device:Crystal_GND24","RevK:Crystal-3.4x2.7","https://www.mouser.co.uk/ProductDetail/815-ABM81-271-10B1UT","ABRACON","","ABM81-27.120MHZ-10-B1U-T3"
 
 
 
@@ -80,4 +80,4 @@
 "20","6","R8, R9, R10, R12, R13, R14","100R","Device:R","RevK:R_0603","~","","","0603-100R"
 "21","1","SW1","TAMPER","Switch:SW_Push","RevK:SW_PUSH_6mm_SMD","https://www.mouser.co.uk/ProductDetail/612-LL3301NF065QG","E-Switch","","LL3301NF065QG"
 "22","1","U1","PN532","RevK:PN532","RevK:QFN-40-1EP_6x6mm_P0.5mm_EP4.6x4.6mm","https://www.mouser.co.uk/ProductDetail/771-PN5321A3HN10","NXP Semiconductors","","PN5321A3HN/C106,51"
-"23","1","Y1","27.12MHz","Device:Crystal_GND24","RevK:Crystal-3.4x2.7","https://www.mouser.co.uk/ProductDetail/710-830053099","Wurth Elektronik","","830053099"
+"23","1","Y1","27.12MHz","Device:Crystal_GND24","RevK:Crystal-3.4x2.7","https://www.mouser.co.uk/ProductDetail/815-ABM81-271-10B1UT","ABRACON","","ABM81-27.120MHZ-10-B1U-T3"

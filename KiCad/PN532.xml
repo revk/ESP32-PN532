@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>/Users/adrian/git/ESP32-PN532/KiCad/PN532.kicad_sch</source>
-    <date>Tuesday, 04 January 2022 at 07:30:50</date>
+    <date>Wednesday, 05 January 2022 at 12:42:05</date>
     <tool>Eeschema (6.0.0-0)</tool>
     <textvar name="DATE">2022-01-01</textvar>
     <sheet number="1" name="/" tstamps="/">
@@ -730,14 +730,14 @@
     <comp ref="Y1">
       <value>27.12MHz</value>
       <footprint>RevK:Crystal-3.4x2.7</footprint>
-      <datasheet>https://www.mouser.co.uk/ProductDetail/710-830053099</datasheet>
+      <datasheet>https://www.mouser.co.uk/ProductDetail/815-ABM81-271-10B1UT</datasheet>
       <fields>
-        <field name="Manufacturer">Wurth Elektronik</field>
-        <field name="Part No">830053099</field>
+        <field name="Manufacturer">ABRACON</field>
+        <field name="Part No">ABM81-27.120MHZ-10-B1U-T3</field>
       </fields>
       <libsource lib="Device" part="Crystal_GND24" description="Four pin crystal, GND on pins 2 and 4"/>
-      <property name="Part No" value="830053099"/>
-      <property name="Manufacturer" value="Wurth Elektronik"/>
+      <property name="Part No" value="ABM81-27.120MHZ-10-B1U-T3"/>
+      <property name="Manufacturer" value="ABRACON"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
