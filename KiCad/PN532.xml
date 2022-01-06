@@ -2,9 +2,10 @@
 <export version="E">
   <design>
     <source>/Users/adrian/git/ESP32-PN532/KiCad/PN532.kicad_sch</source>
-    <date>Wednesday, 05 January 2022 at 12:42:05</date>
+    <date>Thursday, 06 January 2022 at 09:46:38</date>
     <tool>Eeschema (6.0.0-0)</tool>
     <textvar name="DATE">2022-01-01</textvar>
+    <textvar name="URL">pn532.revk.uk</textvar>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
         <title>PN532 NFC Board</title>

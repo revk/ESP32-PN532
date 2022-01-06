@@ -434,6 +434,7 @@
     ]
   ],
   "text_variables": {
-    "DATE": "2022-01-01"
+    "DATE": "2022-01-01",
+    "URL": "pn532.revk.uk"
   }
 }
