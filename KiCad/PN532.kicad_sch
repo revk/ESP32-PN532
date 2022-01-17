@@ -2878,7 +2878,7 @@
   )
 
   (symbol (lib_id "Switch:SW_Push") (at 209.55 20.32 0) (unit 1)
-    (in_bom yes) (on_board yes)
+    (in_bom no) (on_board yes)
     (uuid 00000000-0000-0000-0000-00006076e91e)
     (property "Reference" "SW1" (id 0) (at 209.55 13.081 0))
     (property "Value" "TAMPER" (id 1) (at 209.55 15.3924 0))
@@ -3669,7 +3669,7 @@
     (property "Value" "I1" (id 1) (at 194.7672 149.733 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Jumper:SolderJumper-3_P1.3mm_Bridged2Bar12_RoundedPad1.0x1.5mm_NumberLabels" (id 2) (at 193.04 148.59 0)
+    (property "Footprint" "RevK:SolderJumper3" (id 2) (at 193.04 148.59 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 193.04 148.59 0)
@@ -4655,7 +4655,7 @@
       (reference "J2") (unit 1) (value "SPOX") (footprint "RevK:Molex_MiniSPOX_H4V")
     )
     (path "/00000000-0000-0000-0000-0000609405db"
-      (reference "JP1") (unit 1) (value "I1") (footprint "Jumper:SolderJumper-3_P1.3mm_Bridged2Bar12_RoundedPad1.0x1.5mm_NumberLabels")
+      (reference "JP1") (unit 1) (value "I1") (footprint "RevK:SolderJumper3")
     )
     (path "/00000000-0000-0000-0000-00006075bc21"
       (reference "L1") (unit 1) (value "560nH") (footprint "RevK:L_1206_1008")

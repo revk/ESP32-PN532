@@ -2,16 +2,16 @@
 <export version="E">
   <design>
     <source>/Users/adrian/git/ESP32-PN532/KiCad/PN532.kicad_sch</source>
-    <date>Thursday, 06 January 2022 at 09:46:38</date>
+    <date>Monday, 17 January 2022 at 09:13:48</date>
     <tool>Eeschema (6.0.0-0)</tool>
-    <textvar name="DATE">2022-01-01</textvar>
+    <textvar name="DATE">2022-01-17</textvar>
     <textvar name="URL">pn532.revk.uk</textvar>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
         <title>PN532 NFC Board</title>
         <company>Adrian Kennard Andrews &amp; Arnold Ltd</company>
         <rev>7</rev>
-        <date>2022-01-01</date>
+        <date>2022-01-17</date>
         <source>PN532.kicad_sch</source>
         <comment number="1" value="www.me.uk"/>
         <comment number="2" value=""/>
@@ -696,22 +696,6 @@
       <sheetpath names="/" tstamps="/"/>
       <tstamps>00000000-0000-0000-0000-00006086e7e9</tstamps>
     </comp>
-    <comp ref="SW1">
-      <value>TAMPER</value>
-      <footprint>RevK:SW_PUSH_6mm_SMD</footprint>
-      <datasheet>https://www.mouser.co.uk/ProductDetail/612-LL3301NF065QG</datasheet>
-      <fields>
-        <field name="Manufacturer">E-Switch</field>
-        <field name="Part No">LL3301NF065QG</field>
-      </fields>
-      <libsource lib="Switch" part="SW_Push" description="Push button switch, generic, two pins"/>
-      <property name="Part No" value="LL3301NF065QG"/>
-      <property name="Manufacturer" value="E-Switch"/>
-      <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="PN532.kicad_sch"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamps>00000000-0000-0000-0000-00006076e91e</tstamps>
-    </comp>
     <comp ref="U1">
       <value>PN532</value>
       <footprint>RevK:QFN-40-1EP_6x6mm_P0.5mm_EP4.6x4.6mm</footprint>
@@ -1156,7 +1140,6 @@
       <node ref="D6" pin="1" pinfunction="A1" pintype="passive"/>
       <node ref="D6" pin="4" pinfunction="A3" pintype="passive"/>
       <node ref="R7" pin="2" pintype="passive"/>
-      <node ref="SW1" pin="1" pinfunction="1" pintype="passive"/>
       <node ref="U1" pin="1" pinfunction="DVSS" pintype="power_in"/>
       <node ref="U1" pin="11" pinfunction="AVSS" pintype="power_in"/>
       <node ref="U1" pin="16" pinfunction="I0" pintype="input"/>
@@ -1281,7 +1264,6 @@
     </net>
     <net code="29" name="Net-(R11-Pad2)">
       <node ref="R11" pin="2" pintype="passive"/>
-      <node ref="SW1" pin="2" pinfunction="2" pintype="passive"/>
       <node ref="U1" pin="24" pinfunction="P30/UART_RX" pintype="bidirectional"/>
     </net>
     <net code="30" name="unconnected-(R1-Pad~)">
