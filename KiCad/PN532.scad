@@ -14,6 +14,7 @@ bell=true;   // Tamper 2 pin header rear
 screws=true;
 
 corner=8;       // PCB corner radius
+chamfer=1;     // Case chamfer
 size=20;        // PCB size/2
 pcb=0.8;        // PCB thickness
 
@@ -66,7 +67,12 @@ module top()
 {
     difference()
     {
-        hull()for(x=[corner-size,size-corner])for(y=[corner-size,size-corner])translate([x,y,0])cylinder(r=corner+thick,h=led+cover+pcb+4.9);
+        hull()for(x=[corner-size,size-corner])for(y=[corner-size,size-corner])translate([x,y,0])
+        {
+            translate([0,0,chamfer])
+            cylinder(r=corner+thick,h=led+cover+pcb+4.9-chamfer-(base>0?0:chamfer));
+            cylinder(r=corner+thick-chamfer,h=led+cover+pcb+4.9);
+        }
         translate([0,0,led+cover])
         hull()
         {
