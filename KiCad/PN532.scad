@@ -41,7 +41,7 @@ module base()
         translate([0,0,-0.1])hull()for(x=[-12,12])for(y=[-12,12])translate([x,y,0])cylinder(r=5,h=3);
         if(raspox)b(0,-8.9-6.6+7.9/2-2-20,-0.01,12.4+0.2,7.9+0.2+40,4.92);
         if(spox)b(0,-8.9+3.1-4.9/2,-0.01,12.4+0.5,4.9+0.5,5+base);
-        if(tamper)b(-11.5,0,0,6+0.2,6+0.2,3.9);
+        if(tamper)b(-11.5,0,0,7,7,3.9); // Under 6x6 but SMD so may not be exact placement
         if(bell)b(12,-6,-0.01,4.82+0.4,5.64+0.4,5+base);
         if(screws)for(t=[-12,12])translate([t,-t,2.9])
         { // Screws in base
