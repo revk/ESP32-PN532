@@ -4,7 +4,7 @@ cover=0;    // How much to cover the SMD LEDs on antenna side
             // Note it is assumed leaded components cut flush
 base=0;     // How much extra base (e.g. for mounting off metal)
 thick=3;    // Wall thickness
-led=1;      // LED thickness (depends on make of SMD LED)
+led=1;      // LED/front thickness
 
 raspox=true;    // Right angle SPOX side cable
 spox=true;     // Straight SPOX rear
@@ -81,8 +81,11 @@ module top()
         // LEDs
         for(y=[12,6,0])
         {
-            b(12,y,-0.01,1.4,1.6,1);
-            b(12,y,cover+led-0.3,1.8,4.6,1);
+            // New reverse LED
+            translate([12,y,-1])cylinder(d=1.4,h=2+led);
+            // older surface LED
+            *b(12,y,-0.01,1.4,1.6,1);
+            *b(12,y,cover+led-0.3,1.8,4.6,1);
         }
         if(spox||raspox)b(0,-8.9,cover+0.7,10,2.5,1);
         if(tamperth)b(-11.5,-3.25,cover+0.5,7.5,2.5,1);
