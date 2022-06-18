@@ -41,11 +41,7 @@ module base()
         translate([0,0,-0.1])hull()for(x=[-12,12])for(y=[-12,12])translate([x,y,0])cylinder(r=5,h=3);
         if(raspox)b(0,-8.9-6.6+7.9/2-2-20,-0.01,12.4+0.2,7.9+0.2+40,4.92);
         if(spox)b(0,-8.9+3.1-4.9/2,-0.01,12.4+0.5,4.9+0.5,5+base);
-        if(tamper)
-        {
-            b(-11.5,0,0,6+0.2,6+0.2,3.5);
-            for(x=[-2,2])for(y=[-2,2])translate([-11.5+x,y,0])cylinder(d=1,h=3.8);
-        }
+        if(tamper)b(-11.5,0,0,6+0.2,6+0.2,3.9);
         if(bell)b(12,-6,-0.01,4.82+0.4,5.64+0.4,5+base);
         if(screws)for(t=[-12,12])translate([t,-t,2.9])
         { // Screws in base
@@ -82,7 +78,7 @@ module top()
         for(y=[12,6,0])
         {
             // New reverse LED
-            translate([12,y,-1])cylinder(d=1.4,h=2+led);
+            translate([12,y,0.2])cylinder(d=1.4,h=2+led);
             // older surface LED
             *b(12,y,-0.01,1.4,1.6,1);
             *b(12,y,cover+led-0.3,1.8,4.6,1);
