@@ -24,7 +24,7 @@ main(int argc, const char *argv[])
    double          startr = 22.69;
    double          width = 0.5;
    double          step = 1.0;
-   double          starta = 2.5;
+   double          starta = 2.4;
    double          enda = 360 * 2 - 7;
    double          stepa = 30;
    double          edge = 23;
@@ -102,7 +102,7 @@ main(int argc, const char *argv[])
          if (strchr(thin, *p))
             a -= s / 4;
          if (*p != ' ')
-            printf("(fp_text user \"%c\" (at %lf %lf %lf unlocked) (layer \"F.SilkS\")(effects (font (size %lf %lf) (thickness %lf))))", *p, textr * sin(a), -textr * cos(a), -180 * a / M_PI, texth, texth,textt);
+            printf("(fp_text user \"%c\" (at %lf %lf %lf unlocked) (layer \"F.SilkS\")(effects (font (size %lf %lf) (thickness %lf))))", *p, textr * sin(a), -textr * cos(a), -180 * a / M_PI, texth, texth, textt);
          if (strchr(thin, *p))
             a -= s / 4;
          a += s;
@@ -116,7 +116,7 @@ main(int argc, const char *argv[])
          double          Y = y(starta);
          double          W = x(starta) * 2;
          printf("(model \"${KICAD6_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0805_2012Metric.step\" (offset (xyz 0 %lf 0)) (scale (xyz 1 1 1)) (rotate (xyz 0 0 90)))", -Y - 1);
-         printf("(pad \"\" smd rect (at 0 %lf 0) (size %lf %lf) (layers \"F.Cu\" \"B.Cu\"))", Y, W,width);
+         printf("(pad \"\" smd rect (at 0 %lf 0) (size %lf %lf) (layers \"F.Cu\" \"B.Cu\"))", Y, W, width);
          printf("(pad \"\" smd rect (at 0 %lf 0) (size 1.4 %lf) (layers \"F.Paste\" \"F.Mask\"))", Y, width);
          printf("(pad \"2\" smd rect (at 0 %lf 0) (size 1.4 %lf) (layers \"F.Cu\" \"F.Paste\" \"F.Mask\"))", Y + 2, width);
       }
@@ -133,13 +133,13 @@ main(int argc, const char *argv[])
       printf("(model \"${KICAD6_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step\" (offset (xyz %lF %lf 0)) (scale (xyz 1 1 1)) (rotate (xyz 0 0 90)))", X + 0.5, -Y - 0.8);
       printf("(model \"${KICAD6_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step\" (offset (xyz %lF %lf 0)) (scale (xyz 1 1 1)) (rotate (xyz 0 0 90)))", -X - 0.5, -Y - 0.8);
    }
-   printf("(pad \"\" thru_hole circle (at %lf %lf) (size %lf %lf) (drill %lf) (layers *.Cu))", -x(enda), y(enda), width, width, width / 2);     /* End pad */
    void            pad(const char *layer, double flip)
    {
       basex = basey = 0;
       printf("(pad \"\" thru_hole circle (at %lf %lf) (size %lf %lf) (drill %lf) (layers *.Cu))", flip * x(starta), y(starta), width, width, width / 2);
       printf("(pad \"\" smd custom (at %lf %lf) (size %lf %lf) (layers \"%s\") (options (clearance outline) (anchor circle)) (primitives ", flip * x(starta), y(starta), width, width, layer);
-      basex=x(starta);basey=y(starta);
+      basex = x(starta);
+      basey = y(starta);
       void            arc(double s, double e)
       {
          double          m = (s + e) / 2;
@@ -155,12 +155,12 @@ main(int argc, const char *argv[])
       if              (a < enda)
                          arc(a, enda);
                       printf("))");
+      basex = basey = 0;
    }
-                   pad("F.Cu", 1);
-   pad("B.Cu", -1);
-
-
-
+   /* the antenna itself */
+                   pad("F.Cu", -1);
+   pad("B.Cu", 1);
+   printf("(pad \"\" thru_hole circle (at %lf %lf) (size %lf %lf) (drill %lf) (layers *.Cu))", x(enda), y(enda), width, width, width / 2);      /* End pad */
    printf(")");
    return 0;
 }

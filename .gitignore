@@ -1,5 +1,6 @@
 makeloop
 makeloop.c.BAK
+makeloop.dSYM
 *.o
 *~
 *.swp

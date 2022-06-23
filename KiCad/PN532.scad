@@ -17,6 +17,7 @@ corner=8;       // PCB corner radius
 chamfer=1;     // Case chamfer
 size=20;        // PCB size/2
 pcb=0.8;        // PCB thickness
+slide=1;        // Screw hold slide
 
 $fn=100;
 
@@ -45,9 +46,12 @@ module base()
         if(bell)b(12,-6,-0.01,4.82+0.4,5.64+0.4,5+base);
         if(screws)for(t=[-12,12])translate([t,-t,2.9])
         { // Screws in base
-            translate([0,0,-1])cylinder(d=3.5,h=3+base+2);
-            translate([0,0,-0.01])cylinder(d=7,h=base/2+0.5);
-            translate([0,0,0.48+base/2])cylinder(d1=7,d2=3.5,h=2);
+            hull()for(t=[-slide/2,slide/2])
+                translate([t,t,-1])cylinder(d=3.5,h=3+base+2);
+            hull()for(t=[-slide/2,slide/2])
+                translate([t,t,-0.01])cylinder(d=7,h=base/2+0.5);
+            hull()for(t=[-slide/2,slide/2])
+                translate([t,t,0.48+base/2])cylinder(d1=7,d2=3.5,h=2);
         }
         for(y=[-9,9])hull()
         { // Clip
