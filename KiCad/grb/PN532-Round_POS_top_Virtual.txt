@@ -1,4 +1,4 @@
-### Module positions - created on 2022-06-23 06:49
+### Module positions - created on 2022-06-29 13:05
 ### Printed by pcb_positions plugin
 ## Unit = mm, Angle = deg.
 ## Pcb Height 46.100mm, Pcb Width 46.100mm [based on Edge bounding box]
@@ -7,7 +7,6 @@
 # Ref         Val                 Package                       PosX       PosY       Pin1_PosX  Pin1_PosY    Rot     Side      Type
 SW1           TAMPER              SW_PUSH_6mm_SMD               88.5000    -100.0000  90.7500    -104.2000   -90.0    top       VIRTUAL
 J1            Bell                PinHeader_1x02_P2.54mm_Vert.. 108.0000   -108.0000  106.3450   -109.2700   180.0    top       VIRTUAL
-J3            SPOX                PinHeader_1x04_P2.54mm_Vert.. 100.0000   -106.5000  96.1900    -104.8450    90.0    top       VIRTUAL
 JP1           I1                  SolderJumper3                 94.6500    -101.9600  93.3500    -101.9600     0.0    top       VIRTUAL
 U2            QR                  QR-PN532                      100.0000   -112.5000  0.0000     0.0000        0.0    top       VIRTUAL
 AJK1          AJK                 AJK                           89.1000    -92.1250   0.0000     0.0000        0.0    top       VIRTUAL
