@@ -33,4 +33,7 @@ PCBCase/case: PCBCase/case.c
 
 KiCad/PN532-Round.scad: KiCad/PN532-Round.kicad_pcb PCBCase/case Makefile
 	# TODO screw holes 0 maybe single centre screw
-	PCBCase/case -o $@ $< --base=0.8 --top=3.4
+	PCBCase/case -n -o $@ $< --base=0.8 --top=3.4
+	@echo "base();" >> $@
+	@echo "translate([spacing,0,0])difference(){top();translate([casewall+23,casewall+23,-1],$fn=100){cylinder(d=3.5,h=2);translate([0,0,0.2])cylinder(d1=3.5,d2=7,h=2);}}" >> $@
+
