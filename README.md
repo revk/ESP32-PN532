@@ -9,8 +9,8 @@ Includes KiCad PCB design for PN532 based NFC reader board and 3D case designs. 
 
 ![222646](https://user-images.githubusercontent.com/996983/121532575-6267b180-c9f7-11eb-9d81-e5eaee1c6fb6.jpg)
 
-A new round version is also being worked on...
+A new round version is also included, and works well.
 
-![PN532-Round 18 04 30](https://user-images.githubusercontent.com/996983/175097914-ae1ae863-0adb-49c4-a459-d978eaa86c0a.png)
+![IMG_1156](https://user-images.githubusercontent.com/996983/176459174-3fe8433f-f9d8-4517-bcb8-0d9437883fc2.jpeg)
 
 Copyright © 2019-22 Adrian Kennard, Andrews & Arnold Ltd. See LICENCE file for details. GPL 3.0
