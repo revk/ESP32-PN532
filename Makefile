@@ -1,6 +1,17 @@
 makeloop: makeloop.c
 	gcc -I/usr/local/include -L/usr/local/lib -O -o $@ $< -lpopt -lm -g
 
+clean:
+	idf.py clean
+
+pull:
+	git pull
+	git submodule update --recursive
+
+update:
+	git submodule update --init --recursive --remote
+	git commit -a -m "Library update"
+
 stl: KiCad/PN532-Round.stl KiCad/PN532-wall.stl KiCad/PN532-cable.stl KiCad/PN532-thick.stl
 
 KiCad/PN532-wall.stl: KiCad/PN532.scad Makefile
@@ -21,4 +32,5 @@ PCBCase/case: PCBCase/case.c
 	echo "Made $@"
 
 KiCad/PN532-Round.scad: KiCad/PN532-Round.kicad_pcb PCBCase/case Makefile
-	PCBCase/case -o $@ $< --edge=2 --base=0.6 --top=3
+	# TODO screw holes
+	PCBCase/case -o $@ $< --base=0.8 --top=3.4
