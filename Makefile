@@ -32,5 +32,5 @@ PCBCase/case: PCBCase/case.c
 	echo "Made $@"
 
 KiCad/PN532-Round.scad: KiCad/PN532-Round.kicad_pcb PCBCase/case Makefile
-	# TODO screw holes
+	# TODO screw holes 0 maybe single centre screw
 	PCBCase/case -o $@ $< --base=0.8 --top=3.4
