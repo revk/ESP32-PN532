@@ -73,6 +73,8 @@ main(int argc, const char *argv[])
    if (isnan(screwy))
       screwy = edge * 14 / 23;
 
+#define	LF	"%.2lf"
+#define	RES	100
    double          basex = 0,
                    basey = 0;
 
@@ -81,14 +83,14 @@ main(int argc, const char *argv[])
       double          r = startr - step * a / 360;
       if              (a < 0)
                          r = startr;
-                      return r * sin(a * M_PI / 180.0) - basex;
+                      return round((r * sin(a * M_PI / 180.0) - basex) * RES) / RES;
    }
    double          y(double a)
    {
       double          r = startr - step * a / 360;
       if              (a < 0)
                          r = startr;
-                      return -r * cos(a * M_PI / 180.0) + step / 4 - basey;
+                      return round((-r * cos(a * M_PI / 180.0) + step / 4 - basey) * RES) / RES;
    }
 
                    printf("(footprint \"%s\" (layer \"F.Cu\") (version 20211014) ", name);
@@ -96,9 +98,9 @@ main(int argc, const char *argv[])
    printf("(fp_text reference \"Ref**\" (at 0 0) (layer \"F.SilkS\") hide (effects (font (size 1.27 1.27) (thickness 0.15))))");
    printf("(fp_text value \"Val**\" (at 0 0) (layer \"F.SilkS\") hide (effects (font (size 1.27 1.27) (thickness 0.15))))");
    if (edge)
-      printf("(fp_circle (center 0 0) (end %lf 0) (layer \"Edge.Cuts\") (width 0.1) (fill none))", edge);
+      printf("(fp_circle (center 0 0) (end "LF" 0) (layer \"Edge.Cuts\") (width 0.1) (fill none))", edge);
    if (ring)
-      printf("(fp_circle (center 0 0) (end %lf 0) (layer \"Dwgs.User\") (width 0.2) (fill none))", ring);
+      printf("(fp_circle (center 0 0) (end "LF" 0) (layer \"Dwgs.User\") (width 0.2) (fill none))", ring);
    if (text && *text)
    {
       const char      thin[] = ".:'";
@@ -112,7 +114,7 @@ main(int argc, const char *argv[])
          if (strchr(thin, *p))
             a -= s / 4;
          if (*p != ' ')
-            printf("(fp_text user \"%c\" (at %lf %lf %lf unlocked) (layer \"F.SilkS\")(effects (font (size %lf %lf) (thickness %lf))))", *p, textr * sin(a), -textr * cos(a), -180 * a / M_PI, texth, texth, textt);
+            printf("(fp_text user \"%c\" (at "LF" "LF" "LF" unlocked) (layer \"F.SilkS\")(effects (font (size "LF" "LF") (thickness "LF"))))", *p, textr * sin(a), -textr * cos(a), -180 * a / M_PI, texth, texth, textt);
          if (strchr(thin, *p))
             a -= s / 4;
          a += s;
@@ -125,49 +127,37 @@ main(int argc, const char *argv[])
       {                         /* 0805 2mm high */
          double          Y = y(starta);
          double          W = x(starta) * 2;
-         /*
-          * printf("(model \"${KICAD6_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0805_2012Metric.step\" (offset (xyz 0 %lf 0)) (scale
-          * (xyz 1 1 1)) (rotate (xyz 0 0 90)))", -Y - 1);
-          */
-         printf("(fp_circle (center 0 %lf) (end 0.05 %lf) (layer \"Dwgs.User\") (width 0.12) (fill none))", Y + 1, Y + 1);
-         printf("(pad \"\" smd rect (at 0 %lf 0) (size %lf %lf) (layers \"F.Cu\" \"B.Cu\"))", Y, W, width);
-         printf("(pad \"\" smd rect (at 0 %lf 0) (size 1.4 %lf) (layers \"F.Paste\" \"F.Mask\"))", Y, width);
-         printf("(pad \"2\" smd rect (at 0 %lf 0) (size 1.4 %lf) (layers \"F.Cu\" \"F.Paste\" \"F.Mask\"))", Y + 2, width);
+         printf("(fp_circle (center 0 "LF") (end 0.05 "LF") (layer \"Dwgs.User\") (width 0.12) (fill none))", Y + 1, Y + 1);
+         printf("(pad \"\" smd rect (at 0 "LF" 0) (size "LF" "LF") (layers \"F.Cu\" \"B.Cu\"))", Y, W, width);
+         printf("(pad \"\" smd rect (at 0 "LF" 0) (size 1.4 "LF") (layers \"F.Paste\" \"F.Mask\"))", Y, width);
+         printf("(pad \"2\" smd rect (at 0 "LF" 0) (size 1.4 "LF") (layers \"F.Cu\" \"F.Paste\" \"F.Mask\"))", Y + 2, width);
       }
       /* 0603 1.6 mm high */
       double          X = x(enda) + width / 4;
       double          Y = y(enda);
-      printf("(pad \"\" smd rect (at %lf %lf 0) (size %lF %lf) (layers \"F.Cu\"))", X + 0.5, Y, 1 + width / 2, width);
-      printf("(pad \"\" smd rect (at %lf %lf 0) (size %lF %lf) (layers \"F.Cu\"))", -X - 0.5, Y, 1 + width / 2, width);
+      printf("(pad \"\" smd rect (at "LF" "LF" 0) (size "LF" "LF") (layers \"F.Cu\"))", X + 0.5, Y, 1 + width / 2, width);
+      printf("(pad \"\" smd rect (at "LF" "LF" 0) (size "LF" "LF") (layers \"F.Cu\"))", -X - 0.5, Y, 1 + width / 2, width);
       X += width / 4;
-      printf("(pad \"\" smd rect (at %lf %lf 0) (size 1 %lf) (layers \"F.Paste\" \"F.Mask\"))", X + 0.5, Y, width);
-      printf("(pad \"\" smd rect (at %lf %lf 0) (size 1 %lf) (layers \"F.Paste\" \"F.Mask\"))", -X - 0.5, Y, width);
-      printf("(pad \"3\" smd rect (at %lf %lf 0) (size 1 %lf) (layers \"F.Cu\" \"F.Paste\" \"F.Mask\"))", X + 0.5, Y + 1.6, width);
-      printf("(pad \"1\" smd rect (at %lf %lf 0) (size 1 %lf) (layers \"F.Cu\" \"F.Paste\" \"F.Mask\"))", -X - 0.5, Y + 1.6, width);
-      /*
-       * printf("(model \"${KICAD6_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step\" (offset (xyz %lF %lf 0)) (scale (xyz
-       * 1 1 1)) (rotate (xyz 0 0 90)))", X + 0.5, -Y - 0.8);
-       */
-      /*
-       * printf("(model \"${KICAD6_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step\" (offset (xyz %lF %lf 0)) (scale (xyz
-       * 1 1 1)) (rotate (xyz 0 0 90)))", -X - 0.5, -Y - 0.8);
-       */
-      printf("(fp_circle (center %lf %lf) (end %lf %lf) (layer \"Dwgs.User\") (width 0.12) (fill none))", X + 0.5, Y + 0.8, X + 0.5 + 0.05, Y + 0.8);
-      printf("(fp_circle (center %lf %lf) (end %lf %lf) (layer \"Dwgs.User\") (width 0.12) (fill none))", -X - 0.5, Y + 0.8, -X - 0.5 + 0.05, Y + 0.8);
-      printf("(model \"/Users/adrian/Documents/KiCad/3D/653612.stp\" (offset (xyz %lf %lf %lf)) (scale (xyz 0.58 0.58 0.58)) (rotate (xyz 0 -90 -35)))", screwx, screwy, screwz);
-      printf("(model \"/Users/adrian/Documents/KiCad/3D/653612.stp\" (offset (xyz %lf %lf %lf)) (scale (xyz 0.58 0.58 0.58)) (rotate (xyz 0 -90 -35)))", -screwx, -screwy, screwz);
+      printf("(pad \"\" smd rect (at "LF" "LF" 0) (size 1 "LF") (layers \"F.Paste\" \"F.Mask\"))", X + 0.5, Y, width);
+      printf("(pad \"\" smd rect (at "LF" "LF" 0) (size 1 "LF") (layers \"F.Paste\" \"F.Mask\"))", -X - 0.5, Y, width);
+      printf("(pad \"3\" smd rect (at "LF" "LF" 0) (size 1 "LF") (layers \"F.Cu\" \"F.Paste\" \"F.Mask\"))", X + 0.5, Y + 1.6, width);
+      printf("(pad \"1\" smd rect (at "LF" "LF" 0) (size 1 "LF") (layers \"F.Cu\" \"F.Paste\" \"F.Mask\"))", -X - 0.5, Y + 1.6, width);
+      printf("(fp_circle (center "LF" "LF") (end "LF" "LF") (layer \"Dwgs.User\") (width 0.12) (fill none))", X + 0.5, Y + 0.8, X + 0.5 + 0.05, Y + 0.8);
+      printf("(fp_circle (center "LF" "LF") (end "LF" "LF") (layer \"Dwgs.User\") (width 0.12) (fill none))", -X - 0.5, Y + 0.8, -X - 0.5 + 0.05, Y + 0.8);
+      printf("(model \"/Users/adrian/Documents/KiCad/3D/653612.stp\" (offset (xyz "LF" "LF" "LF")) (scale (xyz 0.58 0.58 0.58)) (rotate (xyz 0 -90 -35)))", screwx, screwy, screwz);
+      printf("(model \"/Users/adrian/Documents/KiCad/3D/653612.stp\" (offset (xyz "LF" "LF" "LF")) (scale (xyz 0.58 0.58 0.58)) (rotate (xyz 0 -90 -35)))", -screwx, -screwy, screwz);
    }
    void            pad(const char *layer, double flip)
    {
       basex = basey = 0;
-      printf("(pad \"\" thru_hole circle (at %lf %lf) (size %lf %lf) (drill %lf) (layers *.Cu))", flip * x(starta), y(starta), width, width, width / 2);
-      printf("(pad \"\" smd custom (at %lf %lf) (size %lf %lf) (layers \"%s\") (options (clearance outline) (anchor circle)) (primitives ", flip * x(starta), y(starta), width, width, layer);
+      printf("(pad \"\" thru_hole circle (at "LF" "LF") (size "LF" "LF") (drill "LF") (layers *.Cu))", flip * x(starta), y(starta), width, width, width / 2);
+      printf("(pad \"\" smd custom (at "LF" "LF") (size "LF" "LF") (layers \"%s\") (options (clearance outline) (anchor circle)) (primitives ", flip * x(starta), y(starta), width, width, layer);
       basex = x(starta);
       basey = y(starta);
       void            arc(double s, double e)
       {
          double          m = (s + e) / 2;
-                         printf("(gr_arc (start %lf %lf) (mid %lf %lf) (end %lf %lf) (width %lf))", flip * x(s), y(s), flip * x(m), y(m), flip * x(e), y(e), width);
+                         printf("(gr_arc (start "LF" "LF") (mid "LF" "LF") (end "LF" "LF") (width "LF"))", flip * x(s), y(s), flip * x(m), y(m), flip * x(e), y(e), width);
       }
       double          a = 0;
       if              (starta < 0)
@@ -184,7 +174,7 @@ main(int argc, const char *argv[])
    /* the antenna itself */
                    pad("F.Cu", -1);
    pad("B.Cu", 1);
-   printf("(pad \"\" thru_hole circle (at %lf %lf) (size %lf %lf) (drill %lf) (layers *.Cu))", x(enda), y(enda), width, width, width / 2);      /* End pad */
+   printf("(pad \"\" thru_hole circle (at "LF" "LF") (size "LF" "LF") (drill "LF") (layers *.Cu))", x(enda), y(enda), width, width, width / 2);      /* End pad */
    printf(")");
    return 0;
 }
