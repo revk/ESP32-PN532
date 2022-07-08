@@ -30,8 +30,11 @@ main(int argc, const char *argv[])
    double          edge = 23;
    double          ring = 16;
    double          texth = 3;
-   double          textr = 20;
+   double          textr = 18.5;
    double          textt = 0.4;
+   double          screwx = NAN;
+   double          screwy = NAN;
+   double          screwz = 1;
    int             debug = 0;
    {
       poptContext     optCon;   /* context for parsing  command - line options */
@@ -47,6 +50,9 @@ main(int argc, const char *argv[])
          {"starta", 0, POPT_ARG_DOUBLE | POPT_ARGFLAG_SHOW_DEFAULT, &starta, 0, "Start angle"},
          {"enda", 0, POPT_ARG_DOUBLE | POPT_ARGFLAG_SHOW_DEFAULT, &enda, 0, "End angle"},
          {"stepa", 0, POPT_ARG_DOUBLE | POPT_ARGFLAG_SHOW_DEFAULT, &stepa, 0, "Step angle"},
+         {"screwx", 0, POPT_ARG_DOUBLE, &screwx, 0, "Screw X"},
+         {"screwy", 0, POPT_ARG_DOUBLE, &screwy, 0, "Screw Y"},
+         {"screwz", 0, POPT_ARG_DOUBLE | POPT_ARGFLAG_SHOW_DEFAULT, &screwz, 0, "Screw Z"},
          {"edge", 0, POPT_ARG_DOUBLE | POPT_ARGFLAG_SHOW_DEFAULT, &edge, 0, "Edge"},
          {"ring", 0, POPT_ARG_DOUBLE | POPT_ARGFLAG_SHOW_DEFAULT, &ring, 0, "Ring"},
          {"debug", 'v', POPT_ARG_NONE, &debug, 0, "Debug"},
@@ -62,6 +68,10 @@ main(int argc, const char *argv[])
 
       poptFreeContext(optCon);
    }
+   if (isnan(screwx))
+      screwx = edge * 10 / 23;
+   if (isnan(screwy))
+      screwy = edge * 14 / 23;
 
    double          basex = 0,
                    basey = 0;
@@ -115,7 +125,11 @@ main(int argc, const char *argv[])
       {                         /* 0805 2mm high */
          double          Y = y(starta);
          double          W = x(starta) * 2;
-         printf("(model \"${KICAD6_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0805_2012Metric.step\" (offset (xyz 0 %lf 0)) (scale (xyz 1 1 1)) (rotate (xyz 0 0 90)))", -Y - 1);
+         /*
+          * printf("(model \"${KICAD6_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0805_2012Metric.step\" (offset (xyz 0 %lf 0)) (scale
+          * (xyz 1 1 1)) (rotate (xyz 0 0 90)))", -Y - 1);
+          */
+         printf("(fp_circle (center 0 %lf) (end 0.05 %lf) (layer \"Dwgs.User\") (width 0.12) (fill none))", Y + 1, Y + 1);
          printf("(pad \"\" smd rect (at 0 %lf 0) (size %lf %lf) (layers \"F.Cu\" \"B.Cu\"))", Y, W, width);
          printf("(pad \"\" smd rect (at 0 %lf 0) (size 1.4 %lf) (layers \"F.Paste\" \"F.Mask\"))", Y, width);
          printf("(pad \"2\" smd rect (at 0 %lf 0) (size 1.4 %lf) (layers \"F.Cu\" \"F.Paste\" \"F.Mask\"))", Y + 2, width);
@@ -130,8 +144,18 @@ main(int argc, const char *argv[])
       printf("(pad \"\" smd rect (at %lf %lf 0) (size 1 %lf) (layers \"F.Paste\" \"F.Mask\"))", -X - 0.5, Y, width);
       printf("(pad \"3\" smd rect (at %lf %lf 0) (size 1 %lf) (layers \"F.Cu\" \"F.Paste\" \"F.Mask\"))", X + 0.5, Y + 1.6, width);
       printf("(pad \"1\" smd rect (at %lf %lf 0) (size 1 %lf) (layers \"F.Cu\" \"F.Paste\" \"F.Mask\"))", -X - 0.5, Y + 1.6, width);
-      printf("(model \"${KICAD6_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step\" (offset (xyz %lF %lf 0)) (scale (xyz 1 1 1)) (rotate (xyz 0 0 90)))", X + 0.5, -Y - 0.8);
-      printf("(model \"${KICAD6_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step\" (offset (xyz %lF %lf 0)) (scale (xyz 1 1 1)) (rotate (xyz 0 0 90)))", -X - 0.5, -Y - 0.8);
+      /*
+       * printf("(model \"${KICAD6_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step\" (offset (xyz %lF %lf 0)) (scale (xyz
+       * 1 1 1)) (rotate (xyz 0 0 90)))", X + 0.5, -Y - 0.8);
+       */
+      /*
+       * printf("(model \"${KICAD6_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step\" (offset (xyz %lF %lf 0)) (scale (xyz
+       * 1 1 1)) (rotate (xyz 0 0 90)))", -X - 0.5, -Y - 0.8);
+       */
+      printf("(fp_circle (center %lf %lf) (end %lf %lf) (layer \"Dwgs.User\") (width 0.12) (fill none))", X + 0.5, Y + 0.8, X + 0.5 + 0.05, Y + 0.8);
+      printf("(fp_circle (center %lf %lf) (end %lf %lf) (layer \"Dwgs.User\") (width 0.12) (fill none))", -X - 0.5, Y + 0.8, -X - 0.5 + 0.05, Y + 0.8);
+      printf("(model \"/Users/adrian/Documents/KiCad/3D/653612.stp\" (offset (xyz %lf %lf %lf)) (scale (xyz 0.58 0.58 0.58)) (rotate (xyz 0 -90 -35)))", screwx, screwy, screwz);
+      printf("(model \"/Users/adrian/Documents/KiCad/3D/653612.stp\" (offset (xyz %lf %lf %lf)) (scale (xyz 0.58 0.58 0.58)) (rotate (xyz 0 -90 -35)))", -screwx, -screwy, screwz);
    }
    void            pad(const char *layer, double flip)
    {
@@ -155,7 +179,7 @@ main(int argc, const char *argv[])
       if              (a < enda)
                          arc(a, enda);
                       printf("))");
-      basex = basey = 0;
+                      basex = basey = 0;
    }
    /* the antenna itself */
                    pad("F.Cu", -1);
