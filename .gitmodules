@@ -1,0 +1,3 @@
+[submodule "PCBCase"]
+	path = PCBCase
+	url = https://github.com/revk/PCBCase

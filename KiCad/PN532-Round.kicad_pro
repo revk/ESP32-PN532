@@ -352,7 +352,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "PN532.kicad_pro",
+    "filename": "PN532-Round.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -456,7 +456,6 @@
     ]
   ],
   "text_variables": {
-    "DATE": "2022-07-12",
-    "URL": "pn532.revk.uk"
+    "DATE": "2022-07-08"
   }
 }
