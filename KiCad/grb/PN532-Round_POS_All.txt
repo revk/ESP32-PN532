@@ -1,15 +1,14 @@
-### Module positions - created on 2022-07-08 15:47
+### Module positions - created on 2022-08-05 09:30
 ### Printed by pcb_positions plugin
 ## Unit = mm, Angle = deg.
 ## Pcb Height 46.100mm, Pcb Width 46.100mm [based on Edge bounding box]
 ## Side : ALL
 ## Board Aux Origin: 0.000mm ,0.000mm
 # Ref         Val                 Package                       PosX       PosY       Pin1_PosX  Pin1_PosY    Rot     Side      Type
-A1            PN532-Antenna       PN532-Antenna6                100.0000   -100.0000  101.7700   -81.2900      0.0    top       VIRTUAL
-Y1            27.12MHz            Crystal-3.4x2.7               93.8750    -96.5600   93.0750    -95.2100     90.0    top       THD
+Y1            27.12MHz            Crystal-3.2x2.5               93.8750    -96.5600   93.0000    -95.4100     90.0    top       SMD
 D2            A                   STP_156120xx7530              112.5000   -100.0000  112.5000   -101.6250    90.0    top       SMD
 D3            R                   STP_156120xx7530              112.5000   -95.0000   112.5000   -96.6250     90.0    top       SMD
-SW1           TAMPER              SW_PUSH_6mm_SMD               88.5000    -100.0000  90.7500    -104.2000   -90.0    top       VIRTUAL
+SW1           ESE13V01D           ESE13                         89.0000    -100.0000  90.5000    -101.7800   180.0    top       SMD
 D1            G                   STP_156120xx7530              112.5000   -105.0000  112.5000   -106.6250    90.0    top       SMD
 C7            100nF               C_0603                        101.3750   -91.7600   100.6000   -91.7600      0.0    top       SMD
 C3            22pF                C_0603                        103.8000   -84.0850   103.8000   -84.8600     90.0    top       SMD
@@ -57,13 +56,14 @@ R2            0R                  R_0805_                       100.0000   -78.5
 J2            Bell                PinHeader_1x02_P2.54mm_Vert.. 92.0000    -108.0000  93.6550    -109.2700   180.0    top       VIRTUAL
 R3            0R                  R_0603_                       101.7700   -80.4900   0.0000     0.0000       90.0    top       SMD
 R1            0R                  R_0603_                       98.2300    -80.4900   0.0000     0.0000       90.0    top       SMD
+A1            PN532-Antenna       PN532-Antenna6                100.0000   -100.0000  101.7700   -81.2900      0.0    top       VIRTUAL
 ## End
-## 150 SMD pads
-## 4 TH pads
-## 98 Virtual pads
-## 1 Top TH modules
+## 160 SMD pads
+## 0 TH pads
+## 94 Virtual pads
+## 0 Top TH modules
 ## 0 Bot TH modules
-## 44 Top SMD modules
+## 46 Top SMD modules
 ## 0 Bot SMD modules
-## 7 Top Virtual modules
+## 6 Top Virtual modules
 ## 0 Bot Virtual modules

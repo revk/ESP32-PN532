@@ -1,12 +1,14 @@
-### Module positions - created on 2022-07-08 15:47
+### Module positions - created on 2022-08-05 09:30
 ### Printed by pcb_positions plugin
 ## Unit = mm, Angle = deg.
 ## Pcb Height 46.100mm, Pcb Width 46.100mm [based on Edge bounding box]
 ## Side : top
 ## Board Aux Origin: 0.000mm ,0.000mm
 # Ref         Val                 Package                       PosX       PosY       Pin1_PosX  Pin1_PosY    Rot     Side      Type
+Y1            27.12MHz            Crystal-3.2x2.5               93.8750    -96.5600   93.0000    -95.4100     90.0    top       SMD
 D2            A                   STP_156120xx7530              112.5000   -100.0000  112.5000   -101.6250    90.0    top       SMD
 D3            R                   STP_156120xx7530              112.5000   -95.0000   112.5000   -96.6250     90.0    top       SMD
+SW1           ESE13V01D           ESE13                         89.0000    -100.0000  90.5000    -101.7800   180.0    top       SMD
 D1            G                   STP_156120xx7530              112.5000   -105.0000  112.5000   -106.6250    90.0    top       SMD
 C7            100nF               C_0603                        101.3750   -91.7600   100.6000   -91.7600      0.0    top       SMD
 C3            22pF                C_0603                        103.8000   -84.0850   103.8000   -84.8600     90.0    top       SMD

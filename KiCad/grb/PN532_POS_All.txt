@@ -1,17 +1,16 @@
-### Module positions - created on 2022-07-12 11:13
+### Module positions - created on 2022-08-05 09:38
 ### Printed by pcb_positions plugin
 ## Unit = mm, Angle = deg.
 ## Pcb Height 40.050mm, Pcb Width 40.050mm [based on Edge bounding box]
 ## Side : ALL
 ## Board Aux Origin: 0.000mm ,0.000mm
 # Ref         Val                 Package                       PosX       PosY       Pin1_PosX  Pin1_PosY    Rot     Side      Type
-A1            PN532-Antenna       PN532-Antenna5                100.0000   -100.0000  102.0000   -84.8500      0.0    top       VIRTUAL
-Y1            27.12MHz            Crystal-3.4x2.7               93.8750    -100.0000  93.0750    -98.6500     90.0    top       THD
+SW1           ESE13V01D           ESE13                         88.5000    -103.6000  86.7200    -105.1000    90.0    top       SMD
+Y1            27.12MHz            Crystal-3.2x2.5               93.8750    -100.0000  93.0000    -98.8500     90.0    top       SMD
 H2            MountingHole        ISO7380-M3-NoPad              88.0000    -88.0000   0.0000     0.0000        0.0    top       VIRTUAL
 H1            MountingHole        ISO7380-M3-NoPad              112.0000   -112.0000  0.0000     0.0000        0.0    top       VIRTUAL
 D2            A                   STP_156120xx7530              112.0000   -94.0000   112.0000   -95.6250     90.0    top       SMD
 D3            R                   STP_156120xx7530              112.0000   -88.0000   112.0000   -89.6250     90.0    top       SMD
-SW1           TAMPER              SW_PUSH_6mm_SMD               88.5000    -100.0000  90.7500    -104.2000   -90.0    top       VIRTUAL
 D1            G                   STP_156120xx7530              112.0000   -100.0000  112.0000   -101.6250    90.0    top       SMD
 C7            100nF               C_0603                        101.3750   -95.2000   100.6000   -95.2000      0.0    top       SMD
 C3            22pF                C_0603                        103.8000   -87.5250   103.8000   -88.3000     90.0    top       SMD
@@ -45,8 +44,8 @@ JP1           I1                  SolderJumper3                 94.6500    -105.
 R13           100R                R_0603                        101.6500   -105.9000  100.8250   -105.9000     0.0    top       SMD
 C15           4.7uF               C_0603                        93.8750    -96.1000   93.1000    -96.1000      0.0    top       SMD
 R14           100R                R_0603                        101.6500   -104.4000  102.4750   -104.4000   180.0    top       SMD
-L1            560nH               L_1206_1008                   103.2500   -91.0000   102.2601   -91.9899     45.0    top       SMD
-L2            560nH               L_1206_1008                   96.7500    -91.0000   96.0429    -90.2929    -45.0    top       SMD
+L1            560nH               L_1206_1008                   103.2500   -91.0000   102.5429   -91.7071     45.0    top       SMD
+L2            560nH               L_1206_1008                   96.7500    -91.0000   95.7601    -90.0101    -45.0    top       SMD
 C4            22pF                C_0603                        96.2000    -87.5250   96.2000    -86.7500    -90.0    top       SMD
 R12           100R                R_0603                        104.0000   -105.1500  104.0000   -104.3250   -90.0    top       SMD
 D5            BAV99S              SOT-363_SC-70-6               109.0000   -93.9000   108.0500   -93.2500      0.0    top       SMD
@@ -55,18 +54,19 @@ C19           33pF                C_0603                        109.0000   -108.
 D4            BAV99S              SOT-363_SC-70-6               109.0000   -103.7000  108.0500   -103.0500     0.0    top       SMD
 D6            BAV99S              SOT-363_SC-70-6               109.0000   -106.3000  109.9500   -106.9500   180.0    top       SMD
 AJK1          AJK                 AJK                           89.1000    -92.2000   0.0000     0.0000        0.0    top       VIRTUAL
+A1            PN532-Antenna       PN532-Antenna5                100.0000   -100.0000  102.0000   -84.8500      0.0    top       VIRTUAL
 C2            160pF               C_0603                        98.3000    -86.7000   99.0750    -86.7000    180.0    top       SMD
 R2            0R                  R_0805_                       100.0000   -82.0000   0.0000     0.0000       90.0    top       SMD
 R3            0R                  R_0603_                       102.0000   -84.0000   0.0000     0.0000       90.0    top       SMD
 R1            0R                  R_0603_                       98.0000    -84.0000   0.0000     0.0000       90.0    top       SMD
 U3            QR                  QR-PN532                      89.4000    -110.6000  0.0000     0.0000      180.0    bottom    VIRTUAL
 ## End
-## 146 SMD pads
-## 4 TH pads
-## 175 Virtual pads
-## 1 Top TH modules
+## 156 SMD pads
+## 0 TH pads
+## 171 Virtual pads
+## 0 Top TH modules
 ## 0 Bot TH modules
-## 43 Top SMD modules
+## 45 Top SMD modules
 ## 0 Bot SMD modules
-## 10 Top Virtual modules
+## 9 Top Virtual modules
 ## 1 Bot Virtual modules
