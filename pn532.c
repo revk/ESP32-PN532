@@ -139,6 +139,10 @@ pn532_t *pn532_init(int8_t uart, int8_t tx, int8_t rx, uint8_t outputs)
       if (!err)
          err = uart_param_config(uart, &uart_config);
       if (!err)
+         err = gpio_reset_pin(tx);
+      if (!err && tx != rx)
+         err = gpio_reset_pin(rx);
+      if (!err)
          err = uart_set_pin(uart, tx, rx, -1, -1);
       if (!err && !uart_is_driver_installed(uart))
       {
