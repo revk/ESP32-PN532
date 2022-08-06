@@ -32,7 +32,7 @@ PCBCase/case: PCBCase/case.c
 	echo "Made $@"
 
 KiCad/PN532-Round.scad: KiCad/PN532-Round.kicad_pcb PCBCase/case Makefile
-	PCBCase/case -n -o $@ $< --base=0.8 --top=3 --ignore=J1,J2
+	PCBCase/case -n -o $@ $< --base=0.8 --top=2.5 --ignore=J1,J2
 	@echo "base();" >> $@
 	@echo "translate([spacing,0,0])difference(){top();translate([casewall+pcbwidth/2-13/2,casewall+pcblength/2+6.5-5/2,-1])cube([13,5,10]);}" >> $@
 
