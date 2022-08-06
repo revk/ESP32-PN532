@@ -3058,12 +3058,12 @@
     (pad "3" smd rect (at -1.77 -18.71) (size 1 0.5) (layers "F.Cu" "F.Paste" "F.Mask")
       (net 37 "Net-(A1-Pad3)") (pintype "bidirectional") (tstamp 5964bc98-b829-4a4e-b675-f320830d0e68))
     (model "/Users/adrian/Documents/KiCad/3D/653612.stp"
-      (offset (xyz -10 14 0.5))
+      (offset (xyz 10 14 0.5))
       (scale (xyz 0.58 0.58 0.58))
       (rotate (xyz 0 -90 -35))
     )
     (model "/Users/adrian/Documents/KiCad/3D/653612.stp"
-      (offset (xyz 10 -14 0.5))
+      (offset (xyz -10 -14 0.5))
       (scale (xyz 0.58 0.58 0.58))
       (rotate (xyz 0 -90 -35))
     )
