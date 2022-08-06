@@ -10,7 +10,6 @@ pull:
 
 update:
 	git submodule update --init --recursive --remote
-	git commit -a -m "Library update"
 
 stl: KiCad/PN532-Round.stl KiCad/PN532-wall.stl KiCad/PN532-cable.stl KiCad/PN532-thick.stl
 
