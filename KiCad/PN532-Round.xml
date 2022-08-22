@@ -2,15 +2,15 @@
 <export version="E">
   <design>
     <source>/Users/adrian/git/ESP32-PN532/KiCad/PN532-Round.kicad_sch</source>
-    <date>Friday, 05 August 2022 at 09:30:26</date>
+    <date>Monday, 22 August 2022 at 12:52:46</date>
     <tool>Eeschema (6.0.5-0)</tool>
-    <textvar name="DATE">2022-08-05</textvar>
+    <textvar name="DATE">2022-08-22</textvar>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
         <title>PN532 NFC Board</title>
         <company>Adrian Kennard Andrews &amp; Arnold Ltd</company>
         <rev>7</rev>
-        <date>2022-08-05</date>
+        <date>2022-08-22</date>
         <source>PN532-Round.kicad_sch</source>
         <comment number="1" value="www.me.uk"/>
         <comment number="2" value=""/>
@@ -426,13 +426,16 @@
       <tstamps>00000000-0000-0000-0000-0000609c6100 00000000-0000-0000-0000-0000609c1d90</tstamps>
     </comp>
     <comp ref="J3">
-      <value>0.1"</value>
-      <footprint>RevK:PinHeader_1x04_P2.54mm_Vertical_SMD_Pin1Right</footprint>
+      <value>Conn</value>
+      <footprint>RevK:PinHeader_1x05_P2.54mm_Vertical_SMD_Pin1Right</footprint>
       <fields>
-        <field name="Note">Non fit</field>
+        <field name="Manufacturer">Samtec</field>
+        <field name="PartNo">TSM-105-02-L-SV</field>
       </fields>
-      <libsource lib="Connector" part="Conn_01x04_Male" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
-      <property name="Note" value="Non fit"/>
+      <libsource lib="Connector" part="Conn_01x05_Male" description="Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Note" value=""/>
+      <property name="PartNo" value="TSM-105-02-L-SV"/>
+      <property name="Manufacturer" value="Samtec"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="PN532-Round.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -790,31 +793,15 @@
         <field name="Note">Non part, PCB printed</field>
       </fields>
     </libpart>
-    <libpart lib="Connector" part="Conn_01x02_Male">
-      <description>Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+    <libpart lib="Connector" part="Conn_01x05_Male">
+      <description>Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
       <docs>~</docs>
       <footprints>
         <fp>Connector*:*_1x??_*</fp>
       </footprints>
       <fields>
         <field name="Reference">J</field>
-        <field name="Value">Conn_01x02_Male</field>
-        <field name="Datasheet">~</field>
-      </fields>
-      <pins>
-        <pin num="1" name="Pin_1" type="passive"/>
-        <pin num="2" name="Pin_2" type="passive"/>
-      </pins>
-    </libpart>
-    <libpart lib="Connector" part="Conn_01x04_Male">
-      <description>Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
-      <docs>~</docs>
-      <footprints>
-        <fp>Connector*:*_1x??_*</fp>
-      </footprints>
-      <fields>
-        <field name="Reference">J</field>
-        <field name="Value">Conn_01x04_Male</field>
+        <field name="Value">Conn_01x05_Male</field>
         <field name="Datasheet">~</field>
       </fields>
       <pins>
@@ -822,6 +809,7 @@
         <pin num="2" name="Pin_2" type="passive"/>
         <pin num="3" name="Pin_3" type="passive"/>
         <pin num="4" name="Pin_4" type="passive"/>
+        <pin num="5" name="Pin_5" type="passive"/>
       </pins>
     </libpart>
     <libpart lib="Device" part="C">
@@ -1205,49 +1193,50 @@
       <node ref="R13" pin="2" pintype="passive"/>
       <node ref="U1" pin="28" pinfunction="MOSI/SDA/HSU_TX" pintype="bidirectional"/>
     </net>
-    <net code="19" name="Net-(J1-Pad2)">
+    <net code="19" name="Net-(J3-Pad5)">
+      <node ref="J3" pin="5" pinfunction="Pin_5" pintype="passive"/>
       <node ref="R12" pin="2" pintype="passive"/>
     </net>
-    <net code="20" name="Net-(J2-Pad2)">
-      <node ref="R11" pin="2" pintype="passive"/>
-      <node ref="SW1" pin="2" pinfunction="2" pintype="passive"/>
-      <node ref="U1" pin="24" pinfunction="P30/UART_RX" pintype="bidirectional"/>
-    </net>
-    <net code="21" name="Net-(J3-Pad3)">
-      <node ref="J3" pin="3" pinfunction="Pin_3" pintype="passive"/>
-      <node ref="R13" pin="1" pintype="passive"/>
-    </net>
-    <net code="22" name="Net-(J3-Pad4)">
-      <node ref="J3" pin="4" pinfunction="Pin_4" pintype="passive"/>
-      <node ref="R14" pin="1" pintype="passive"/>
-    </net>
-    <net code="23" name="Net-(JP1-Pad2)">
+    <net code="20" name="Net-(JP1-Pad2)">
       <node ref="U1" pin="17" pinfunction="I1" pintype="input"/>
     </net>
-    <net code="24" name="Net-(L1-Pad1)">
+    <net code="21" name="Net-(L1-Pad1)">
       <node ref="L1" pin="1" pinfunction="1" pintype="passive"/>
       <node ref="U1" pin="4" pinfunction="TX1" pintype="output"/>
     </net>
-    <net code="25" name="Net-(L2-Pad2)">
+    <net code="22" name="Net-(L2-Pad2)">
       <node ref="L2" pin="2" pinfunction="2" pintype="passive"/>
       <node ref="U1" pin="6" pinfunction="TX2" pintype="output"/>
     </net>
-    <net code="26" name="Net-(R6-Pad1)">
+    <net code="23" name="Net-(R6-Pad1)">
       <node ref="R6" pin="1" pintype="passive"/>
       <node ref="R7" pin="1" pintype="passive"/>
       <node ref="U1" pin="38" pinfunction="RSTPD_N" pintype="input"/>
     </net>
-    <net code="27" name="Net-(R8-Pad1)">
+    <net code="24" name="Net-(R8-Pad1)">
       <node ref="R8" pin="1" pintype="passive"/>
       <node ref="U1" pin="31" pinfunction="P31/DBG_TX" pintype="bidirectional"/>
     </net>
-    <net code="28" name="Net-(R9-Pad1)">
+    <net code="25" name="Net-(R9-Pad1)">
       <node ref="R9" pin="1" pintype="passive"/>
       <node ref="U1" pin="32" pinfunction="P32_INT0" pintype="bidirectional"/>
     </net>
-    <net code="29" name="Net-(R10-Pad1)">
+    <net code="26" name="Net-(R10-Pad1)">
       <node ref="R10" pin="1" pintype="passive"/>
       <node ref="U1" pin="33" pinfunction="P33_INT1" pintype="bidirectional"/>
+    </net>
+    <net code="27" name="Net-(R11-Pad2)">
+      <node ref="R11" pin="2" pintype="passive"/>
+      <node ref="SW1" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U1" pin="24" pinfunction="P30/UART_RX" pintype="bidirectional"/>
+    </net>
+    <net code="28" name="Net-(R13-Pad1)">
+      <node ref="J3" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="R13" pin="1" pintype="passive"/>
+    </net>
+    <net code="29" name="Net-(R14-Pad1)">
+      <node ref="J3" pin="4" pinfunction="Pin_4" pintype="passive"/>
+      <node ref="R14" pin="1" pintype="passive"/>
     </net>
     <net code="30" name="unconnected-(R1-Pad~)">
       <node ref="R1" pin="" pintype="no_connect"/>
