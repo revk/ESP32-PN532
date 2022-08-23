@@ -1,11 +1,11 @@
-### Module positions - created on 2022-08-22 12:52
+### Module positions - created on 2022-08-23 09:34
 ### Printed by pcb_positions plugin
 ## Unit = mm, Angle = deg.
 ## Pcb Height 46.100mm, Pcb Width 46.100mm [based on Edge bounding box]
 ## Side : ALL
 ## Board Aux Origin: 0.000mm ,0.000mm
 # Ref         Val                 Package                       PosX       PosY       Pin1_PosX  Pin1_PosY    Rot     Side      Type
-J3            Conn                PinHeader_1x05_P2.54mm_Vert.. 101.3000   -106.5000  96.2200    -104.8450    90.0    top       SMD
+J3            Conn                PinHeader_1x05_P2.54mm_Vert.. 101.2700   -106.5000  96.1900    -108.1550    90.0    top       SMD
 Y1            27.12MHz            Crystal-3.2x2.5               93.8750    -96.5600   93.0000    -95.4100     90.0    top       SMD
 D2            A                   STP_156120xx7530              112.5000   -100.0000  112.5000   -101.6250    90.0    top       SMD
 D3            R                   STP_156120xx7530              112.5000   -95.0000   112.5000   -96.6250     90.0    top       SMD

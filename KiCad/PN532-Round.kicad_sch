@@ -2958,7 +2958,7 @@
     (uuid 00000000-0000-0000-0000-0000607d486c)
     (property "Reference" "J3" (id 0) (at 250.19 46.355 0))
     (property "Value" "Conn" (id 1) (at 250.19 48.26 0))
-    (property "Footprint" "RevK:PinHeader_1x05_P2.54mm_Vertical_SMD_Pin1Right" (id 2) (at 247.65 57.785 0)
+    (property "Footprint" "RevK:PinHeader_1x05_P2.54mm_Vertical_SMD_Pin1Left" (id 2) (at 247.65 57.785 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 247.65 57.785 0)
@@ -4346,7 +4346,7 @@
       (reference "D6") (unit 2) (value "BAV99S") (footprint "RevK:SOT-363_SC-70-6")
     )
     (path "/00000000-0000-0000-0000-0000607d486c"
-      (reference "J3") (unit 1) (value "Conn") (footprint "RevK:PinHeader_1x05_P2.54mm_Vertical_SMD_Pin1Right")
+      (reference "J3") (unit 1) (value "Conn") (footprint "RevK:PinHeader_1x05_P2.54mm_Vertical_SMD_Pin1Left")
     )
     (path "/00000000-0000-0000-0000-0000609405db"
       (reference "JP1") (unit 1) (value "I1") (footprint "RevK:SolderJumper3")
