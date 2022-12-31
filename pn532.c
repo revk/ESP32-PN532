@@ -135,6 +135,7 @@ pn532_t *pn532_init(int8_t uart, int8_t tx, int8_t rx, uint8_t outputs)
          .parity = UART_PARITY_DISABLE,
          .stop_bits = UART_STOP_BITS_1,
          .flow_ctrl = UART_HW_FLOWCTRL_DISABLE,
+         .source_clk = UART_SCLK_DEFAULT,
       };
       if (!err)
          err = uart_param_config(uart, &uart_config);
