@@ -33,9 +33,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.0,
-          "height": 1.2,
-          "width": 0.5
+          "drill": 1.8,
+          "height": 1.8,
+          "width": 1.8
         },
         "silk_line_width": 0.12,
         "silk_text_italic": false,
@@ -456,6 +456,6 @@
     ]
   ],
   "text_variables": {
-    "DATE": "2023-01-12"
+    "DATE": "2023-01-13"
   }
 }
