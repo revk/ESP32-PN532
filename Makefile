@@ -34,7 +34,7 @@ stl: PCB/Round/Round.stl PCB/Square/Wall.stl PCB/Square/Cable.stl PCB/Square/Thi
 PCB/Round/Round.scad: PCB/Round/Round.kicad_pcb PCBCase/case Makefile
 	PCBCase/case -n -o $@ $< --base=0.8 --top=2.5 --ignore=J1,J2
 	@echo "base();" >> $@
-	@echo "translate([spacing,0,0])difference(){top();translate([casewall+pcbwidth/2-13/2,casewall+pcblength/2+6.5-5/2,-1])cube([13,5,10]);}" >> $@
+	@echo "translate([spacing,0,0])difference(){top();translate([casewall+pcbwidth/2-13/2,casewall+pcblength/2+6.5-5/2,-1])cube([15.5,5,10]);}" >> $@
 
 PCB/Square/Wall.stl: PCB/Square/Square.scad Makefile
 	/Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD $< -o $@ -Dbase=0 -Dthick=3 -Draspox=false -Dspox=true -Dtamper=true -Dbell=false -Dmilligrid=false -Dscrews=true
