@@ -1,4 +1,4 @@
-Designator,Footprint,Quantity,Value,LCSC Part #
+﻿Designator,Footprint,Quantity,Value,LCSC Part #
 "C1, C2",C_0603,2,160pF,
 "C10, C13, C15",C_0603,3,4.7uF,
 "C11, C12, C14, C18, C7, C9",C_0603,6,100nF,
@@ -11,8 +11,7 @@ D2,LED_1206_Rev_Square,1,A,C125108
 D3,LED_1206_Rev_Square,1,R,C125107
 "D4, D5, D6",SOT-363_SC-70-6,3,BAV99S,
 J3,PinHeader_1x05_P2.54mm_Vertical_SMD_Pin1Left,1,Conn,C780063
-L1,1008,1,560nH,C75639
-L2,1008,1,560nH,C75639
+"L1, L2",1008,2,560nH,C75639
 "R1, R3",R_0603_,2,0R,
 "R10, R12, R13, R14, R8, R9",R_0603,6,100R,
 "R11, R15, R6",R_0603,3,10K,
