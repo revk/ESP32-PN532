@@ -1,6 +1,6 @@
 // Generated case design for PCB/Round/Round.kicad_pcb
 // By https://github.com/revk/PCBCase
-// Generated 2023-07-01 08:22:33
+// Generated 2023-07-01 11:21:10
 // title:	PN532 NFC reader (HSU)
 // date:	${DATE}
 // rev:	7

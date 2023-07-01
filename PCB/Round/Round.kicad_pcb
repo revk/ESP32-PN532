@@ -34,6 +34,8 @@
     (47 "F.CrtYd" user "F.Courtyard")
     (48 "B.Fab" user)
     (49 "F.Fab" user)
+    (50 "User.1" user "V.Cuts")
+    (51 "User.2" user "PCB.Border")
   )
 
   (setup
@@ -5068,8 +5070,6 @@
     (stroke (width 0.1) (type solid)) (layer "Dwgs.User") (tstamp ca7495d7-125f-41f8-81b0-5b6f951c3555))
   (gr_circle (center 100 100) (end 123 100)
     (stroke (width 0.1) (type default)) (fill none) (layer "Dwgs.User") (tstamp f51a65a1-22de-406d-8709-6f4c72ca49e6))
-  (gr_circle (center 100 100) (end 123 100)
-    (stroke (width 0.1) (type default)) (fill none) (layer "Eco1.User") (tstamp b68bc554-4896-4429-8fe6-088432dca447))
   (gr_arc (start 96.760687 75.21076) (mid 97.884159 76.06972) (end 97.025199 77.193192)
     (stroke (width 0.05) (type default)) (layer "Edge.Cuts") (tstamp 0e44d5d4-6315-4913-a8a8-5ba07813bf2b))
   (gr_arc (start 75.21076 103.239313) (mid 76.06972 102.115841) (end 77.193192 102.974801)
@@ -5104,6 +5104,8 @@
     (stroke (width 0.05) (type default)) (layer "Edge.Cuts") (tstamp e48a1b69-6786-459c-9f2d-61e0bba5413c))
   (gr_arc (start 97.025199 122.806808) (mid 83.736545 116.263455) (end 77.193192 102.974801)
     (stroke (width 0.05) (type default)) (layer "Edge.Cuts") (tstamp f5b3c307-0d12-4e4d-962e-f1db91489396))
+  (gr_circle (center 100 100) (end 123 100)
+    (stroke (width 0.1) (type default)) (fill none) (layer "User.2") (tstamp b68bc554-4896-4429-8fe6-088432dca447))
   (gr_text "I2C" (at 96.7 100.46) (layer "F.SilkS") (tstamp 00000000-0000-0000-0000-00006097a63f)
     (effects (font (size 0.5 0.5) (thickness 0.1)) (justify right))
   )
