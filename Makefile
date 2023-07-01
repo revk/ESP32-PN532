@@ -32,7 +32,7 @@ PCBCase/case: PCBCase/case.c
 stl: PCB/Round/Round.stl PCB/Square/Wall.stl PCB/Square/Cable.stl PCB/Square/Thick.stl
 
 PCB/Round/Round.scad: PCB/Round/Round.kicad_pcb PCBCase/case Makefile
-	PCBCase/case -n -o $@ $< --base=0.8 --top=2.5 --ignore=J1,J2
+	PCBCase/case -n -o $@ $< --base=0.8 --top=2.5 --ignore=J1,J2 --panel
 	@echo "base();" >> $@
 	@echo "translate([spacing,0,0])difference(){top();translate([casewall+pcbwidth/2-13/2,casewall+pcblength/2+6.5-5/2,-1])cube([15.5,5,10]);}" >> $@
 
