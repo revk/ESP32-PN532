@@ -10,7 +10,7 @@ static const char TAG[] = "PN532";
 
 #define	HEXLOG ESP_LOG_INFO
 #define	RX_BUF	280
-#define	TX_BUF	UART_HW_FIFO_LEN+1
+#define	TX_BUF	UART_FIFO_LEN+1
 
 struct pn532_s
 {
