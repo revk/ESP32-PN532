@@ -1,6 +1,6 @@
 // Generated case design for PCB/Round/Round.kicad_pcb
 // By https://github.com/revk/PCBCase
-// Generated 2023-04-24 13:03:34
+// Generated 2023-07-01 11:21:10
 // title:	PN532 NFC reader (HSU)
 // date:	${DATE}
 // rev:	7
@@ -74,12 +74,12 @@ translate([32.000000,18.240000,0.800000])m10(pushed,hulled); // RevK:C_0603 C_06
 translate([32.000000,22.740000,0.800000])m19(pushed,hulled); // RevK:SOT-363_SC-70-6 SOT-363_SC-70-6 (back)
 translate([32.000000,20.140000,0.800000])rotate([0,0,180.000000])m19(pushed,hulled); // RevK:SOT-363_SC-70-6 SOT-363_SC-70-6 (back)
 translate([21.300000,40.135000,0.800000])rotate([0,0,180.000000])m10(pushed,hulled); // RevK:C_0603 C_0603_1608Metric (back)
-translate([23.000000,44.410000,0.800000])rotate([0,0,90.000000])m24(pushed,hulled); // RevK:R_0805_ R_0805_2012Metric (back)
+translate([23.000000,44.410000,0.800000])rotate([0,0,90.000000])m25(pushed,hulled); // RevK:R_0805_ R_0805_2012Metric (back)
 translate([24.770000,42.510000,0.800000])rotate([0,0,90.000000])m13(pushed,hulled); // RevK:R_0603 R_0603_1608Metric (back)
 translate([21.230000,42.510000,0.800000])rotate([0,0,90.000000])m13(pushed,hulled); // RevK:R_0603 R_0603_1608Metric (back)
-translate([23.000000,23.000000,0.800000])translate([9.000000,14.000000,0.500000])scale([0.580000,0.580000,0.580000])rotate([-0.000000,90.000000,35.000000])m27(pushed,hulled); // RevK:PN532-Antenna6 653612 (back)
-translate([23.000000,23.000000,0.800000])translate([9.000000,-14.000000,0.500000])scale([0.580000,0.580000,0.580000])rotate([-0.000000,90.000000,-35.000000])m27(pushed,hulled); // RevK:PN532-Antenna6 653612 (back)
-translate([23.000000,23.000000,0.800000])translate([-12.000000,0.000000,1.300000])scale([0.580000,0.580000,0.580000])rotate([-0.000000,90.000000,-90.000000])m27(pushed,hulled); // RevK:PN532-Antenna6 653612 (back)
+translate([23.000000,23.000000,0.800000])translate([9.000000,14.000000,0.500000])scale([0.580000,0.580000,0.580000])rotate([-0.000000,90.000000,35.000000])m29(pushed,hulled); // RevK:PN532-Antenna6 653612 (back)
+translate([23.000000,23.000000,0.800000])translate([9.000000,-14.000000,0.500000])scale([0.580000,0.580000,0.580000])rotate([-0.000000,90.000000,-35.000000])m29(pushed,hulled); // RevK:PN532-Antenna6 653612 (back)
+translate([23.000000,23.000000,0.800000])translate([-12.000000,0.000000,1.300000])scale([0.580000,0.580000,0.580000])rotate([-0.000000,90.000000,-90.000000])m29(pushed,hulled); // RevK:PN532-Antenna6 653612 (back)
 }
 
 module b(cx,cy,z,w,l,h){translate([cx-w/2,cy-l/2,z])cube([w,l,h]);}
@@ -106,7 +106,8 @@ b(0,0,0,1.6,0.8,1); // Chip
 
 module m13(pushed=false,hulled=false)
 { // RevK:R_0603 R_0603_1608Metric
-b(0,0,0,2.8,0.95,0.5); // Pad size
+b(0,0,0,1.6,0.95,0.2); // Pad size
+b(0,0,0,1.6,0.8,0.5); // Chip
 }
 
 module m14(pushed=false,hulled=false)
@@ -136,12 +137,13 @@ b(0,0,0,1.15,2.0,1.1);
 b(0,0,0,2.1,2.0,0.6);
 }
 
-module m24(pushed=false,hulled=false)
+module m25(pushed=false,hulled=false)
 { // RevK:R_0805_ R_0805_2012Metric
-b(0,0,0,3.2,1.45,0.5); // Pad size
+b(0,0,0,2,1.45,0.2); // Pad size
+b(0,0,0,2,1.2,0.5); // Chip
 }
 
-module m27(pushed=false,hulled=false)
+module m29(pushed=false,hulled=false)
 { // RevK:PN532-Antenna6 653612
 // Screw 6mm
 if(!hulled&&!pushed)
