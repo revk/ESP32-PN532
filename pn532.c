@@ -10,7 +10,7 @@ static const char TAG[] = "PN532";
 
 #define	HEXLOG ESP_LOG_INFO
 #define	RX_BUF	280
-#define	TX_BUF	UART_FIFO_LEN+1
+#define	TX_BUF	UART_HW_FIFO_LEN+1
 
 struct pn532_s
 {
@@ -72,7 +72,7 @@ uart_rx (pn532_t * p, uint8_t * buf, uint32_t length, int ms)
    if (l > 0)
       ESP_LOG_BUFFER_HEX_LEVEL ("NFCRx", buf, l, HEXLOG);
    if (l != length)
-      ESP_LOGI (TAG, "Rx %d/%d %d*%dms", l, length, ms, portTICK_PERIOD_MS);
+      ESP_LOGI (TAG, "Rx %d/%ld %d*%ldms", l, length, ms, portTICK_PERIOD_MS);
 #endif
    return l;
 }
