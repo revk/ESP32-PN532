@@ -188,8 +188,14 @@ pn532_init (int8_t uart, uint8_t baud, int8_t tx, int8_t rx, uint8_t outputs)
    uart_flush_input (p->uart);
    if (baud != 4 && baud <= 8)
    {                            // Not the default
-      const uint32_t rate[] = { 9600, 19200, 38400, 57600, 115200, 230400, 460800, 921600, 1288000 };
+      usleep (100000); // Time for response, not checking it
+      const uint8_t ack[]={0x00,0x00,0xFF,0x00,0xFF,0x00}; // We have to send an ACK before rate actually changes
+      uart_tx (p, ack,sizeof(ack));
+      uart_wait_tx_done (p->uart, 1000 / portTICK_PERIOD_MS);
+      uart_flush_input (p->uart);
       usleep (100000);
+      // Change rate
+      const uint32_t rate[] = { 9600, 19200, 38400, 57600, 115200, 230400, 460800, 921600, 1288000 };
       uart_config_t uart_config = {
          .baud_rate = rate[baud],
          .data_bits = UART_DATA_8_BITS,
@@ -200,9 +206,10 @@ pn532_init (int8_t uart, uint8_t baud, int8_t tx, int8_t rx, uint8_t outputs)
       };
       if (!err)
          err = uart_param_config (uart, &uart_config);
-      uart_tx (p, buf, sizeof (buf));
-      uart_wait_tx_done (p->uart, 1000 / portTICK_PERIOD_MS);
       usleep (100000);
+      uart_flush_input (p->uart);
+      uart_tx (p, buf, sizeof (buf)-8);
+      uart_wait_tx_done (p->uart, 1000 / portTICK_PERIOD_MS);
       uart_flush_input (p->uart);
    }
    // Set up PN532 (SAM first as in vLowBat mode)
