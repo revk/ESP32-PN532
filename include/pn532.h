@@ -67,7 +67,7 @@ typedef struct pn532_s pn532_t;
 
 // Functions
 
-pn532_t *pn532_init(int8_t uart, int8_t tx, int8_t rx, uint8_t p3);     // Init PN532 (P3 is port 3 output bits in use)
+pn532_t *pn532_init(int8_t uart, uint8_t baud, int8_t tx, int8_t rx, uint8_t p3);     // Init PN532 (P3 is port 3 output bits in use), baud is speed code 0-8 for 9600-1288000
 void *pn532_end(pn532_t * p);   // Close and free
 
 pn532_err_t pn532_lasterr(pn532_t *);

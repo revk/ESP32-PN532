@@ -122,8 +122,8 @@ pn532_end (pn532_t * p)
 }
 
 pn532_t *
-pn532_init (int8_t uart, int8_t tx, int8_t rx, uint8_t outputs)
-{                               // Init PN532
+pn532_init (int8_t uart, uint8_t baud, int8_t tx, int8_t rx, uint8_t outputs)
+{                               // Init PN532 (baud is 0-8 for 9600-1288000
    if (uart < 0 || tx < 0 || rx < 0 || tx == rx)
       return NULL;
    if (!GPIO_IS_VALID_OUTPUT_GPIO (tx) || !GPIO_IS_VALID_GPIO (rx))
@@ -167,13 +167,44 @@ pn532_init (int8_t uart, int8_t tx, int8_t rx, uint8_t outputs)
    ESP_LOGD (TAG, "UART %d Tx %d Rx %d", uart, tx, rx);
    gpio_set_drive_capability (tx, GPIO_DRIVE_CAP_3);    // Oomph?
    int n;
-   uint8_t buf[30] = { };
-   buf[sizeof (buf) - 1] = 0x55;
-   buf[sizeof (buf) - 2] = 0x55;
-   buf[sizeof (buf) - 3] = 0x55;
+   uint8_t buf[30] = { 0 };
+   int e = sizeof (buf);
+   if (baud != 4 && baud <= 8)
+   {
+      buf[--e] = 0x00;          // Post
+      buf[--e] = -(uint8_t) (0xD4 + 0x10 + baud);       // sum
+      buf[--e] = baud;
+      buf[--e] = 0x10;
+      buf[--e] = 0xD4;
+      buf[--e] = 0xFF;          // Pre
+      buf[--e] = 0x00;
+      buf[--e] = 0x00;
+   }
+   buf[--e] = 0x55;             // Idle
+   buf[--e] = 0x55;
+   buf[--e] = 0x55;
    uart_tx (p, buf, sizeof (buf));
    uart_wait_tx_done (p->uart, 1000 / portTICK_PERIOD_MS);
    uart_flush_input (p->uart);
+   if (baud != 4 && baud <= 8)
+   {                            // Not the default
+      const uint32_t rate[] = { 9600, 19200, 38400, 57600, 115200, 230400, 460800, 921600, 1288000 };
+      usleep (100000);
+      uart_config_t uart_config = {
+         .baud_rate = rate[baud],
+         .data_bits = UART_DATA_8_BITS,
+         .parity = UART_PARITY_DISABLE,
+         .stop_bits = UART_STOP_BITS_1,
+         .flow_ctrl = UART_HW_FLOWCTRL_DISABLE,
+         .source_clk = UART_SCLK_DEFAULT,
+      };
+      if (!err)
+         err = uart_param_config (uart, &uart_config);
+      uart_tx (p, buf, sizeof (buf));
+      uart_wait_tx_done (p->uart, 1000 / portTICK_PERIOD_MS);
+      usleep (100000);
+      uart_flush_input (p->uart);
+   }
    // Set up PN532 (SAM first as in vLowBat mode)
    // SAMConfiguration
    n = 0;
