@@ -8,7 +8,9 @@ static const char TAG[] = "PN532";
 #include <driver/uart.h>
 #include <driver/gpio.h>
 
-#define	HEXLOG ESP_LOG_INFO
+#define	HEXLOG	ESP_LOG_INFO
+#define	DXLOG	ESP_LOG_INFO
+#define	MSGLOG	ESP_LOG_ERROR
 #define	RX_BUF	280
 #define	TX_BUF	UART_FIFO_LEN+1
 
@@ -167,33 +169,26 @@ pn532_init (int8_t uart, uint8_t baud, int8_t tx, int8_t rx, uint8_t outputs)
    ESP_LOGD (TAG, "UART %d Tx %d Rx %d", uart, tx, rx);
    gpio_set_drive_capability (tx, GPIO_DRIVE_CAP_3);    // Oomph?
    int n;
-   uint8_t buf[30] = { 0 };
+   uint8_t buf[40] = { 0 };
    int e = sizeof (buf);
-   if (baud != 4 && baud <= 8)
-   {
-      buf[--e] = 0x00;          // Post
-      buf[--e] = -(uint8_t) (0xD4 + 0x10 + baud);       // sum
-      buf[--e] = baud;
-      buf[--e] = 0x10;
-      buf[--e] = 0xD4;
-      buf[--e] = 0xFF;          // Pre
-      buf[--e] = 0x00;
-      buf[--e] = 0x00;
-   }
    buf[--e] = 0x55;             // Idle
    buf[--e] = 0x55;
    buf[--e] = 0x55;
-   uart_tx (p, buf, sizeof (buf));
-   uart_wait_tx_done (p->uart, 1000 / portTICK_PERIOD_MS);
    uart_flush_input (p->uart);
+   uart_tx (p, buf, sizeof (buf));
+   uart_wait_tx_done (p->uart, 100 / portTICK_PERIOD_MS);
    if (baud != 4 && baud <= 8)
-   {                            // Not the default
-      usleep (100000); // Time for response, not checking it
-      const uint8_t ack[]={0x00,0x00,0xFF,0x00,0xFF,0x00}; // We have to send an ACK before rate actually changes
-      uart_tx (p, ack,sizeof(ack));
-      uart_wait_tx_done (p->uart, 1000 / portTICK_PERIOD_MS);
-      uart_flush_input (p->uart);
-      usleep (100000);
+   {                            // Not the default Baud rate, go through the change of Baud rate step by step
+      if (pn532_tx (p, 0x10, 1, &baud, 0, NULL) < 0 || pn532_rx (p, 0, NULL, sizeof (buf), buf, 20) < 0)
+      {
+         ESP_LOGE (TAG, "Baud rate change failed %s", pn532_err_to_name (pn532_lasterr (p)));
+         return pn532_end (p);
+      }
+      // We have to send ACK at current Baud rate
+      uint8_t ack[] = { 0x00, 0x00, 0xFF, 0x00, 0xFF, 0x00 };
+      uart_tx (p, ack, sizeof (ack));
+      uart_wait_tx_done (p->uart, 100 / portTICK_PERIOD_MS);
+      usleep (10000);
       // Change rate
       const uint32_t rate[] = { 9600, 19200, 38400, 57600, 115200, 230400, 460800, 921600, 1288000 };
       uart_config_t uart_config = {
@@ -206,11 +201,13 @@ pn532_init (int8_t uart, uint8_t baud, int8_t tx, int8_t rx, uint8_t outputs)
       };
       if (!err)
          err = uart_param_config (uart, &uart_config);
-      usleep (100000);
-      uart_flush_input (p->uart);
-      uart_tx (p, buf, sizeof (buf)-8);
-      uart_wait_tx_done (p->uart, 1000 / portTICK_PERIOD_MS);
-      uart_flush_input (p->uart);
+      if (err)
+      {
+         ESP_LOGE (TAG, "UART fail %s", esp_err_to_name (err));
+         return pn532_end (p);
+      }
+      ESP_LOGE (TAG, "Baud rate %ld", rate[baud]);
+      usleep (10000);
    }
    // Set up PN532 (SAM first as in vLowBat mode)
    // SAMConfiguration
@@ -368,9 +365,9 @@ pn532_tx_mutex (pn532_t * p, uint8_t cmd, int len1, uint8_t * data1, int len2, u
    buf[0] = -sum;               // Checksum
    buf[1] = 0x00;               // Postamble
    uart_tx (p, buf, 2);
-   uart_wait_tx_done (p->uart, 100 / portTICK_PERIOD_MS);
+   uart_wait_tx_done (p->uart, 1000 / portTICK_PERIOD_MS);
    // Get ACK and check it
-   l = uart_preamble (p, 10);
+   l = uart_preamble (p, 50);
    if (l < 2)
       return -(p->lasterr = PN532_ERR_TIMEOUTACK);
    l = uart_rx (p, buf, 3, 10);
@@ -391,6 +388,24 @@ pn532_tx (pn532_t * p, uint8_t cmd, int len1, uint8_t * data1, int len2, uint8_t
 {                               // Send data to PN532
    if (!p)
       return -PN532_ERR_NULL;
+#ifdef	CONFIG_PN532_DEBUG_MSG
+   {                            // Messy
+      uint8_t buf[100],
+       *p = buf;
+      *p++ = cmd;
+      if (len1)
+      {
+         memcpy (p, data1, len1);
+         p += len1;
+      }
+      if (len2)
+      {
+         memcpy (p, data2, len2);
+         p += len2;
+      }
+      ESP_LOG_BUFFER_HEX_LEVEL ("NFCTx", buf, (int) (p - buf), MSGLOG);
+   }
+#endif
    xSemaphoreTake (p->mutex, portMAX_DELAY);
    int l = pn532_tx_mutex (p, cmd, len1, data1, len2, data2);
    if (!p->pending)
@@ -440,6 +455,10 @@ pn532_rx_mutex (pn532_t * p, int max1, uint8_t * data1, int max2, uint8_t * data
    uint8_t sum = 0xD5 + pending;
    if (len > max1 + max2)
       return -(p->lasterr = PN532_ERR_SPACE);   // Too big
+#ifdef	CONFIG_PN532_DEBUG_MSG
+   uint8_t len1 = 0,
+      len2 = 0;
+#endif
    if (data1)
    {
       l = max1;
@@ -447,6 +466,9 @@ pn532_rx_mutex (pn532_t * p, int max1, uint8_t * data1, int max2, uint8_t * data
          l = len;
       if (l)
       {
+#ifdef	CONFIG_PN532_DEBUG_MSG
+         len1 = l;
+#endif
          if (uart_rx (p, data1, l, 10) < l)
             return -(p->lasterr = PN532_ERR_TIMEOUT);   // Bad read
          len -= l;
@@ -461,6 +483,9 @@ pn532_rx_mutex (pn532_t * p, int max1, uint8_t * data1, int max2, uint8_t * data
          l = len;
       if (l)
       {
+#ifdef	CONFIG_PN532_DEBUG_MSG
+         len2 = l;
+#endif
          if (uart_rx (p, data2, l, 10) < l)
             return -(p->lasterr = PN532_ERR_TIMEOUT);   // Bad read
          len -= l;
@@ -475,6 +500,24 @@ pn532_rx_mutex (pn532_t * p, int max1, uint8_t * data1, int max2, uint8_t * data
       return -(p->lasterr = PN532_ERR_CHECKSUM);        // checksum
    if (buf[1])
       return -(p->lasterr = PN532_ERR_POSTAMBLE);       // postamble
+#ifdef	CONFIG_PN532_DEBUG_MSG
+   {                            // Messy
+      uint8_t buf[100],
+       *p = buf;
+      *p++ = pending;
+      if (len1)
+      {
+         memcpy (p, data1, len1);
+         p += len1;
+      }
+      if (len2)
+      {
+         memcpy (p, data2, len2);
+         p += len2;
+      }
+      ESP_LOG_BUFFER_HEX_LEVEL ("NFCRx", buf, (int) (p - buf), MSGLOG);
+   }
+#endif
    return res;
 }
 
@@ -515,7 +558,9 @@ pn532_dx (void *pv, unsigned int len, uint8_t * data, unsigned int max, const ch
    if (!p->cards)
       return 0;                 // No card
 #ifdef	CONFIG_PN532_DEBUG_DX
-   ESP_LOG_BUFFER_HEX_LEVEL ("NFCTx", data, len, HEXLOG);
+#ifndef CONFIG_PN532_DUMP
+   ESP_LOG_BUFFER_HEX_LEVEL ("NFCTx", data, len, DXLOG);
+#endif
 #endif
    int l = pn532_tx (p, 0x40, 1, &p->tg, len, data);
    if (l >= 0)
@@ -527,15 +572,17 @@ pn532_dx (void *pv, unsigned int len, uint8_t * data, unsigned int max, const ch
       else if (l >= 1 && status)
          l = -PN532_ERR_STATUS - status;
 #ifdef	CONFIG_PN532_DEBUG_DX
+#ifndef CONFIG_PN532_DUMP
       if (l > 0)
-         ESP_LOG_BUFFER_HEX_LEVEL ("NFCRx", data, l - 1, HEXLOG);
+         ESP_LOG_BUFFER_HEX_LEVEL ("NFCRx", data, l - 1, DXLOG);
+#endif
 #endif
    }
    if (l < 0)
    {
       p->lasterr = -l;
 #ifdef	CONFIG_PN532_DEBUG_DX
-      ESP_LOG_LEVEL (HEXLOG, "NFCErr", "%s", pn532_err_to_name (p->lasterr));
+      ESP_LOG_LEVEL (DXLOG, "NFCErr", "%s", pn532_err_to_name (p->lasterr));
 #endif
       if (strerr)
          *strerr = pn532_err_to_name (p->lasterr);

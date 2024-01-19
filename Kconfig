@@ -6,6 +6,12 @@ menu "PN532"
 	help
 		Debug DESFire messages and errors
 
+	config PN532_DEBUG_MSG
+	bool "Debug MSG"
+	default n
+	help
+		Debug message level
+
 	config PN532_DUMP
 	bool "Dump Serial"
 	default n
