@@ -169,7 +169,7 @@ pn532_init (int8_t uart, uint8_t baud, int8_t tx, int8_t rx, uint8_t outputs)
    ESP_LOGD (TAG, "UART %d Tx %d Rx %d", uart, tx, rx);
    gpio_set_drive_capability (tx, GPIO_DRIVE_CAP_3);    // Oomph?
    int n;
-   uint8_t buf[40] = { 0 };
+   uint8_t buf[30] = { 0 };
    int e = sizeof (buf);
    buf[--e] = 0x55;             // Idle
    buf[--e] = 0x55;
