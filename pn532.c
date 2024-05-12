@@ -12,7 +12,7 @@ static const char TAG[] = "PN532";
 #define	DXLOG	ESP_LOG_INFO
 #define	MSGLOG	ESP_LOG_ERROR
 #define	RX_BUF	280
-#define	TX_BUF	UART_HW_FIFO_LEN(0)+4
+#define	TX_BUF	280
 
 struct pn532_s
 {
