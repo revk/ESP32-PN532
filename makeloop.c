@@ -20,21 +20,25 @@ int
 main (int argc, const char *argv[])
 {
    const char *name = "PN532-Antenna6";
-   const char *text = "PN532 HSU NFC READER PN532.REVK.UK";
+   const char *text = NULL;
    double startr = 22.69;
    double width = 0.5;
    double step = 1.0;
    double starta = NAN;
    double enda = NAN;
    double stepa = 30;
-   double edge = 23;
-   double ring = 16;
+   double edge = NAN;
+   double ring = NAN;
    double texth = 3;
    double textr = 18.5;
    double textt = 0.4;
    double screwx = NAN;
    double screwy = NAN;
    double screwz = 1;
+   double zone = 8; // Fill exclude zone starts away from antenna
+   double zap=5;	// Fill exclusion zone has slots this deep
+		double spoke=12;	 // Exclude spoke angle
+		double slot=1;		// Exclude slot angle
    int outside = 0;
    int debug = 0;
    poptContext optCon;          /* context for parsing  command - line options */
@@ -56,6 +60,10 @@ main (int argc, const char *argv[])
          {"screwz", 0, POPT_ARG_DOUBLE | POPT_ARGFLAG_SHOW_DEFAULT, &screwz, 0, "Screw Z"},
          {"edge", 0, POPT_ARG_DOUBLE | POPT_ARGFLAG_SHOW_DEFAULT, &edge, 0, "Edge"},
          {"ring", 0, POPT_ARG_DOUBLE | POPT_ARGFLAG_SHOW_DEFAULT, &ring, 0, "Ring"},
+         {"zone", 0, POPT_ARG_DOUBLE | POPT_ARGFLAG_SHOW_DEFAULT, &zone, 0, "Keepout clearance"},
+         {"zap", 0, POPT_ARG_DOUBLE | POPT_ARGFLAG_SHOW_DEFAULT, &zap, 0, "Keepout slot length"},
+         {"spoke", 0, POPT_ARG_DOUBLE | POPT_ARGFLAG_SHOW_DEFAULT, &spoke, 0, "Keepout slot spacing"},
+         {"slot", 0, POPT_ARG_DOUBLE | POPT_ARGFLAG_SHOW_DEFAULT, &slot, 0, "Keepout slot width"},
          {"outside", 0, POPT_ARG_NONE, &outside, 0, "Outside contact"},
          {"debug", 'v', POPT_ARG_NONE, &debug, 0, "Debug"},
          POPT_AUTOHELP {}
@@ -77,34 +85,45 @@ main (int argc, const char *argv[])
       starta = outside ? 7 : 2.4;
    if (isnan (enda))
       enda = outside ? 722.7 : 713;
+   if(!outside&&!text)text="PN532 HSU NFC READER PN532.REVK.UK";
+   if(!outside&&isnan(edge))edge=23;
+   if(!outside&&isnan(ring))ring=16;
 
 #define	LF	"%.2lf"
 #define	RES	100
    double basex = 0,
       basey = 0;
 
-   double x (double a)
+   inline double xr(double a,double r)
    {
-      double r = startr - step * a / 360;
-      if (a < 0)
-         r = startr;
       return round ((r * sin (a * M_PI / 180.0) - basex) * RES) / RES;
    }
-   double y (double a)
+   inline double x (double a)
    {
       double r = startr - step * a / 360;
       if (a < 0)
          r = startr;
+      return xr(a,r);
+   }
+   inline double yr(double a,double  r)
+   {
       return round ((-r * cos (a * M_PI / 180.0) + step / 4 - basey) * RES) / RES;
+   }
+   inline double y (double a)
+   {
+      double r = startr - step * a / 360;
+      if (a < 0)
+         r = startr;
+      return yr(a,r);
    }
 
    printf ("(footprint \"%s\" (layer \"F.Cu\") (version 20211014) ", name);
    printf ("(attr smd exclude_from_pos_files exclude_from_bom)");
    printf ("(fp_text reference \"Ref**\" (at 0 0) (layer \"F.SilkS\") hide (effects (font (size 1.27 1.27) (thickness 0.15))))");
    printf ("(fp_text value \"Val**\" (at 0 0) (layer \"F.SilkS\") hide (effects (font (size 1.27 1.27) (thickness 0.15))))");
-   if (edge)
+   if (!isnan(edge)&&edge)
       printf ("(fp_circle (center 0 0) (end " LF " 0) (layer \"Edge.Cuts\") (width 0.1) (fill none))", edge);
-   if (ring)
+   if (!isnan(ring)&&ring)
       printf ("(fp_circle (center 0 0) (end " LF " 0) (layer \"Dwgs.User\") (width 0.2) (fill none))", ring);
    if (text && *text)
    {
@@ -214,6 +233,31 @@ main (int argc, const char *argv[])
    /* the antenna itself */
    pad ("F.Cu", -1);
    pad ("B.Cu", 1);
+   if(zone)
+   {
+	   printf("(zone(net 0)(net_name \"\")(layers \"F&B.Cu\")(hatch edge 0.5)(connect_pads(clearance 0))(min_thickness 0.25)(filled_areas_thickness no)(keepout(tracks allowed)(vias allowed)(pads allowed)(copperpour not_allowed)(footprints allowed))(fill(thermal_gap 0.5)(thermal_bridge_width 0.5))(polygon(pts");
+			    void zy(double a,double r)
+			    {
+		    printf("(xy "LF" "LF")",xr(a,r),yr(a,r));
+			    }
+	   if(outside)
+	   for(double a=0;a<360;a+=spoke)
+		    {
+			    zy(a,startr+step*2+zone);
+			    zy(a,startr+step*2+zone+zap);
+			    zy(a+slot,startr+step*2+zone+zap);
+			    zy(a+slot,startr+step*2+zone);
+		    }
+	   else
+	   for(double a=0;a<360;a+=spoke)
+		    {
+			    zy(a,startr-zone);
+			    zy(a,startr-zone-zap);
+			    zy(a+slot,startr-zone-zap);
+			    zy(a+slot,startr-zone);
+		    }
+	   printf(")))");
+   }
    printf (")");
    poptFreeContext (optCon);
    return 0;
