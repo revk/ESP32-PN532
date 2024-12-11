@@ -240,24 +240,24 @@ main (int argc, const char *argv[])
       {
          printf ("(xy " LF " " LF ")", xr (a, r), yr (a, r));
       }
-	 zy(0, startr + step * 2 + zone);
-         for (double a = -slot/2; a < 360; a += spoke)
-         {
-            zy (a, startr + step * 2 + zone);
-            zy (a, startr + step * 2 + zone + zap);
-            zy (a + slot, startr + step * 2 + zone + zap);
-            zy (a + slot, startr + step * 2 + zone);
+      zy (0, startr + step * 2 + zone);
+      for (double a = -slot / 2; a < 360; a += spoke)
+      {
+         zy (a, startr + step * 2 + zone);
+         zy (a, startr + step * 2 + zone + zap);
+         zy (a + slot, startr + step * 2 + zone + zap);
+         zy (a + slot, startr + step * 2 + zone);
       }
-	 zy(0, startr + step * 2 + zone);
-	 zy(0, startr-zone);
-         for (double a = -slot/2; a < 360; a += spoke)
-         {
-            zy (-a, startr - zone);
-            zy (-a, startr - zone - zap);
-            zy (-a - slot, startr - zone - zap);
-            zy (-a - slot, startr - zone);
-         }
-	 zy(0, startr-zone);
+      zy (0, startr + step * 2 + zone);
+      zy (0, startr - zone);
+      for (double a = -slot / 2; a < 360; a += spoke)
+      {
+         zy (-a, startr - zone);
+         zy (-a, startr - zone - zap);
+         zy (-a - slot, startr - zone - zap);
+         zy (-a - slot, startr - zone);
+      }
+      zy (0, startr - zone);
       printf (")))");
    }
    printf (")");
