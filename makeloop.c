@@ -33,8 +33,8 @@ main (int argc, const char *argv[])
    double textr = 18.5;
    double textt = 0.4;
    double screwx = NAN;
-   double screwy = NAN;
-   double screwz = 1;
+   double screwy = 0;
+   double screwz = 1.25;
    double zone = 8;             // Fill exclude zone starts away from antenna
    double zap = 5;              // Fill exclusion zone has slots this deep
    double spoke = 12;           // Exclude spoke angle
@@ -78,17 +78,13 @@ main (int argc, const char *argv[])
 
    }
    if (!outside && isnan (screwx))
-      screwx = edge * 10 / 23;
-   if (!outside && isnan (screwy))
-      screwy = edge * 14 / 23;
+      screwx = startr * 12 / 23;
    if (isnan (starta))
       starta = outside ? 7 : 2.4;
    if (isnan (enda))
       enda = outside ? 722.7 : 713;
    if (!outside && !text)
       text = "PN532 HSU NFC READER PN532.REVK.UK";
-   if (!outside && isnan (edge))
-      edge = 23;
    if (!outside && isnan (ring))
       ring = 16;
 
@@ -244,21 +240,24 @@ main (int argc, const char *argv[])
       {
          printf ("(xy " LF " " LF ")", xr (a, r), yr (a, r));
       }
-      if (outside)
-         for (double a = 0; a < 360; a += spoke)
+	 zy(0, startr + step * 2 + zone);
+         for (double a = -slot/2; a < 360; a += spoke)
          {
             zy (a, startr + step * 2 + zone);
             zy (a, startr + step * 2 + zone + zap);
             zy (a + slot, startr + step * 2 + zone + zap);
             zy (a + slot, startr + step * 2 + zone);
-      } else
-         for (double a = 0; a < 360; a += spoke)
+      }
+	 zy(0, startr + step * 2 + zone);
+	 zy(0, startr-zone);
+         for (double a = -slot/2; a < 360; a += spoke)
          {
-            zy (a, startr - zone);
-            zy (a, startr - zone - zap);
-            zy (a + slot, startr - zone - zap);
-            zy (a + slot, startr - zone);
+            zy (-a, startr - zone);
+            zy (-a, startr - zone - zap);
+            zy (-a - slot, startr - zone - zap);
+            zy (-a - slot, startr - zone);
          }
+	 zy(0, startr-zone);
       printf (")))");
    }
    printf (")");
