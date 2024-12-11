@@ -35,7 +35,7 @@ main (int argc, const char *argv[])
    double screwx = NAN;
    double screwy = NAN;
    double screwz = 1;
-   int outside=0;
+   int outside = 0;
    int debug = 0;
    poptContext optCon;          /* context for parsing  command - line options */
    {
@@ -73,8 +73,10 @@ main (int argc, const char *argv[])
       screwx = edge * 10 / 23;
    if (isnan (screwy))
       screwy = edge * 14 / 23;
-   if(isnan(starta))starta=outside?7:2.4;
-   if(isnan(enda))enda=outside?722.7:713;
+   if (isnan (starta))
+      starta = outside ? 7 : 2.4;
+   if (isnan (enda))
+      enda = outside ? 722.7 : 713;
 
 #define	LF	"%.2lf"
 #define	RES	100
@@ -126,47 +128,55 @@ main (int argc, const char *argv[])
    }
    {                            /* Components */
       /* top link */
-	   int d=outside?-1:1;
+      int d = outside ? -1 : 1;
       double dy = y (roundl (enda / 360) * 360) - y (roundl (starta / 360) * 360);
       if (dy > 1.5 && dy < 2.5)
       {                         /* 0805 2mm high */
-	 double a=outside?enda:starta;
+         double a = outside ? enda : starta;
          double Y = y (a);
          double W = x (a) * 2;
-	 // Holes
-         printf ("(pad \"\" thru_hole circle (at " LF " " LF ") (size " LF " " LF ") (drill " LF ") (layers *.Cu))",W/2,Y,width,width,width/2);
-         printf ("(pad \"\" thru_hole circle (at " LF " " LF ") (size " LF " " LF ") (drill " LF ") (layers *.Cu))",-W/2,Y,width,width,width/2);
-	 // Join holes
+         // Holes
+         printf ("(pad \"\" thru_hole circle (at " LF " " LF ") (size " LF " " LF ") (drill " LF ") (layers *.Cu))", W / 2, Y,
+                 width, width, width / 2);
+         printf ("(pad \"\" thru_hole circle (at " LF " " LF ") (size " LF " " LF ") (drill " LF ") (layers *.Cu))", -W / 2, Y,
+                 width, width, width / 2);
+         // Join holes
          printf ("(pad \"\" smd rect (at 0 " LF " 0) (size " LF " " LF ") (layers \"F.Cu\" \"B.Cu\"))", Y, W, width);
-	 // Centre tap pad
+         // Centre tap pad
          printf ("(pad \"\" smd rect (at 0 " LF " 0) (size 1.4 " LF ") (layers \"F.Paste\" \"F.Mask\"))", Y, width);
-	 // Centre dot
-	 Y+=d;
-         printf ("(fp_circle (center 0 " LF ") (end 0.05 " LF ") (layer \"Dwgs.User\") (width 0.12) (fill none))", Y , Y);
-	 // Contact pad
-	 Y+=d;
+         // Centre dot
+         Y += d;
+         printf ("(fp_circle (center 0 " LF ") (end 0.05 " LF ") (layer \"Dwgs.User\") (width 0.12) (fill none))", Y, Y);
+         // Contact pad
+         Y += d;
          printf ("(pad \"2\" smd rect (at 0 " LF " 0) (size 1.4 " LF ") (layers \"F.Cu\" \"F.Paste\" \"F.Mask\"))", Y, width);
       }
       /* 0603 1.6 mm high */
-	 double a=outside?starta:enda;
+      double a = outside ? starta : enda;
       // Hole
-   printf ("(pad \"\" thru_hole circle (at " LF " " LF ") (size " LF " " LF ") (drill " LF ") (layers *.Cu))",x(a),y(a),width,width,width/2);
-   for(int m=-1;m<=1;m+=2)
-   {
-      double X = x (a) + width / 4;
-      double Y = y (a);
-      if(outside)X-=1+width;
-   // Copper
-      printf ("(pad \"\" smd rect (at " LF " " LF " 0) (size " LF " " LF ") (layers \"F.Cu\"))", m*(X + 0.5+(outside?width/2:0)), Y, 1 + width / 2, width);
-      // Mask
-      X += width / 4;
-      printf ("(pad \"\" smd rect (at " LF " " LF " 0) (size 1 " LF ") (layers \"F.Paste\" \"F.Mask\"))", m*(X + 0.5), Y, width);
-      // Dot
-      Y+=d*0.8;
-      printf ("(fp_circle (center " LF " " LF ") (end " LF " " LF ") (layer \"Dwgs.User\") (width 0.12) (fill none))", m*(X + 0.5), Y, m*(X + 0.5 + 0.05), Y);
-      Y+=d*0.8;
-      printf ("(pad \"%d\" smd rect (at " LF " " LF " 0) (size 1 " LF ") (layers \"F.Cu\" \"F.Paste\" \"F.Mask\"))", m+2,m*(X + 0.5), Y, width);
-   }
+      printf ("(pad \"\" thru_hole circle (at " LF " " LF ") (size " LF " " LF ") (drill " LF ") (layers *.Cu))", x (a), y (a),
+              width, width, width / 2);
+      for (int m = -1; m <= 1; m += 2)
+      {
+         double X = x (a) + width / 4;
+         double Y = y (a);
+         if (outside)
+            X -= 1 + width;
+         // Copper
+         printf ("(pad \"\" smd rect (at " LF " " LF " 0) (size " LF " " LF ") (layers \"F.Cu\"))",
+                 m * (X + 0.5 + (outside ? width / 2 : 0)), Y, 1 + width / 2, width);
+         // Mask
+         X += width / 4;
+         printf ("(pad \"\" smd rect (at " LF " " LF " 0) (size 1 " LF ") (layers \"F.Paste\" \"F.Mask\"))", m * (X + 0.5), Y,
+                 width);
+         // Dot
+         Y += d * 0.8;
+         printf ("(fp_circle (center " LF " " LF ") (end " LF " " LF ") (layer \"Dwgs.User\") (width 0.12) (fill none))",
+                 m * (X + 0.5), Y, m * (X + 0.5 + 0.05), Y);
+         Y += d * 0.8;
+         printf ("(pad \"%d\" smd rect (at " LF " " LF " 0) (size 1 " LF ") (layers \"F.Cu\" \"F.Paste\" \"F.Mask\"))", m + 2,
+                 m * (X + 0.5), Y, width);
+      }
 
       printf ("(model \"/Users/adrian/Documents/KiCad/3D/653612.stp\" (offset (xyz " LF " " LF " " LF
               ")) (scale (xyz 0.58 0.58 0.58)) (rotate (xyz 0 -90 -35)))", screwx, screwy, screwz);
