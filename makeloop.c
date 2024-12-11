@@ -35,6 +35,7 @@ main (int argc, const char *argv[])
    double screwx = NAN;
    double screwy = NAN;
    double screwz = 1;
+   int outside=0;
    int debug = 0;
    poptContext optCon;          /* context for parsing  command - line options */
    {
@@ -55,6 +56,7 @@ main (int argc, const char *argv[])
          {"screwz", 0, POPT_ARG_DOUBLE | POPT_ARGFLAG_SHOW_DEFAULT, &screwz, 0, "Screw Z"},
          {"edge", 0, POPT_ARG_DOUBLE | POPT_ARGFLAG_SHOW_DEFAULT, &edge, 0, "Edge"},
          {"ring", 0, POPT_ARG_DOUBLE | POPT_ARGFLAG_SHOW_DEFAULT, &ring, 0, "Ring"},
+         {"outside", 0, POPT_ARG_NONE, &outside, 0, "Outside contact"},
          {"debug", 'v', POPT_ARG_NONE, &debug, 0, "Debug"},
          POPT_AUTOHELP {}
       };
