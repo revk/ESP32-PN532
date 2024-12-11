@@ -129,9 +129,13 @@ main (int argc, const char *argv[])
       {                         /* 0805 2mm high */
          double Y = y (starta);
          double W = x (starta) * 2;
-         printf ("(fp_circle (center 0 " LF ") (end 0.05 " LF ") (layer \"Dwgs.User\") (width 0.12) (fill none))", Y + 1, Y + 1);
+	 // Join holes
          printf ("(pad \"\" smd rect (at 0 " LF " 0) (size " LF " " LF ") (layers \"F.Cu\" \"B.Cu\"))", Y, W, width);
+	 // Centre tap pad
          printf ("(pad \"\" smd rect (at 0 " LF " 0) (size 1.4 " LF ") (layers \"F.Paste\" \"F.Mask\"))", Y, width);
+	 // Centre dot
+         printf ("(fp_circle (center 0 " LF ") (end 0.05 " LF ") (layer \"Dwgs.User\") (width 0.12) (fill none))", Y + 1, Y + 1);
+	 // Contact pad
          printf ("(pad \"2\" smd rect (at 0 " LF " 0) (size 1.4 " LF ") (layers \"F.Cu\" \"F.Paste\" \"F.Mask\"))", Y + 2, width);
       }
       /* 0603 1.6 mm high */
