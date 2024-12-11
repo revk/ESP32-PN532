@@ -69,9 +69,9 @@ main (int argc, const char *argv[])
          errx (1, "%s: %s\n", poptBadOption (optCon, POPT_BADOPTION_NOALIAS), poptStrerror (c));
 
    }
-   if (!outside&&isnan (screwx))
+   if (!outside && isnan (screwx))
       screwx = edge * 10 / 23;
-   if (!outside&&isnan (screwy))
+   if (!outside && isnan (screwy))
       screwy = edge * 14 / 23;
    if (isnan (starta))
       starta = outside ? 7 : 2.4;
@@ -177,13 +177,13 @@ main (int argc, const char *argv[])
          printf ("(pad \"%d\" smd rect (at " LF " " LF " 0) (size 1 " LF ") (layers \"F.Cu\" \"F.Paste\" \"F.Mask\"))", m + 2,
                  m * (X + 0.5), Y, width);
       }
-if(!isnan(screwx))
-{
-      printf ("(model \"/Users/adrian/Documents/KiCad/3D/653612.stp\" (offset (xyz " LF " " LF " " LF
-              ")) (scale (xyz 0.58 0.58 0.58)) (rotate (xyz 0 -90 -35)))", screwx, screwy, screwz);
-      printf ("(model \"/Users/adrian/Documents/KiCad/3D/653612.stp\" (offset (xyz " LF " " LF " " LF
-              ")) (scale (xyz 0.58 0.58 0.58)) (rotate (xyz 0 -90 -35)))", -screwx, -screwy, screwz);
-}
+      if (!isnan (screwx))
+      {
+         printf ("(model \"/Users/adrian/Documents/KiCad/3D/653612.stp\" (offset (xyz " LF " " LF " " LF
+                 ")) (scale (xyz 0.58 0.58 0.58)) (rotate (xyz 0 -90 -35)))", screwx, screwy, screwz);
+         printf ("(model \"/Users/adrian/Documents/KiCad/3D/653612.stp\" (offset (xyz " LF " " LF " " LF
+                 ")) (scale (xyz 0.58 0.58 0.58)) (rotate (xyz 0 -90 -35)))", -screwx, -screwy, screwz);
+      }
    }
    void pad (const char *layer, double flip)
    {
