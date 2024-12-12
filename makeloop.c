@@ -117,7 +117,7 @@ main (int argc, const char *argv[])
    }
 
    printf ("(footprint \"%s\" (layer \"F.Cu\") (version 20211014) ", name);
-   printf("(attr through_hole exclude_from_pos_files exclude_from_bom)");
+   printf ("(attr through_hole exclude_from_pos_files exclude_from_bom)");
    printf ("(fp_text reference \"Ref**\" (at 0 0) (layer \"F.SilkS\") hide (effects (font (size 1.27 1.27) (thickness 0.15))))");
    printf ("(fp_text value \"Val**\" (at 0 0) (layer \"F.SilkS\") hide (effects (font (size 1.27 1.27) (thickness 0.15))))");
    if (!isnan (edge) && edge)
@@ -236,10 +236,10 @@ main (int argc, const char *argv[])
    {
       printf
          ("(zone(net 0)(net_name \"0\")(layers \"F&B.Cu\")(hatch edge 0.5)(connect_pads(clearance 0))(min_thickness 0.25)(filled_areas_thickness no)(keepout(tracks allowed)(vias allowed)(pads allowed)(copperpour not_allowed)(footprints allowed))(fill(thermal_gap 0.5)(thermal_bridge_width 0.5))(polygon(pts");
-      double delta=spoke/2;
+      double delta = spoke / 2;
       void zy (double a, double r)
       {
-         printf ("(xy " LF " " LF ")", xr (a+delta, r), yr (a+delta, r));
+         printf ("(xy " LF " " LF ")", xr (a + delta, r), yr (a + delta, r));
       }
       zy (0, startr + step * 2 + zone);
       for (double a = -slot / 2; a < 360; a += spoke)
