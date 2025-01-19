@@ -9,8 +9,11 @@ pull:
 	git submodule update --recursive
 
 update:
+	-git pull
+	-git commit -a
 	git submodule update --init --recursive --remote
-
+	idf.py update-dependencies
+	-git commit -a -m "Library update"
 
 KiCad/PN532-wall.stl: KiCad/PN532.scad Makefile
 	/Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD $< -o $@ -Dbase=0 -Dthick=3 -Draspox=false -Dspox=true -Dtamper=true -Dbell=false -Dmilligrid=false -Dscrews=true
