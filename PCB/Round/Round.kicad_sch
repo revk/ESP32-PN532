@@ -2639,7 +2639,7 @@
 				)
 			)
 			(property "Value" "PN532-Antenna"
-				(at 0 1.27 0)
+				(at 0 3.81 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2674,7 +2674,7 @@
 				)
 			)
 			(property "Note" "Non part, PCB printed"
-				(at 0 0 0)
+				(at 0 -3.556 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2733,6 +2733,24 @@
 				)
 			)
 			(symbol "PN532-Antenna_1_1"
+				(pin no_connect line
+					(at 2.54 0 180)
+					(length 2.54) hide
+					(name "LOOP"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "0"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
 				(pin passive line
 					(at 15.24 2.54 180)
 					(length 2.54)
@@ -5180,6 +5198,9 @@
 		)
 		(pin "3"
 			(uuid "b0e5b706-83df-4a5e-aaa5-9c8ea43f8826")
+		)
+		(pin "0"
+			(uuid "3a39655a-ea4f-4f5b-88d5-67247a71f292")
 		)
 		(instances
 			(project "Round"
