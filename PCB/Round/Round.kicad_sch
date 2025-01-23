@@ -1558,7 +1558,7 @@
 					(hide yes)
 				)
 			)
-			(property "LCSC Part #" "C5137770"
+			(property "MPN" "C5137770"
 				(at 0 -3.175 0)
 				(effects
 					(font
@@ -5334,15 +5334,6 @@
 				(hide yes)
 			)
 		)
-		(property "JLCPCB Rotation Offset" "-90"
-			(at 163.83 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "525d1009-7a9b-4765-8f6a-6032ff85bd3b")
 		)
@@ -5934,7 +5925,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C75639"
+		(property "MPN" "C75639"
 			(at 99.06 92.71 90)
 			(effects
 				(font
@@ -6037,7 +6028,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C75639"
+		(property "MPN" "C75639"
 			(at 99.06 113.03 90)
 			(effects
 				(font
@@ -6227,16 +6218,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C70591"
-			(at 158.75 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "JLCPCB Rotation Offset" "180"
+		(property "MPN" "C70591"
 			(at 158.75 144.78 0)
 			(effects
 				(font
@@ -6439,7 +6421,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C114612"
+		(property "MPN" "C114612"
 			(at 101.6 127 90)
 			(effects
 				(font
@@ -6544,7 +6526,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C22548"
+		(property "MPN" "C22548"
 			(at 128.27 123.19 0)
 			(effects
 				(font
@@ -8669,16 +8651,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C780063"
-			(at 247.65 57.785 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "JLCPCB Rotation Offset" "90"
+		(property "MPN" "C780063"
 			(at 247.65 57.785 0)
 			(effects
 				(font
@@ -8922,7 +8895,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C157737"
+		(property "MPN" "C157737"
 			(at 199.39 30.48 0)
 			(effects
 				(font
@@ -9025,7 +8998,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C125108"
+		(property "MPN" "C125108"
 			(at 199.39 45.72 0)
 			(effects
 				(font
@@ -9128,7 +9101,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C125107"
+		(property "MPN" "C125107"
 			(at 199.39 62.23 0)
 			(effects
 				(font
@@ -11677,7 +11650,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C5137770"
+		(property "MPN" "C5137770"
 			(at 257.175 113.03 0)
 			(effects
 				(font
@@ -11823,7 +11796,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C5137770"
+		(property "MPN" "C5137770"
 			(at 257.175 123.19 0)
 			(effects
 				(font
@@ -12035,7 +12008,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C5137770"
+		(property "MPN" "C5137770"
 			(at 257.175 139.7 0)
 			(effects
 				(font
@@ -12386,7 +12359,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C5137770"
+		(property "MPN" "C5137770"
 			(at 199.39 71.12 0)
 			(effects
 				(font
@@ -12554,7 +12527,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C5137770"
+		(property "MPN" "C5137770"
 			(at 267.97 51.435 0)
 			(effects
 				(font
@@ -12762,7 +12735,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C5137770"
+		(property "MPN" "C5137770"
 			(at 199.39 54.61 0)
 			(effects
 				(font
@@ -13138,7 +13111,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C5137770"
+		(property "MPN" "C5137770"
 			(at 199.39 39.37 0)
 			(effects
 				(font
