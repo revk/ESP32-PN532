@@ -5,3 +5,7 @@ makeloop.dSYM
 *~
 *.swp
 .DS_Store
+fabrication-toolkit-options.json
+build
+backups
+PCB/home

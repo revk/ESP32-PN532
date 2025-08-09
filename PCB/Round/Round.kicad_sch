@@ -1,5 +1,5 @@
 (kicad_sch
-	(version 20241209)
+	(version 20250114)
 	(generator "eeschema")
 	(generator_version "9.0")
 	(uuid "0217dfc4-fc13-4699-99ad-d9948522648e")
@@ -1210,7 +1210,7 @@
 						(type default)
 					)
 					(fill
-						(type outline)
+						(type none)
 					)
 				)
 				(arc
@@ -1222,7 +1222,7 @@
 						(type default)
 					)
 					(fill
-						(type none)
+						(type outline)
 					)
 				)
 				(rectangle
@@ -1257,7 +1257,7 @@
 						(type default)
 					)
 					(fill
-						(type outline)
+						(type none)
 					)
 				)
 				(arc
@@ -1269,7 +1269,7 @@
 						(type default)
 					)
 					(fill
-						(type none)
+						(type outline)
 					)
 				)
 				(polyline
@@ -1350,159 +1350,6 @@
 								(size 1.27 1.27)
 							)
 						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "QR_1"
-			(pin_names
-				(offset 1.016)
-			)
-			(exclude_from_sim no)
-			(in_bom no)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 -3.175 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Value" "QR_1"
-				(at 0 -3.175 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Footprint" ""
-				(at -0.635 -0.635 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at -0.635 -0.635 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Note" "Non part, PCB printed"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "QR_1_0_1"
-				(rectangle
-					(start -1.905 1.905)
-					(end 1.905 1.905)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.905 -1.905)
-					(end -1.905 1.905)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -0.635 0.635)
-					(end 0.635 0.635)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -0.635 -0.635)
-					(end -0.635 0.635)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 0.635 0.635)
-					(end 0.635 -0.635)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 0.635 -0.635)
-					(end -0.635 -0.635)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 1.905 1.905)
-					(end 1.905 -1.905)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 1.905 -1.905)
-					(end -1.905 -1.905)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
 					)
 				)
 			)
@@ -6352,7 +6199,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00006075de03")
 		(property "Reference" "R4"
-			(at 101.6 132.08 90)
+			(at 101.854 129.54 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6360,7 +6207,7 @@
 			)
 		)
 		(property "Value" "2k7 1%"
-			(at 101.6 124.0536 90)
+			(at 103.632 127 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7040,7 +6887,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-000060762055")
 		(property "Reference" "R6"
-			(at 151.13 31.5722 90)
+			(at 151.13 34.544 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7048,7 +6895,7 @@
 			)
 		)
 		(property "Value" "10K"
-			(at 151.13 33.8836 90)
+			(at 151.13 36.83 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9135,7 +8982,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-0000607ebc51")
 		(property "Reference" "R8"
-			(at 213.36 25.2222 90)
+			(at 213.36 28.448 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9143,7 +8990,7 @@
 			)
 		)
 		(property "Value" "100R"
-			(at 213.36 27.5336 90)
+			(at 213.36 30.48 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9229,7 +9076,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-0000607ed1a6")
 		(property "Reference" "R9"
-			(at 213.36 40.4622 90)
+			(at 213.36 43.4086 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9237,7 +9084,7 @@
 			)
 		)
 		(property "Value" "100R"
-			(at 213.36 42.7736 90)
+			(at 213.36 45.72 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9323,7 +9170,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-0000607ed794")
 		(property "Reference" "R10"
-			(at 213.36 56.9722 90)
+			(at 213.36 59.9186 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9331,7 +9178,7 @@
 			)
 		)
 		(property "Value" "100R"
-			(at 213.36 59.2836 90)
+			(at 213.36 62.23 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9417,7 +9264,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00006080249e")
 		(property "Reference" "R11"
-			(at 228.6 15.0622 90)
+			(at 228.6 18.0086 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9425,7 +9272,7 @@
 			)
 		)
 		(property "Value" "10K"
-			(at 228.6 17.3736 90)
+			(at 228.6 20.32 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9643,7 +9490,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00006080809b")
 		(property "Reference" "R7"
-			(at 158.75 42.0878 90)
+			(at 158.496 39.37 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9651,7 +9498,7 @@
 			)
 		)
 		(property "Value" "20K"
-			(at 158.75 39.7764 90)
+			(at 158.75 36.83 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9934,7 +9781,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00006086e7e9")
 		(property "Reference" "R15"
-			(at 214.4522 127.635 90)
+			(at 217.3986 127.508 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9942,7 +9789,7 @@
 			)
 		)
 		(property "Value" "10K"
-			(at 216.7636 127.635 90)
+			(at 219.71 127.508 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10306,7 +10153,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00006097c1ff")
 		(property "Reference" "R14"
-			(at 246.38 124.46 90)
+			(at 246.38 121.92 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10314,7 +10161,7 @@
 			)
 		)
 		(property "Value" "100R"
-			(at 246.38 121.92 90)
+			(at 246.38 119.38 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10496,7 +10343,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-0000609a96b9")
 		(property "Reference" "R13"
-			(at 246.38 111.76 90)
+			(at 246.38 114.3 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10504,7 +10351,7 @@
 			)
 		)
 		(property "Value" "100R"
-			(at 246.38 114.3 90)
+			(at 246.38 116.84 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10590,7 +10437,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-0000609c70d6")
 		(property "Reference" "R12"
-			(at 240.665 140.97 90)
+			(at 240.792 138.43 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10598,7 +10445,7 @@
 			)
 		)
 		(property "Value" "100R"
-			(at 240.665 138.43 90)
+			(at 240.792 135.89 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11094,79 +10941,6 @@
 			(project "Round"
 				(path "/0217dfc4-fc13-4699-99ad-d9948522648e"
 					(reference "#PWR039")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_name "QR_1")
-		(lib_id "RevK:QR")
-		(at 273.05 173.355 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(uuid "00000000-0000-0000-0000-00006184cc73")
-		(property "Reference" "U2"
-			(at 273.05 174.625 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "QR"
-			(at 273.05 174.625 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "RevK:QR-PN532"
-			(at 273.05 173.355 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 273.05 173.355 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 273.05 173.355 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Note" "Non part, PCB printed"
-			(at 273.05 173.355 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(instances
-			(project "Round"
-				(path "/0217dfc4-fc13-4699-99ad-d9948522648e"
-					(reference "U2")
 					(unit 1)
 				)
 			)
