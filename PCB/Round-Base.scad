@@ -17,7 +17,7 @@ indh=2.5;
 screwx=10;
 
 connx=-1.27;
-conny=-6.5+.75; // The 0.75 is for ESH connector offset
+conny=-6.5+.7; // The extra is for ESH connector offset
 connh=6;
 connw=16;
 
