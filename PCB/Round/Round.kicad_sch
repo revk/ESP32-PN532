@@ -5163,16 +5163,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part No" "PN5321A3HN/C106,51"
-			(at 163.83 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "NXP Semiconductors"
+		(property "MPN" "C28925"
 			(at 163.83 139.7 0)
 			(effects
 				(font
@@ -6241,33 +6232,6 @@
 				(hide yes)
 			)
 		)
-		(property "Note" "0603"
-			(at 101.6 127 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part No" "RC0603FR-102K7L"
-			(at 101.6 127 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "YAGEO"
-			(at 101.6 127 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "MPN" "C114612"
 			(at 101.6 127 90)
 			(effects
@@ -6929,25 +6893,7 @@
 				(hide yes)
 			)
 		)
-		(property "Note" ""
-			(at 151.13 36.83 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part No" "0603-10K"
-			(at 151.13 36.83 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
+		(property "MPN" "C25804"
 			(at 151.13 36.83 90)
 			(effects
 				(font
@@ -9024,25 +8970,7 @@
 				(hide yes)
 			)
 		)
-		(property "Note" ""
-			(at 213.36 30.48 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part No" "0603-100R"
-			(at 213.36 30.48 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
+		(property "MPN" "C22775"
 			(at 213.36 30.48 90)
 			(effects
 				(font
@@ -9118,25 +9046,7 @@
 				(hide yes)
 			)
 		)
-		(property "Note" ""
-			(at 213.36 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part No" "0603-100R"
-			(at 213.36 45.72 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
+		(property "MPN" "C22775"
 			(at 213.36 45.72 90)
 			(effects
 				(font
@@ -9212,25 +9122,7 @@
 				(hide yes)
 			)
 		)
-		(property "Note" ""
-			(at 213.36 62.23 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part No" "0603-100R"
-			(at 213.36 62.23 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
+		(property "MPN" "C22775"
 			(at 213.36 62.23 90)
 			(effects
 				(font
@@ -9306,25 +9198,7 @@
 				(hide yes)
 			)
 		)
-		(property "Note" ""
-			(at 228.6 20.32 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part No" "0603-10K"
-			(at 228.6 20.32 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
+		(property "MPN" "C25804"
 			(at 228.6 20.32 90)
 			(effects
 				(font
@@ -9532,25 +9406,7 @@
 				(hide yes)
 			)
 		)
-		(property "Note" "0603"
-			(at 158.75 36.83 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part No" "RC0603JR-1020KL"
-			(at 158.75 36.83 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "YAGEO"
+		(property "MPN" "C4184"
 			(at 158.75 36.83 90)
 			(effects
 				(font
@@ -9823,25 +9679,7 @@
 				(hide yes)
 			)
 		)
-		(property "Note" ""
-			(at 219.71 127.635 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part No" "0603-10K"
-			(at 219.71 127.635 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
+		(property "MPN" "C25804"
 			(at 219.71 127.635 90)
 			(effects
 				(font
@@ -10195,25 +10033,7 @@
 				(hide yes)
 			)
 		)
-		(property "Note" ""
-			(at 246.38 119.38 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part No" "0603-100R"
-			(at 246.38 119.38 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
+		(property "MPN" "C22775"
 			(at 246.38 119.38 90)
 			(effects
 				(font
@@ -10385,25 +10205,7 @@
 				(hide yes)
 			)
 		)
-		(property "Note" ""
-			(at 246.38 116.84 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part No" "0603-100R"
-			(at 246.38 116.84 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
+		(property "MPN" "C22775"
 			(at 246.38 116.84 90)
 			(effects
 				(font
@@ -10479,25 +10281,7 @@
 				(hide yes)
 			)
 		)
-		(property "Note" ""
-			(at 240.665 135.89 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part No" "0603-100R"
-			(at 240.665 135.89 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
+		(property "MPN" "0603-100R"
 			(at 240.665 135.89 90)
 			(effects
 				(font
@@ -11131,25 +10915,7 @@
 				(hide yes)
 			)
 		)
-		(property "Note" ""
-			(at 52.705 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part No" "0603-0R"
-			(at 52.705 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
+		(property "MPN" "0603"
 			(at 52.705 105.41 0)
 			(effects
 				(font
@@ -12211,25 +11977,7 @@
 				(hide yes)
 			)
 		)
-		(property "Note" ""
-			(at 52.705 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part No" "0603-0R"
-			(at 52.705 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
+		(property "MPN" "0603"
 			(at 52.705 100.33 0)
 			(effects
 				(font
@@ -12587,25 +12335,7 @@
 				(hide yes)
 			)
 		)
-		(property "Note" ""
-			(at 52.705 102.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part No" "0805-0R"
-			(at 52.705 102.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
+		(property "MPN" "C17477"
 			(at 52.705 102.87 0)
 			(effects
 				(font

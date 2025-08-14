@@ -1,0 +1,30 @@
+// Design for round base to print in resin
+
+pcbr=46/2;
+pcbt=1.2;
+parts=1.5;
+base=6;
+top=1.5;
+wall=2;
+nipple=2;
+diag=0.5;
+lt=2;
+lb=1;
+lw=2;
+
+$fn=90;
+
+indx=3.25;
+indy=12.44;
+indr=2.5;
+indh=2.5;
+screwx=10;
+
+supy=15;
+supd=3;
+
+connx=-1.27;
+conny=-6.5+.7; // The extra is for ESH connector offset
+connh=6;
+connw=16;
+
