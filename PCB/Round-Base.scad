@@ -24,8 +24,8 @@ difference()
     translate([-1,pcbr-3,base-pcbt-1])cube([2,3,2]);
     translate([-indx,indy,base-pcbt-indh])cylinder(r=indr,h=indh+1);
     translate([indx,indy,base-pcbt-indh])cylinder(r=indr,h=indh+1);
-    screw(-screwx,0);
-    screw(screwx,0);
+    screw(-screwx,screwy);
+    screw(screwx,screwy);
     hull()
     {
         translate([connx-connw/2+connh/2,conny,-1])cylinder(d=connh,h=base+2);
