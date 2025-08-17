@@ -1,6 +1,6 @@
 // Design for round base to print in resin
 
-include <Round.scad-inc>
+include <Round.scad>
 
 module screw(x,y)
 {
@@ -12,6 +12,8 @@ module screw(x,y)
     }
 }
 
+module base()
+{
 difference()
 {
     hull()
@@ -34,12 +36,15 @@ difference()
     for(a=[0,120,240])rotate(a)
     {
         translate([0,pcbr+wall,base/2])cylinder(d=nipple,h=base);
-        for(a=[0:1:20])rotate(a)hull()
+        for(a=[0:1:locka])rotate(a)hull()
         {
-            translate([0,pcbr+wall,base/2-diag*(a>15?15:a)/15])sphere(d=nipple);
-            rotate(1)translate([0,pcbr+wall,base/2-diag*((a>14?14:a)+1)/15])sphere(d=nipple);
+            translate([0,pcbr+wall,base/2-diag*(a>locka-5?locka-5:a)/15])sphere(d=nipple);
+            rotate(1)translate([0,pcbr+wall,base/2-diag*((a>locka-6?locka-6:a)+1)/15])sphere(d=nipple);
         }
     }
 }
 translate([0,-supy,1])cylinder(d=supd+2,h=base-pcbt-1);
 translate([0,-supy,1])cylinder(d=supd,h=base-1);
+}
+
+base();
