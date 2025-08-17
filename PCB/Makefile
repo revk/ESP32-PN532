@@ -1,4 +1,4 @@
-all: png Round-Base.stl Round-Top.stl Round-Plate.stl
+all: png Round-Base.stl Round-Top.stl Round-Plate.stl Round-Plate90.stl
 
 png:	$(patsubst %.kicad_pcb,%.png,$(wildcard */*.kicad_pcb))
 
