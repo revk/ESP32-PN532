@@ -8417,34 +8417,7 @@
 				(hide yes)
 			)
 		)
-		(property "Note" ""
-			(at 247.65 57.785 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "PartNo" "TSM-105-02-L-SV"
-			(at 247.65 57.785 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Samtec"
-			(at 247.65 57.785 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "C780063"
+		(property "MPN" "C2883802"
 			(at 247.65 57.785 0)
 			(effects
 				(font
