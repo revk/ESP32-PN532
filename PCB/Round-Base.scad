@@ -7,7 +7,7 @@ module screw(x,y)
     translate([x,y,-1])cylinder(d=3.6,h=base+2);
     hull()
     {
-        translate([x,y,base-pcbt-parts-1])cylinder(d=7.5,h=2);
+        translate([x,y,base-pcbt-parts-1.5])cylinder(d=7.5,h=2);
         translate([x,y,base-pcbt-parts-2])cylinder(d=3.6,h=1);
     }
 }
