@@ -8,7 +8,7 @@ PCBCase/case: PCBCase/case.c
 PCBCase/clean: PCBCase/clean.c
 	make -C PCBCase
 
-%.stl: %.scad Round.scad
+%.stl: %.scad Round.scad blankplate.scad
 	echo "Making $@"
 	/Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD $< -o $@
 	echo "Made $@"
