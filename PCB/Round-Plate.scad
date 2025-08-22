@@ -7,4 +7,4 @@ difference()
     blankplate();
     cylinder(r=pcbr+wall,h=base);
 }
-top();
+top(top=top+1);

@@ -2,7 +2,7 @@
 
 include <Round.scad>
 
-module top()
+module top(base=base,top=top)
 {
 difference()
 {
@@ -20,7 +20,7 @@ difference()
     }
     for(y=[-ledy,0,ledy])translate([ledx,y,1])cylinder(r=ledr,h=top);
 }
-for(a=[0,120,240])rotate(a-locka)
+for(a=[0,120,240])rotate(a+locka)
     translate([0,pcbr+wall,top+base/2+diag])sphere(d=nipple);
 }
 top();
