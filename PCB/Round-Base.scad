@@ -14,37 +14,40 @@ module screw(x,y)
 
 module base()
 {
-difference()
-{
-    hull()
+    difference()
     {
-        cylinder(r=pcbr+wall-0.5,h=base,$fn=360);
-        translate([0,0,1])cylinder(r=pcbr+wall,h=base-2,$fn=360);
-    }
-    translate([0,0,base-pcbt-parts])cylinder(r=pcbr-2,h=2);
-    translate([0,0,base-pcbt])cylinder(r=pcbr+0.2,h=pcbt+1,$fn=360);
-    translate([-1,pcbr-3,base-pcbt-1])cube([2,3,2]);
-    translate([-indx,indy,base-pcbt-indh])cylinder(r=indr,h=indh+1);
-    translate([indx,indy,base-pcbt-indh])cylinder(r=indr,h=indh+1);
-    screw(-screwx,screwy);
-    screw(screwx,screwy);
-    hull()
-    {
-        translate([connx-connw/2+connh/2,conny,-1])cylinder(d=connh,h=base+2);
-        translate([connx+connw/2-connh/2,conny,-1])cylinder(d=connh,h=base+2);
-    }
-    for(a=[0,120,240])rotate(a)
-    {
-        translate([0,pcbr+wall,base/2])cylinder(d=nipple,h=base);
-        for(a=[0:1:locka])rotate(a)hull()
+        hull()
         {
-            translate([0,pcbr+wall,base/2-diag*(a>locka-5?locka-5:a)/15])sphere(d=nipple);
-            rotate(1)translate([0,pcbr+wall,base/2-diag*((a>locka-6?locka-6:a)+1)/15])sphere(d=nipple);
+            cylinder(r=pcbr+wall-0.5,h=base,$fn=360);
+            translate([0,0,1])cylinder(r=pcbr+wall,h=base-2,$fn=360);
+        }
+        translate([0,0,base-pcbt-parts])cylinder(r=pcbr-2,h=2);
+        translate([0,0,base-pcbt])cylinder(r=pcbr+0.2,h=pcbt+1,$fn=360);
+        translate([-1,pcbr-3,base-pcbt-1])cube([2,3,2]);
+        translate([-indx,indy,base-pcbt-indh])cylinder(r=indr,h=indh+1);
+        translate([indx,indy,base-pcbt-indh])cylinder(r=indr,h=indh+1);
+        screw(-screwx,screwy);
+        screw(screwx,screwy);
+        hull()
+        {
+            translate([connx-connw/2+connh/2,conny,-1])cylinder(d=connh,h=base+2);
+            translate([connx+connw/2-connh/2,conny,-1])cylinder(d=connh,h=base+2);
+        }
+        for(a=[0,120,240])rotate(a)
+        {
+            translate([0,pcbr+wall,base/2])cylinder(d=nipple,h=base);
+            for(a=[0:1:locka])rotate(a)hull()
+            {
+                translate([0,pcbr+wall,base/2-diag*(a>locka-5?locka-5:a)/15])sphere(d=nipple);
+                rotate(1)translate([0,pcbr+wall,base/2-diag*((a>locka-6?locka-6:a)+1)/15])sphere(d=nipple);
+            }
         }
     }
-}
-translate([0,-supy,1])cylinder(d=supd+2,h=base-pcbt-1);
-translate([0,-supy,1])cylinder(d=supd,h=base-1);
+    for(x=[-supx,supx])
+    {
+        translate([x,-supy,1])cylinder(d=supb,h=base-pcbt-1);
+        translate([x,-supy,1])cylinder(d=supd,h=base-1);
+    }
 }
 
 base();
