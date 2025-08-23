@@ -9,9 +9,9 @@ PCBCase/clean: PCBCase/clean.c
 	make -C PCBCase
 
 %.stl: %.scad Round.scad blankplate.scad
-	echo "Making $@"
+	@echo "Making $@"
 	/Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD $< -o $@
-	echo "Made $@"
+	@echo "Made $@"
 
 %.png:	%.kicad_pcb PCBCase/clean PCBCase/render
 	PCBCase/render $<

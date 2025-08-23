@@ -7,4 +7,4 @@ difference()
     rotate(90)blankplate();
     cylinder(r=pcbr+wall,h=base);
 }
-top(top=top+1);
+top(top=2); // to match blankplate
