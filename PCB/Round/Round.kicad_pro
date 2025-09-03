@@ -61,7 +61,7 @@
       ],
       "drc_exclusions": [
         [
-          "padstack|100000000|77590000|df039228-e398-4537-925e-89f63c5ee103|00000000-0000-0000-0000-000000000000",
+          "padstack|100000000|77590000|8677cff1-3c8a-407b-81c5-f3d62307a3d1|00000000-0000-0000-0000-000000000000",
           ""
         ]
       ],
@@ -472,6 +472,7 @@
       "single_global_label": "ignore",
       "unannotated": "error",
       "unconnected_wire_endpoint": "warning",
+      "undefined_netclass": "error",
       "unit_value_mismatch": "error",
       "unresolved_variable": "error",
       "wire_dangling": "error"

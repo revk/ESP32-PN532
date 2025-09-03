@@ -18,7 +18,12 @@ Round-Top.stl:	Round-Top.scad Round.scad Round/Round.scad
 	/Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD $< -o $@
 	@echo "Made $@"
 
-Round-Plate.stl:	Round-Plate.scad blacnkplate.scad Round-Top.scad Round.scad Round/Round.scad
+Round-Plate.stl:	Round-Plate.scad blankplate.scad Round-Top.scad Round.scad Round/Round.scad
+	@echo "Making $@"
+	/Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD $< -o $@
+	@echo "Made $@"
+
+Round-Plate90.stl:	Round-Plate90.scad blankplate.scad Round-Top.scad Round.scad Round/Round.scad
 	@echo "Making $@"
 	/Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD $< -o $@
 	@echo "Made $@"
