@@ -1,33 +1,52 @@
 /* NFC test code */
 
 #define _GNU_SOURCE
+
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
 #include <popt.h>
 #include <err.h>
 #include <stdlib.h>
+#include <pn532.h>
+#include <fcntl.h>
+#include <err.h>
 
 int
-main(int argc, const char *argv[])
+main (int argc, const char *argv[])
 {
-   int             debug = 0;
-   poptContext     optCon;      /* context for parsing  command - line options */
+   const char *port = NULL;
+   poptContext optCon;          /* context for parsing  command - line options */
    {
       const struct poptOption optionsTable[] = {
-         {"debug", 'v', POPT_ARG_NONE, &debug, 0, "Debug"},
+         {"port", 'p', POPT_ARG_STRING, &port, 0, "Port (/dev/...)"},
+         {"dump", 'V', POPT_ARG_NONE, &pn532_dump, 0, "Dump"},
+         {"debug", 'v', POPT_ARG_NONE, &pn532_debug, 0, "Debug"},
          POPT_AUTOHELP {}
       };
 
-      optCon = poptGetContext(NULL, argc, argv, optionsTable, 0);
+      optCon = poptGetContext (NULL, argc, argv, optionsTable, 0);
       /* poptSetOtherOptionHelp(optCon, ""); */
 
-      int             c;
-      if ((c = poptGetNextOpt(optCon)) < -1)
-         errx(1, "%s: %s\n", poptBadOption(optCon, POPT_BADOPTION_NOALIAS), poptStrerror(c));
+      int c;
+      if ((c = poptGetNextOpt (optCon)) < -1)
+         errx (1, "%s: %s\n", poptBadOption (optCon, POPT_BADOPTION_NOALIAS), poptStrerror (c));
    }
+   if (!port && poptPeekArg (optCon))
+      port = poptGetArg (optCon);
+   if (!port)
+   {
+      poptPrintUsage (optCon, stderr, 0);
+      return -1;
+   }
+   int sock = open (port, O_RDWR);
+   if (sock < 0)
+      err (1, "Cannot open %s", port);
+   pn532_t *p = pn532_init (sock, 0);
 
 
-
+   p = pn532_end (p);
+   close (sock);
+   poptFreeContext (optCon);
    return 0;
 }

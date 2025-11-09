@@ -1,5 +1,5 @@
 // PN532 functions
-// Copyright © 2019 Adrian Kennard, Andrews & Arnold Ltd. See LICENCE file for details. GPL 3.0
+// Copyright © 2019-2025 Adrian Kennard, Andrews & Arnold Ltd. See LICENCE file for details. GPL 3.0
 
 #ifndef	PN532_H
 #define PN532_H
@@ -10,6 +10,11 @@
 #include <string.h>
 #include <unistd.h>
 #include <stdlib.h>
+
+#ifndef	PLATFORM_ESP
+extern int pn532_debug;
+extern int pn532_dump;
+#endif
 
 #define pn532_errs		\
 	p(OK)			\
@@ -66,8 +71,11 @@ typedef enum {
 typedef struct pn532_s pn532_t;
 
 // Functions
-
+#ifdef	PLATFORM_ESP
 pn532_t *pn532_init(int8_t uart, uint8_t baud, int8_t tx, int8_t rx, uint8_t p3);     // Init PN532 (P3 is port 3 output bits in use), baud is speed code 0-8 for 9600-1288000
+#else
+pn532_t *pn532_init(int sock, uint8_t p3);     // Init PN532 (P3 is port 3 output bits in use), baud is speed code 0-8 for 9600-1288000
+#endif
 void *pn532_end(pn532_t * p);   // Close and free
 
 pn532_err_t pn532_lasterr(pn532_t *);

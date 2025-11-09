@@ -1,22 +1,39 @@
 // PN532 functions
-// Copyright © 2019 Adrian Kennard, Andrews & Arnold Ltd. See LICENCE file for details. GPL 3.0
-static const char TAG[] = "PN532";
+// Copyright © 2019-205 Adrian Kennard, Andrews & Arnold Ltd. See LICENCE file for details. GPL 3.0
 
+#ifdef	PLATFORM_ESP
+static const char TAG[] = "PN532";
 #include "sdkconfig.h"
-#include "pn532.h"
 #include "esp_log.h"
 #include <driver/uart.h>
 #include <driver/gpio.h>
-
 #define	HEXLOG	ESP_LOG_INFO
 #define	DXLOG	ESP_LOG_INFO
 #define	MSGLOG	ESP_LOG_ERROR
 #define	RX_BUF	280
 #define	TX_BUF	280
+#else
+#include <stdio.h>
+#include <termios.h>
+#include <fcntl.h>
+#include <sys/ioctl.h>
+#define	ESP_LOGE(tag,fmt,...)	fprintf(stderr,fmt"\n",__VA_ARGS__);
+#endif
+
+#ifndef	PLATFORM_ESP
+int pn532_dump = 0;
+int pn532_debug = 0;
+#endif
+
+#include "pn532.h"
 
 struct pn532_s
 {
+#ifdef	PLATFORM_ESP
    uint8_t uart;                // Which UART
+#else
+   int sock;                    // UART socket
+#endif
    volatile uint8_t pending;    // Pending response
    uint8_t lasterr;             // Last error (obviously not for PN532_ERR_NULL)
    uint8_t cards;               // Cards present (0, 1 or 2)
@@ -25,7 +42,9 @@ struct pn532_s
    uint8_t sel_res;             // From InListPassiveTarget
    uint8_t nfcid[11];           // First card ID last seen (starts with len)
    uint8_t ats[30];             // First card ATS last seen (starts with len)
+#ifdef	PLATFORM_ESP
    SemaphoreHandle_t mutex;     // DX mutex 
+#endif
 };
 
 // Data
@@ -38,15 +57,17 @@ static const char *const pn532_err_str[PN532_ERR_STATUS_MAX + 1] = {
 };
 
 pn532_err_t
-pn532_lasterr (pn532_t * p)
+pn532_lasterr (pn532_t *p)
 {
    if (!p)
       return -PN532_ERR_NULL;
+#ifdef	PLATFORM_ESP
 #if 0
    if (p->lasterr > PN532_ERR_STATUS)
       ESP_LOGI (TAG, "Last err status %02X", p->lasterr - PN532_ERR_STATUS);
    else
       ESP_LOGI (TAG, "Last err %d", p->lasterr);
+#endif
 #endif
    return p->lasterr;
 }
@@ -61,11 +82,22 @@ pn532_err_to_name (pn532_err_t e)
    return pn532_err_str[e];
 }
 
+static void
+uart_rx_flush (pn532_t *p)
+{
+#ifdef	PLATFORM_ESP
+   uart_flush_input (p->uart);
+#else
+   tcflush (p->sock, TCIFLUSH);
+#endif
+}
+
 static int
-uart_rx (pn532_t * p, uint8_t * buf, uint32_t length, int ms)
+uart_rx (pn532_t *p, uint8_t *buf, uint32_t length, int ms)
 {                               // Low level UART rx with optional logging
    if (!p)
       return -PN532_ERR_NULL;
+#ifdef	PLATFORM_ESP
    ms /= portTICK_PERIOD_MS;
    if (ms < 2)
       ms = 2;                   // Ensure some timeout
@@ -76,14 +108,44 @@ uart_rx (pn532_t * p, uint8_t * buf, uint32_t length, int ms)
    if (l != length)
       ESP_LOGI (TAG, "Rx %d/%ld %d*%ldms", l, length, ms, portTICK_PERIOD_MS);
 #endif
+#else
+   int l = 0;
+   while (l < length)
+   {
+      int r = 0;
+      if (ioctl (p->sock, FIONREAD, &r) < 0)
+         break;
+      if (r <= 0)
+      {
+         if (!ms--)
+            break;
+         usleep (1000);
+         continue;
+      }
+      if (r > length - l)
+         r = length - l;
+      r = read (p->sock, buf + l, r);
+      if (r <= 0)
+         break;
+      l += r;
+   }
+   if (pn532_dump)
+   {
+      fprintf (stderr, "Rx");
+      for (int i = 0; i < l; i++)
+         fprintf (stderr, " %02X", buf[i]);
+      fprintf (stderr, "\n");
+   }
+#endif
    return l;
 }
 
 static int
-uart_tx (pn532_t * p, const uint8_t * src, size_t size)
+uart_tx (pn532_t *p, const uint8_t *src, size_t size)
 {                               // Low level UART tx with optional logging
    if (!p)
       return -PN532_ERR_NULL;
+#ifdef	PLATFORM_ESP
    int l = uart_write_bytes (p->uart, (char *) src, size);
 #ifdef CONFIG_PN532_DUMP
    if (l > 0)
@@ -91,11 +153,46 @@ uart_tx (pn532_t * p, const uint8_t * src, size_t size)
    if (l != size)
       ESP_LOGI (TAG, "Tx %d/%d", l, size);
 #endif
+#else
+   if (pn532_dump)
+   {
+      fprintf (stderr, "Tx");
+      for (int i = 0; i < size; i++)
+         fprintf (stderr, " %02X", src[i]);
+      fprintf (stderr, "\n");
+   }
+   int l = 0;
+   while (l < size)
+   {
+      int w = write (p->sock, src + l, size - l);
+      if (w <= 0)
+         return w;
+      l += w;
+   }
+#endif
    return l;
 }
 
+static void
+uart_tx_wait (pn532_t *p, int ms)
+{
+#ifdef	PLATFORM_ESP
+   uart_wait_tx_done (p->uart, ms / portTICK_PERIOD_MS);
+#else
+   while (ms)
+   {                            // Messy
+      int w = -1;
+      if (ioctl (p->sock, TIOCOUTQ, &w) < 0 || !w)
+         break;
+      if (!ms--)
+         break;
+      usleep (1000);
+   }
+#endif
+}
+
 static int
-uart_preamble (pn532_t * p, int ms)
+uart_preamble (pn532_t *p, int ms)
 {                               // Wait for preamble
    if (!p)
       return -PN532_ERR_NULL;
@@ -113,32 +210,50 @@ uart_preamble (pn532_t * p, int ms)
 }
 
 void *
-pn532_end (pn532_t * p)
+pn532_end (pn532_t *p)
 {
    if (p)
    {
+#ifdef	PLATFORM_ESP
       vSemaphoreDelete (p->mutex);
+#endif
       free (p);
    }
    return NULL;
 }
 
+#ifdef	PLATFORM_ESP
 pn532_t *
 pn532_init (int8_t uart, uint8_t baud, int8_t tx, int8_t rx, uint8_t outputs)
+#else
+pn532_t *
+pn532_init (int sock, uint8_t outputs)
+#endif
 {                               // Init PN532 (baud is 0-8 for 9600-1288000
+#ifdef	PLATFORM_ESP
    if (uart < 0 || tx < 0 || rx < 0 || tx == rx)
       return NULL;
    if (!GPIO_IS_VALID_OUTPUT_GPIO (tx) || !GPIO_IS_VALID_GPIO (rx))
       return NULL;
+#else
+   if (sock < 0)
+      return NULL;
+#endif
    pn532_t *p = malloc (sizeof (*p));
    if (!p)
       return p;
    memset (p, 0, sizeof (*p));
+#ifdef	PLATFORM_ESP
    p->uart = uart;
    p->mutex = xSemaphoreCreateBinary ();
    xSemaphoreGive (p->mutex);
+#else
+   p->sock = sock;
+#endif
+   // Init UART
+#ifdef	PLATFORM_ESP
    esp_err_t err = 0;
-   {                            // Init UART
+   {
       uart_config_t uart_config = {
          .baud_rate = 115200,
          .data_bits = UART_DATA_8_BITS,
@@ -168,15 +283,31 @@ pn532_init (int8_t uart, uint8_t baud, int8_t tx, int8_t rx, uint8_t outputs)
    }
    ESP_LOGD (TAG, "UART %d Tx %d Rx %d", uart, tx, rx);
    gpio_set_drive_capability (tx, GPIO_DRIVE_CAP_3);    // Oomph?
+#else
+   {
+      struct termios t;
+      tcgetattr (sock, &t);
+      cfmakeraw (&t);
+      t.c_cflag = ((t.c_cflag & ~CSIZE) | CS8);
+      t.c_cflag |= CLOCAL;
+      t.c_cflag |= CREAD;
+      cfsetspeed (&t, B115200);
+      tcsetattr (sock, TCSANOW, &t);
+      int status = TIOCM_RTS; // This is power on when using a tasmotiser
+      ioctl (sock, TIOCMBIC, &status);
+      usleep(100000);
+   }
+#endif
    int n;
    uint8_t buf[30] = { 0 };
    int e = sizeof (buf);
    buf[--e] = 0x55;             // Idle
    buf[--e] = 0x55;
    buf[--e] = 0x55;
-   uart_flush_input (p->uart);
+   uart_rx_flush (p);
    uart_tx (p, buf, sizeof (buf));
-   uart_wait_tx_done (p->uart, 100 / portTICK_PERIOD_MS);
+   uart_tx_wait (p, 100);
+#ifdef	PLATFORM_ESP
    if (baud != 4 && baud <= 8)
    {                            // Not the default Baud rate, go through the change of Baud rate step by step
       if (pn532_tx (p, 0x10, 1, &baud, 0, NULL) < 0 || pn532_rx (p, 0, NULL, sizeof (buf), buf, 20) < 0)
@@ -187,7 +318,7 @@ pn532_init (int8_t uart, uint8_t baud, int8_t tx, int8_t rx, uint8_t outputs)
       // We have to send ACK at current Baud rate
       uint8_t ack[] = { 0x00, 0x00, 0xFF, 0x00, 0xFF, 0x00 };
       uart_tx (p, ack, sizeof (ack));
-      uart_wait_tx_done (p->uart, 100 / portTICK_PERIOD_MS);
+      uart_tx_wait (p, 100);
       usleep (10000);
       // Change rate
       const uint32_t rate[] = { 9600, 19200, 38400, 57600, 115200, 230400, 460800, 921600, 1288000 };
@@ -209,6 +340,7 @@ pn532_init (int8_t uart, uint8_t baud, int8_t tx, int8_t rx, uint8_t outputs)
       ESP_LOGE (TAG, "Baud rate %ld", rate[baud]);
       usleep (10000);
    }
+#endif
    // Set up PN532 (SAM first as in vLowBat mode)
    // SAMConfiguration
    n = 0;
@@ -298,13 +430,13 @@ pn532_init (int8_t uart, uint8_t baud, int8_t tx, int8_t rx, uint8_t outputs)
 
 // Data access
 uint8_t *
-pn532_ats (pn532_t * p)
+pn532_ats (pn532_t *p)
 {
    return p->ats;
 }
 
 uint8_t *
-pn532_nfcid (pn532_t * p, char text[21])
+pn532_nfcid (pn532_t *p, char text[21])
 {
    if (text)
    {
@@ -323,7 +455,7 @@ pn532_nfcid (pn532_t * p, char text[21])
 
 // Low level access functions
 int
-pn532_tx_mutex (pn532_t * p, uint8_t cmd, int len1, uint8_t * data1, int len2, uint8_t * data2)
+pn532_tx_mutex (pn532_t *p, uint8_t cmd, int len1, uint8_t *data1, int len2, uint8_t *data2)
 {                               // Send data to PN532
    if (p->pending)
       return -(p->lasterr = PN532_ERR_CMDPENDING);
@@ -355,7 +487,7 @@ pn532_tx_mutex (pn532_t * p, uint8_t cmd, int len1, uint8_t * data1, int len2, u
       sum += data1[l];
    for (l = 0; l < len2; l++)
       sum += data2[l];
-   uart_flush_input (p->uart);
+   uart_rx_flush (p);
    // Send data
    uart_tx (p, buf, b - buf);
    if (len1)
@@ -365,7 +497,7 @@ pn532_tx_mutex (pn532_t * p, uint8_t cmd, int len1, uint8_t * data1, int len2, u
    buf[0] = -sum;               // Checksum
    buf[1] = 0x00;               // Postamble
    uart_tx (p, buf, 2);
-   uart_wait_tx_done (p->uart, 1000 / portTICK_PERIOD_MS);
+   uart_tx_wait (p, 1000);
    // Get ACK and check it
    l = uart_preamble (p, 50);
    if (l < 2)
@@ -384,7 +516,7 @@ pn532_tx_mutex (pn532_t * p, uint8_t cmd, int len1, uint8_t * data1, int len2, u
 }
 
 int
-pn532_tx (pn532_t * p, uint8_t cmd, int len1, uint8_t * data1, int len2, uint8_t * data2)
+pn532_tx (pn532_t *p, uint8_t cmd, int len1, uint8_t *data1, int len2, uint8_t *data2)
 {                               // Send data to PN532
    if (!p)
       return -PN532_ERR_NULL;
@@ -406,15 +538,19 @@ pn532_tx (pn532_t * p, uint8_t cmd, int len1, uint8_t * data1, int len2, uint8_t
       ESP_LOG_BUFFER_HEX_LEVEL ("NFCTx", buf, (int) (p - buf), MSGLOG);
    }
 #endif
+#ifdef	PLATFORM_ESP
    xSemaphoreTake (p->mutex, portMAX_DELAY);
+#endif
    int l = pn532_tx_mutex (p, cmd, len1, data1, len2, data2);
+#ifdef	PLATFORM_ESP
    if (!p->pending)
       xSemaphoreGive (p->mutex);
+#endif
    return l;
 }
 
 int
-pn532_rx_mutex (pn532_t * p, int max1, uint8_t * data1, int max2, uint8_t * data2, int ms)
+pn532_rx_mutex (pn532_t *p, int max1, uint8_t *data1, int max2, uint8_t *data2, int ms)
 {                               // Recv data from PN532
    uint8_t pending = p->pending;
    p->pending = 0;
@@ -522,33 +658,40 @@ pn532_rx_mutex (pn532_t * p, int max1, uint8_t * data1, int max2, uint8_t * data
 }
 
 int
-pn532_rx (pn532_t * p, int max1, uint8_t * data1, int max2, uint8_t * data2, int ms)
+pn532_rx (pn532_t *p, int max1, uint8_t *data1, int max2, uint8_t *data2, int ms)
 {                               // Recv data from PN532
    if (!p)
       return -PN532_ERR_NULL;
    if (!p->pending)
       return -(p->lasterr = PN532_ERR_NOTPENDING);
    int l = pn532_rx_mutex (p, max1, data1, max2, data2, ms);
+#ifdef	PLATFORM_ESP
    xSemaphoreGive (p->mutex);
+#endif
    return l;
 }
 
 int
-pn532_ready (pn532_t * p)
+pn532_ready (pn532_t *p)
 {
    if (!p)
       return -PN532_ERR_NULL;
    if (!p->pending)
       return -(p->lasterr = PN532_ERR_NOTPENDING);      // Nothing pending
-   size_t length;
+   size_t length = -1;
+#ifdef	PLATFORM_ESP
    if (uart_get_buffered_data_len (p->uart, &length))
       return -(p->lasterr = 2); // Error
+#else
+   if (ioctl (p->sock, FIONREAD, &length) < 0)
+      return -(p->lasterr = 2); // Error
+#endif
    return length;
 }
 
 // Data exchange (for DESFire use)
 int
-pn532_dx (void *pv, unsigned int len, uint8_t * data, unsigned int max, const char **strerr)
+pn532_dx (void *pv, unsigned int len, uint8_t *data, unsigned int max, const char **strerr)
 {                               // Card access function - sends to card starting CMD byte, and receives reply in to same buffer, starting status byte, returns len
    if (strerr)
       *strerr = "No error";
@@ -593,7 +736,7 @@ pn532_dx (void *pv, unsigned int len, uint8_t * data, unsigned int max, const ch
 
 // Other higher level functions
 int
-pn532_ILPT_Send (pn532_t * p)
+pn532_ILPT_Send (pn532_t *p)
 {
    if (!p)
       return -PN532_ERR_NULL;
@@ -608,7 +751,7 @@ pn532_ILPT_Send (pn532_t * p)
 }
 
 int
-pn532_Present (pn532_t * p)
+pn532_Present (pn532_t *p)
 {
    if (!p)
       return -PN532_ERR_NULL;
@@ -632,7 +775,7 @@ pn532_Present (pn532_t * p)
 }
 
 int
-pn532_deselect (pn532_t * p, uint8_t n)
+pn532_deselect (pn532_t *p, uint8_t n)
 {                               // Send a release
    if (!p)
       return -PN532_ERR_NULL;
@@ -645,7 +788,7 @@ pn532_deselect (pn532_t * p, uint8_t n)
 }
 
 int
-pn532_release (pn532_t * p, uint8_t n)
+pn532_release (pn532_t *p, uint8_t n)
 {                               // Send a release
    if (!p)
       return -PN532_ERR_NULL;
@@ -658,7 +801,7 @@ pn532_release (pn532_t * p, uint8_t n)
 }
 
 int
-pn532_write_GPIO (pn532_t * p, uint8_t value)
+pn532_write_GPIO (pn532_t *p, uint8_t value)
 {                               // Write P3/P7 (P72/P71 in top bits, P35-30 in rest)
    if (!p)
       return -PN532_ERR_NULL;
@@ -672,7 +815,7 @@ pn532_write_GPIO (pn532_t * p, uint8_t value)
 }
 
 int
-pn532_read_GPIO (pn532_t * p)
+pn532_read_GPIO (pn532_t *p)
 {                               // Read P3/P7 (P72/P71 in top bits, P35-30 in rest)
    if (!p)
       return -PN532_ERR_NULL;
@@ -688,7 +831,7 @@ pn532_read_GPIO (pn532_t * p)
 }
 
 int
-pn532_Cards (pn532_t * p)
+pn532_Cards (pn532_t *p)
 {                               // -ve for error, else number of cards
    if (!p)
       return -PN532_ERR_NULL;
