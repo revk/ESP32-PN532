@@ -293,9 +293,9 @@ pn532_init (int sock, uint8_t outputs)
       t.c_cflag |= CREAD;
       cfsetspeed (&t, B115200);
       tcsetattr (sock, TCSANOW, &t);
-      int status = TIOCM_RTS; // This is power on when using a tasmotiser
+      int status = TIOCM_RTS;   // This is power on when using a tasmotiser
       ioctl (sock, TIOCMBIC, &status);
-      usleep(100000);
+      usleep (100000);
    }
 #endif
    int n;
@@ -520,6 +520,7 @@ pn532_tx (pn532_t *p, uint8_t cmd, int len1, uint8_t *data1, int len2, uint8_t *
 {                               // Send data to PN532
    if (!p)
       return -PN532_ERR_NULL;
+#ifdef	PLATFORM_ESP
 #ifdef	CONFIG_PN532_DEBUG_MSG
    {                            // Messy
       uint8_t buf[100],
@@ -538,8 +539,17 @@ pn532_tx (pn532_t *p, uint8_t cmd, int len1, uint8_t *data1, int len2, uint8_t *
       ESP_LOG_BUFFER_HEX_LEVEL ("NFCTx", buf, (int) (p - buf), MSGLOG);
    }
 #endif
-#ifdef	PLATFORM_ESP
    xSemaphoreTake (p->mutex, portMAX_DELAY);
+#else
+   if (pn532_debug)
+   {
+      fprintf (stderr, "NFCTx %02X",cmd);
+      for (int i = 0; i < len1; i++)
+         fprintf (stderr, " %02X", data1[i]);
+      for (int i = 0; i < len2; i++)
+         fprintf (stderr, " %02X", data2[i]);
+      fprintf (stderr, "\n");
+   }
 #endif
    int l = pn532_tx_mutex (p, cmd, len1, data1, len2, data2);
 #ifdef	PLATFORM_ESP
@@ -591,7 +601,7 @@ pn532_rx_mutex (pn532_t *p, int max1, uint8_t *data1, int max2, uint8_t *data2, 
    uint8_t sum = 0xD5 + pending;
    if (len > max1 + max2)
       return -(p->lasterr = PN532_ERR_SPACE);   // Too big
-#ifdef	CONFIG_PN532_DEBUG_MSG
+#if	defined(CONFIG_PN532_DEBUG_MSG) || ! defined(PATHFORM_ESP)
    uint8_t len1 = 0,
       len2 = 0;
 #endif
@@ -602,7 +612,7 @@ pn532_rx_mutex (pn532_t *p, int max1, uint8_t *data1, int max2, uint8_t *data2, 
          l = len;
       if (l)
       {
-#ifdef	CONFIG_PN532_DEBUG_MSG
+#if	defined(CONFIG_PN532_DEBUG_MSG) || ! defined(PATHFORM_ESP)
          len1 = l;
 #endif
          if (uart_rx (p, data1, l, 10) < l)
@@ -619,7 +629,7 @@ pn532_rx_mutex (pn532_t *p, int max1, uint8_t *data1, int max2, uint8_t *data2, 
          l = len;
       if (l)
       {
-#ifdef	CONFIG_PN532_DEBUG_MSG
+#if	defined(CONFIG_PN532_DEBUG_MSG) || ! defined(PATHFORM_ESP)
          len2 = l;
 #endif
          if (uart_rx (p, data2, l, 10) < l)
@@ -636,6 +646,7 @@ pn532_rx_mutex (pn532_t *p, int max1, uint8_t *data1, int max2, uint8_t *data2, 
       return -(p->lasterr = PN532_ERR_CHECKSUM);        // checksum
    if (buf[1])
       return -(p->lasterr = PN532_ERR_POSTAMBLE);       // postamble
+#ifdef	PLATFORM_ESP	
 #ifdef	CONFIG_PN532_DEBUG_MSG
    {                            // Messy
       uint8_t buf[100],
@@ -652,6 +663,17 @@ pn532_rx_mutex (pn532_t *p, int max1, uint8_t *data1, int max2, uint8_t *data2, 
          p += len2;
       }
       ESP_LOG_BUFFER_HEX_LEVEL ("NFCRx", buf, (int) (p - buf), MSGLOG);
+   }
+#endif
+#else
+   if (pn532_debug)
+   {
+      fprintf (stderr, "NFCRx %02X",pending);
+      for (int i = 0; i < len1; i++)
+         fprintf (stderr, " %02X", data1[i]);
+      for (int i = 0; i < len2; i++)
+         fprintf (stderr, " %02X", data2[i]);
+      fprintf (stderr, "\n");
    }
 #endif
    return res;
