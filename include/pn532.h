@@ -11,7 +11,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-#ifndef	PLATFORM_ESP
+#ifndef	ESP_PLATFORM
 extern int pn532_debug;
 extern int pn532_dump;
 #endif
@@ -71,7 +71,7 @@ typedef enum {
 typedef struct pn532_s pn532_t;
 
 // Functions
-#ifdef	PLATFORM_ESP
+#ifdef	ESP_PLATFORM
 pn532_t *pn532_init(int8_t uart, uint8_t baud, int8_t tx, int8_t rx, uint8_t p3);     // Init PN532 (P3 is port 3 output bits in use), baud is speed code 0-8 for 9600-1288000
 #else
 pn532_t *pn532_init(int sock, uint8_t p3);     // Init PN532 (P3 is port 3 output bits in use), baud is speed code 0-8 for 9600-1288000
