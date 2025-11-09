@@ -1,6 +1,10 @@
+all: makeloop nfctest
+
 makeloop: makeloop.c
 	gcc -I/usr/local/include -L/usr/local/lib -O -o $@ $< -lpopt -lm -g
 
+nfctest: nfctest.c
+	gcc -I/usr/local/include -L/usr/local/lib -O -o $@ $< -lpopt -lm -g
 clean:
 	idf.py clean
 

@@ -1,6 +1,7 @@
 makeloop
-makeloop.c.BAK
-makeloop.dSYM
+nfctest
+*.BAK
+*.dSYM
 *.o
 *~
 *.swp
