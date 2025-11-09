@@ -9,7 +9,7 @@
 #include <stddef.h>
 #include <string.h>
 #include <unistd.h>
-#include <malloc.h>
+#include <stdlib.h>
 
 #define pn532_errs		\
 	p(OK)			\
