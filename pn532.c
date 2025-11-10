@@ -38,8 +38,8 @@ struct pn532_s
    uint8_t lasterr;             // Last error (obviously not for PN532_ERR_NULL)
    uint8_t cards;               // Cards present (0, 1 or 2)
    uint8_t tg;                  // First card target id (normally 1)
-   uint16_t sens_res;           // From InListPassiveTarget
    uint8_t sel_res;             // From InListPassiveTarget
+   uint16_t sens_res;           // From InListPassiveTarget
    uint8_t nfcid[11];           // First card ID last seen (starts with len)
    uint8_t ats[30];             // First card ATS last seen (starts with len)
 #ifdef	ESP_PLATFORM
@@ -429,15 +429,35 @@ pn532_init (int sock, uint8_t outputs)
 }
 
 // Data access
+uint16_t
+pn532_atqa (pn532_t *p)
+{
+   if (!p)
+      return 0;
+   return p->sens_res;
+}
+
+uint8_t
+pn532_sak (pn532_t *p)
+{
+   if (!p)
+      return 0;
+   return p->sel_res;
+}
+
 uint8_t *
 pn532_ats (pn532_t *p)
 {
+   if (!p)
+      return NULL;
    return p->ats;
 }
 
 uint8_t *
 pn532_nfcid (pn532_t *p, char text[21])
 {
+   if (!p)
+      return NULL;
    if (text)
    {
       char *o = text;
@@ -543,7 +563,7 @@ pn532_tx (pn532_t *p, uint8_t cmd, int len1, uint8_t *data1, int len2, uint8_t *
 #else
    if (pn532_debug)
    {
-      fprintf (stderr, "NFCTx %02X",cmd);
+      fprintf (stderr, "NFCTx %02X", cmd);
       for (int i = 0; i < len1; i++)
          fprintf (stderr, " %02X", data1[i]);
       for (int i = 0; i < len2; i++)
@@ -646,7 +666,7 @@ pn532_rx_mutex (pn532_t *p, int max1, uint8_t *data1, int max2, uint8_t *data2, 
       return -(p->lasterr = PN532_ERR_CHECKSUM);        // checksum
    if (buf[1])
       return -(p->lasterr = PN532_ERR_POSTAMBLE);       // postamble
-#ifdef	ESP_PLATFORM	
+#ifdef	ESP_PLATFORM
 #ifdef	CONFIG_PN532_DEBUG_MSG
    {                            // Messy
       uint8_t buf[100],
@@ -668,7 +688,7 @@ pn532_rx_mutex (pn532_t *p, int max1, uint8_t *data1, int max2, uint8_t *data2, 
 #else
    if (pn532_debug)
    {
-      fprintf (stderr, "NFCRx %02X",pending);
+      fprintf (stderr, "NFCRx %02X", pending);
       for (int i = 0; i < len1; i++)
          fprintf (stderr, " %02X", data1[i]);
       for (int i = 0; i < len2; i++)

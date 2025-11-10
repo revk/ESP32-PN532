@@ -93,6 +93,8 @@ int pn532_read_GPIO(pn532_t * p);       // P72/P71 in top bits, P35-30 in rest)
 int pn532_dx(void *, unsigned int len, uint8_t * data, unsigned int max, const char **errstr);
 
 // Higher level initiator functions
+uint16_t pn532_atqa(pn532_t*p); // SENS_RES/ATQA
+uint8_t pn532_sak(pn532_t*p); // SEL_RES
 uint8_t *pn532_nfcid(pn532_t *, char text[21]); // Get NFCID (first byte is len of following)
 uint8_t *pn532_ats(pn532_t *);  // Get ATS (first byte is len of following - note, not as received were it is len inc the length byte)
 int pn532_deselect(pn532_t * p, uint8_t n);     // Send deselect ID 1 or 2
