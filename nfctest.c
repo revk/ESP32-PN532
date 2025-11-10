@@ -66,7 +66,7 @@ main (int argc, const char *argv[])
          // Maybe https://downloads.acs.com.hk/drivers/en/API-ACR122U-2.02.pdf
          const uint8_t ok[] = { 0x90, 0x00 };
          const uint8_t selapdu[] = { 0x00, 0xA4, 0x04, 0x00, 0x07, 0xD2, 0x76, 0x00, 0x00, 0x85, 0x01, 0x01, 0x00 };    // SELECT DF first 7 bytes D2760000850101 unspecified
-         const uint8_t selfile[] = { 0x00, 0xA4, 0x00, 0x0C, 0x02, 0xE1, 0x03 };        // 
+         const uint8_t selfile[] = { 0x00, 0xA4, 0x00, 0x0C, 0x02, 0xE1, 0x03 };        //  SELECT FILE
          if (l == sizeof (selapdu) && !memcmp (buf, selapdu, l))
             l = pn532_set_data (p, sizeof (ok), ok);
          else if (l == sizeof (selfile) && !memcmp (buf, selfile, l))
