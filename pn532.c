@@ -621,7 +621,7 @@ pn532_rx_mutex (pn532_t *p, int max1, uint8_t *data1, int max2, uint8_t *data2, 
    uint8_t sum = 0xD5 + pending;
    if (len > max1 + max2)
       return -(p->lasterr = PN532_ERR_SPACE);   // Too big
-#if	defined(CONFIG_PN532_DEBUG_MSG) || ! defined(PATHFORM_ESP)
+#if	defined(CONFIG_PN532_DEBUG_MSG) || ! defined(ESP_PLATFORM)
    uint8_t len1 = 0,
       len2 = 0;
 #endif
@@ -632,7 +632,7 @@ pn532_rx_mutex (pn532_t *p, int max1, uint8_t *data1, int max2, uint8_t *data2, 
          l = len;
       if (l)
       {
-#if	defined(CONFIG_PN532_DEBUG_MSG) || ! defined(PATHFORM_ESP)
+#if	defined(CONFIG_PN532_DEBUG_MSG) || ! defined(ESP_PLATFORM)
          len1 = l;
 #endif
          if (uart_rx (p, data1, l, 10) < l)
@@ -649,7 +649,7 @@ pn532_rx_mutex (pn532_t *p, int max1, uint8_t *data1, int max2, uint8_t *data2, 
          l = len;
       if (l)
       {
-#if	defined(CONFIG_PN532_DEBUG_MSG) || ! defined(PATHFORM_ESP)
+#if	defined(CONFIG_PN532_DEBUG_MSG) || ! defined(ESP_PLATFORM)
          len2 = l;
 #endif
          if (uart_rx (p, data2, l, 10) < l)
