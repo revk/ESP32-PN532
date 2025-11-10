@@ -84,7 +84,7 @@ pn532_err_t pn532_lasterr (pn532_t *);
 const char *pn532_err_to_name (int);
 
 // Low level access functions
-int pn532_tx (pn532_t *, uint8_t cmd, int, uint8_t *, int, uint8_t *);  // Send data to PN532 (up to two blocks) return 0 or negative for error. Starts byte after cmd
+int pn532_tx (pn532_t *, uint8_t cmd, int, const uint8_t *, int, const uint8_t *);  // Send data to PN532 (up to two blocks) return 0 or negative for error. Starts byte after cmd
 int pn532_ready (pn532_t * p);  // For async command handling: >0 if response ready, 0 if not, -ve if error (e.g. no response expected)
 int pn532_rx (pn532_t *, int, uint8_t *, int, uint8_t *, int ms);       // Recv data from PN532, (in to up to two blocks) return total length or -ve for error, checks res=cmd+1 and returns from byte after
 
@@ -107,6 +107,8 @@ int pn532_Cards (pn532_t * p);  // How many cards present (does pn532_ILPT_Send 
 int pn532_Present (pn532_t * p);        // Check if present still
 
 // Higher level target functions
-int pn532_target (pn532_t * p, uint16_t atqa, uint8_t sak, uint8_t * nfcid, uint8_t * ats,uint8_t *data,unsigned int max);     // Wait for host
+int pn532_target (pn532_t * p, uint16_t atqa, uint8_t sak, uint8_t * nfcid, uint8_t *data,unsigned int max);     // Wait for host
+int pn532_get_data(pn532_t*p,uint8_t *data, unsigned int max);
+int pn532_set_data(pn532_t*p,unsigned int len,const uint8_t *data);
 
 #endif

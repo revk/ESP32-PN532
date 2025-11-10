@@ -371,8 +371,7 @@ pn532_init (int sock, uint8_t outputs)
    // RFConfiguration (retries)
    n = 0;
    buf[n++] = 5;                // Config item 5 (MaxRetries)
-   //buf[n++] = 0xFF;             // MxRtyATR (default = 0xFF)
-   buf[n++] = 0x02;             // MxRtyATR (default = 0xFF)
+   buf[n++] = 0xFF;             // MxRtyATR (default = 0xFF)
    buf[n++] = 0x01;             // MxRtyPSL (default = 0x01)
    buf[n++] = 0x01;             // MxRtyPassiveActivation
    if (pn532_tx (p, 0x32, 0, NULL, n, buf) < 0 || pn532_rx (p, 0, NULL, sizeof (buf), buf, 50) < 0)
@@ -476,7 +475,7 @@ pn532_type (pn532_t *p)
       return "Innovision R&T Jewel";
    if (p->sens_res == 0x0044)
    {
-      if (p->sel_res == 0x00)
+      if (p->sel_res == 0x00 || p->sel_res == 0x20)
          return "NXP MIFARE Ultralight";
       return NULL;
    }
@@ -549,7 +548,7 @@ pn532_nfcid (pn532_t *p, char text[21])
 
 // Low level access functions
 int
-pn532_tx_mutex (pn532_t *p, uint8_t cmd, int len1, uint8_t *data1, int len2, uint8_t *data2)
+pn532_tx_mutex (pn532_t *p, uint8_t cmd, int len1, const uint8_t *data1, int len2, const uint8_t *data2)
 {                               // Send data to PN532
    if (p->pending)
       return -(p->lasterr = PN532_ERR_CMDPENDING);
@@ -610,7 +609,7 @@ pn532_tx_mutex (pn532_t *p, uint8_t cmd, int len1, uint8_t *data1, int len2, uin
 }
 
 int
-pn532_tx (pn532_t *p, uint8_t cmd, int len1, uint8_t *data1, int len2, uint8_t *data2)
+pn532_tx (pn532_t *p, uint8_t cmd, int len1, const uint8_t *data1, int len2, const uint8_t *data2)
 {                               // Send data to PN532
    if (!p)
       return -PN532_ERR_NULL;
@@ -738,7 +737,8 @@ pn532_rx_mutex (pn532_t *p, int max1, uint8_t *data1, int max2, uint8_t *data2, 
       return -(p->lasterr = PN532_ERR_TIMEOUT); // Postamble
    if ((uint8_t) (buf[0] + sum))
       return -(p->lasterr = PN532_ERR_CHECKSUM);        // checksum
-   if (buf[1]) return -(p->lasterr = PN532_ERR_POSTAMBLE);       // postamble
+   if (buf[1])
+      return -(p->lasterr = PN532_ERR_POSTAMBLE);       // postamble
 #ifdef	ESP_PLATFORM
 #ifdef	CONFIG_PN532_DEBUG_MSG
    {                            // Messy
@@ -797,10 +797,10 @@ pn532_ready (pn532_t *p)
    size_t length = -1;
 #ifdef	ESP_PLATFORM
    if (uart_get_buffered_data_len (p->uart, &length))
-      return -(p->lasterr = 2); // Error
+      return -(p->lasterr = PN532_ERR_BAD);     // Error
 #else
    if (ioctl (p->sock, FIONREAD, &length) < 0)
-      return -(p->lasterr = 2); // Error
+      return -(p->lasterr = PN532_ERR_BAD);     // Error
 #endif
    return length;
 }
@@ -999,7 +999,45 @@ pn532_Cards (pn532_t *p)
 }
 
 int
-pn532_target (pn532_t *p, uint16_t atqa, uint8_t sak, uint8_t *nfcid, uint8_t *ats, uint8_t *data, unsigned int max)
+pn532_get_data (pn532_t *p, uint8_t *data, unsigned int max)
+{
+   if (!p)
+      return -PN532_ERR_NULL;
+   if (!data || !max)
+      return -(p->lasterr = PN532_ERR_NULL);
+   int l = pn532_tx (p, 0x86, 0, NULL, 0, NULL);
+   uint8_t status;
+   if (l >= 0)
+      l = pn532_rx (p, 1, &status, max, data, 10000);
+   if (!l)
+      l = -PN532_ERR_SHORT;
+   else if (l >= 1 && status)
+      l = -PN532_ERR_STATUS - status;
+   if (l > 0)
+      l--;
+   return l;
+}
+
+int
+pn532_set_data (pn532_t *p, unsigned int len, const uint8_t *data)
+{
+   if (!p)
+      return -PN532_ERR_NULL;
+   if (!data)
+      return -(p->lasterr = PN532_ERR_NULL);
+   int l = pn532_tx (p, 0x8E, 0, NULL, len, data);
+   uint8_t status;
+   if (l >= 0)
+      l = pn532_rx (p, 0, NULL, 1, &status, 50);
+   if (!l)
+      l = -PN532_ERR_SHORT;
+   else if (l >= 1 && status)
+      l = -PN532_ERR_STATUS - status;
+   return l;
+}
+
+int
+pn532_target (pn532_t *p, uint16_t atqa, uint8_t sak, uint8_t *nfcid, uint8_t *data, unsigned int max)
 {                               // TgInitAsTarget
    if (!p)
       return -PN532_ERR_NULL;
@@ -1007,18 +1045,14 @@ pn532_target (pn532_t *p, uint16_t atqa, uint8_t sak, uint8_t *nfcid, uint8_t *a
       nfcid = p->nfcid;
    if (!*nfcid || *nfcid > 11)
       return -(p->lasterr = PN532_ERR_BAD);
-   if (ats && *ats > 47)
-      return -(p->lasterr = PN532_ERR_BAD);
    uint8_t buf[100];
    memset (buf, 0, sizeof (buf));
    int n = 0;
    buf[n++] = 0x04;             // PICC
    buf[n++] = atqa;
    buf[n++] = (atqa >> 8);
-   buf[n++] = 0x12;
-   buf[n++] = 0x34;
-   buf[n++] = 0x56;
-   //n += 3;                      // NFCID11-13 ???
+   memcpy (buf + n, nfcid + 1, 3);
+   n += 3;
    buf[n++] = sak;
    n += 18;                     // FeliCaParams
    memcpy (buf + n, nfcid + 1, *nfcid);
@@ -1028,5 +1062,9 @@ pn532_target (pn532_t *p, uint16_t atqa, uint8_t sak, uint8_t *nfcid, uint8_t *a
    int l = pn532_tx (p, 0x8C, n, buf, 0, NULL);
    if (l >= 0)
       l = pn532_rx (p, 0, NULL, max, data, 10000);
+   if (!l)
+      l = -PN532_ERR_SHORT;
+   if (data && max && l > 0)
+      l = pn532_get_data (p, data, max);
    return l;
 }
