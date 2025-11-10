@@ -19,6 +19,7 @@ extern int pn532_dump;
 #define pn532_errs		\
 	p(OK)			\
 	p(NULL)			\
+	p(BAD)			\
 	p(NOTPENDING)		\
 	p(CMDPENDING)		\
 	p(CMDMISMATCH)		\
@@ -80,7 +81,7 @@ pn532_t *pn532_init (int sock, uint8_t p3);     // Init PN532 (P3 is port 3 outp
 void *pn532_end (pn532_t * p);  // Close and free
 
 pn532_err_t pn532_lasterr (pn532_t *);
-const char *pn532_err_to_name (pn532_err_t);
+const char *pn532_err_to_name (int);
 
 // Low level access functions
 int pn532_tx (pn532_t *, uint8_t cmd, int, uint8_t *, int, uint8_t *);  // Send data to PN532 (up to two blocks) return 0 or negative for error. Starts byte after cmd
@@ -94,7 +95,7 @@ int pn532_read_GPIO (pn532_t * p);      // P72/P71 in top bits, P35-30 in rest)
 int pn532_dx (void *, unsigned int len, uint8_t * data, unsigned int max, const char **errstr);
 
 // Higher level initiator functions
-const char *pn532_type (pn532_t * p);   // Known types https://nfc-tools.github.io/resources/standards/iso14443A/
+const char *pn532_type (pn532_t * p);   // Known types https://nfc-tools.github.io/resources/standards/iso14443A/ https://www.nxp.com/docs/en/application-note/AN10833.pdf
 uint16_t pn532_atqa (pn532_t * p);      // SENS_RES/ATQA
 uint8_t pn532_sak (pn532_t * p);        // SEL_RES
 uint8_t *pn532_nfcid (pn532_t *, char text[21]);        // Get NFCID (first byte is len of following)
@@ -106,5 +107,6 @@ int pn532_Cards (pn532_t * p);  // How many cards present (does pn532_ILPT_Send 
 int pn532_Present (pn532_t * p);        // Check if present still
 
 // Higher level target functions
+int pn532_target (pn532_t * p, uint16_t atqa, uint8_t sak, uint8_t * nfcid, uint8_t * ats,uint8_t *data,unsigned int max);     // Wait for host
 
 #endif

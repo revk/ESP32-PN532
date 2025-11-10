@@ -73,7 +73,7 @@ pn532_lasterr (pn532_t *p)
 }
 
 const char *
-pn532_err_to_name (pn532_err_t e)
+pn532_err_to_name (int e)
 {
    if (e < 0)
       e = -e;
@@ -371,7 +371,8 @@ pn532_init (int sock, uint8_t outputs)
    // RFConfiguration (retries)
    n = 0;
    buf[n++] = 5;                // Config item 5 (MaxRetries)
-   buf[n++] = 0xFF;             // MxRtyATR (default = 0xFF)
+   //buf[n++] = 0xFF;             // MxRtyATR (default = 0xFF)
+   buf[n++] = 0x02;             // MxRtyATR (default = 0xFF)
    buf[n++] = 0x01;             // MxRtyPSL (default = 0x01)
    buf[n++] = 0x01;             // MxRtyPassiveActivation
    if (pn532_tx (p, 0x32, 0, NULL, n, buf) < 0 || pn532_rx (p, 0, NULL, sizeof (buf), buf, 50) < 0)
@@ -425,6 +426,15 @@ pn532_init (int sock, uint8_t outputs)
       ESP_LOGE (TAG, "RFConfiguration fail %s", pn532_err_to_name (pn532_lasterr (p)));
       return pn532_end (p);
    }
+#if 0
+   n = 0;
+   buf[n++] = 0x34;
+   if (pn532_tx (p, 0x12, 0, NULL, n, buf) < 0 || pn532_rx (p, 0, NULL, sizeof (buf), buf, 50) < 0)
+   {
+      ESP_LOGE (TAG, "SetParameters fail %s", pn532_err_to_name (pn532_lasterr (p)));
+      return pn532_end (p);
+   }
+#endif
    return p;
 }
 
@@ -728,8 +738,7 @@ pn532_rx_mutex (pn532_t *p, int max1, uint8_t *data1, int max2, uint8_t *data2, 
       return -(p->lasterr = PN532_ERR_TIMEOUT); // Postamble
    if ((uint8_t) (buf[0] + sum))
       return -(p->lasterr = PN532_ERR_CHECKSUM);        // checksum
-   if (buf[1])
-      return -(p->lasterr = PN532_ERR_POSTAMBLE);       // postamble
+   if (buf[1]) return -(p->lasterr = PN532_ERR_POSTAMBLE);       // postamble
 #ifdef	ESP_PLATFORM
 #ifdef	CONFIG_PN532_DEBUG_MSG
    {                            // Messy
@@ -780,6 +789,7 @@ pn532_rx (pn532_t *p, int max1, uint8_t *data1, int max2, uint8_t *data2, int ms
 int
 pn532_ready (pn532_t *p)
 {
+   fprintf (stderr, "ready\n");
    if (!p)
       return -PN532_ERR_NULL;
    if (!p->pending)
@@ -986,4 +996,37 @@ pn532_Cards (pn532_t *p)
       }
    }
    return p->cards;
+}
+
+int
+pn532_target (pn532_t *p, uint16_t atqa, uint8_t sak, uint8_t *nfcid, uint8_t *ats, uint8_t *data, unsigned int max)
+{                               // TgInitAsTarget
+   if (!p)
+      return -PN532_ERR_NULL;
+   if (!nfcid)
+      nfcid = p->nfcid;
+   if (!*nfcid || *nfcid > 11)
+      return -(p->lasterr = PN532_ERR_BAD);
+   if (ats && *ats > 47)
+      return -(p->lasterr = PN532_ERR_BAD);
+   uint8_t buf[100];
+   memset (buf, 0, sizeof (buf));
+   int n = 0;
+   buf[n++] = 0x04;             // PICC
+   buf[n++] = atqa;
+   buf[n++] = (atqa >> 8);
+   buf[n++] = 0x12;
+   buf[n++] = 0x34;
+   buf[n++] = 0x56;
+   //n += 3;                      // NFCID11-13 ???
+   buf[n++] = sak;
+   n += 18;                     // FeliCaParams
+   memcpy (buf + n, nfcid + 1, *nfcid);
+   n += 10;                     // Why 10?
+   buf[n++] = 0;                // General bytes     (len 0 assuming none of these)
+   buf[n++] = 0;                // Historical bytes (len 0 assuming none of these)
+   int l = pn532_tx (p, 0x8C, n, buf, 0, NULL);
+   if (l >= 0)
+      l = pn532_rx (p, 0, NULL, max, data, 10000);
+   return l;
 }

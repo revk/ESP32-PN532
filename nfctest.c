@@ -42,9 +42,21 @@ main (int argc, const char *argv[])
    int sock = open (port, O_RDWR);
    if (sock < 0)
       err (1, "Cannot open %s", port);
-   pn532_t *p = pn532_init (sock, 0);
-
-
+   pn532_t *p = pn532_init (sock, 0xFF);
+   if (!p)
+      errx (1, "No PN532");
+   while (1)
+   {
+      uint8_t id[] = { 7, 0x04, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66 };
+      uint8_t buf[100];
+      int e = pn532_target (p, 0x0044, 0x20, id, NULL,buf,sizeof(buf)); // Ultralight
+      if (e<0)
+      {
+         warnx ("e=%s (%d)", pn532_err_to_name (e), e);
+	 if(e!=-PN532_ERR_TIMEOUT)sleep(1);
+         continue;
+      }
+   }
    p = pn532_end (p);
    close (sock);
    poptFreeContext (optCon);
