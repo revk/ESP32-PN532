@@ -603,7 +603,7 @@ pn532_tx_mutex (pn532_t *p, uint8_t cmd, int len1, const uint8_t *data1, int len
    if (buf[0] == 0xFF && !buf[1])
       return -(p->lasterr = PN532_ERR_NACK);
    if (buf[0] || buf[1] != 0xFF)
-      return -(p->lasterr = PN532_ERR_BADACK);  // Bad
+      return -(p->lasterr = PN532_ERR_ERROR); 
    p->pending = cmd + 1;
    return len1 + len2;
 }
@@ -805,51 +805,6 @@ pn532_ready (pn532_t *p)
    return length;
 }
 
-// pass through
-int
-pn532_txrx (void *pv, unsigned int len, uint8_t *data, unsigned int max, const char **strerr)
-{                               // Card access function - sends to card starting CMD byte, and receives reply in to same buffer, starting status byte, returns len
-   if (strerr)
-      *strerr = "No error";
-   pn532_t *p = pv;
-   if (!p)
-      return -PN532_ERR_NULL;
-   if (!p->cards)
-      return 0;                 // No card
-#ifdef	CONFIG_PN532_DEBUG_DX
-#ifndef CONFIG_PN532_DUMP
-   ESP_LOG_BUFFER_HEX_LEVEL ("NFCTx", data, len, DXLOG);
-#endif
-#endif
-   int l = pn532_tx (p, 0x42, 0, NULL, len, data);
-   if (l >= 0)
-   {
-      uint8_t status;
-      l = pn532_rx (p, 1, &status, max, data, 500);
-      if (!l)
-         l = -PN532_ERR_SHORT;
-      else if (l >= 1 && status)
-         l = -PN532_ERR_STATUS - status;
-#ifdef	CONFIG_PN532_DEBUG_DX
-#ifndef CONFIG_PN532_DUMP
-      if (l > 0)
-         ESP_LOG_BUFFER_HEX_LEVEL ("NFCRx", data, l - 1, DXLOG);
-#endif
-#endif
-   }
-   if (l < 0)
-   {
-      p->lasterr = -l;
-#ifdef	CONFIG_PN532_DEBUG_DX
-      ESP_LOG_LEVEL (DXLOG, "NFCErr", "%s", pn532_err_to_name (p->lasterr));
-#endif
-      if (strerr)
-         *strerr = pn532_err_to_name (p->lasterr);
-   } else
-      l--;                      // Allow for status
-   return l;
-}
-
 // Data exchange (for DESFire use)
 int
 pn532_dx (void *pv, unsigned int len, uint8_t *data, unsigned int max, const char **strerr)
@@ -885,7 +840,7 @@ pn532_dx (void *pv, unsigned int len, uint8_t *data, unsigned int max, const cha
    if (l < 0)
    {
       p->lasterr = -l;
-#ifdef	CONFIG_PN532_DEBUG_DX
+#if defined(CONFIG_PN532_DEBUG_DX) || defined(CONFIG_PN532_DUMP)
       ESP_LOG_LEVEL (DXLOG, "NFCErr", "%s", pn532_err_to_name (p->lasterr));
 #endif
       if (strerr)

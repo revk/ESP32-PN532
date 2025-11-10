@@ -26,6 +26,7 @@ extern int pn532_dump;
 	p(TIMEOUT)		\
 	p(TIMEOUTACK)		\
 	p(BADACK)		\
+	p(ERROR)		\
 	p(NACK)			\
 	p(HEADER)		\
 	p(SHORT)		\
@@ -93,7 +94,6 @@ int pn532_read_GPIO (pn532_t * p);      // P72/P71 in top bits, P35-30 in rest)
 
 // Card access function - sends to card starting CMD byte, and receives reply in to same buffer, starting status byte, returns len
 int pn532_dx (void *, unsigned int len, uint8_t * data, unsigned int max, const char **errstr);
-int pn532_txrx (void *pv, unsigned int len, uint8_t *data, unsigned int max, const char **strerr); // Raw tx/rx
 
 // Higher level initiator functions
 const char *pn532_type (pn532_t * p);   // Known types https://nfc-tools.github.io/resources/standards/iso14443A/ https://www.nxp.com/docs/en/application-note/AN10833.pdf
