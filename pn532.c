@@ -429,6 +429,70 @@ pn532_init (int sock, uint8_t outputs)
 }
 
 // Data access
+const char *
+pn532_type (pn532_t *p)
+{                               // Known types https://nfc-tools.github.io/resources/standards/iso14443A/
+   if (!p)
+      return NULL;
+   if (p->sens_res == 0x0004)
+   {
+      if (p->sel_res == 0x09)
+         return "NXP MIFARE Mini";
+      if (p->sel_res == 0x08)
+         return "NXP MIFARE Classic 1k";
+      if (p->sel_res == 0x88)
+         return "Infineon MIFARE Classic 1k";
+      if (p->sel_res == 0x28 && p->ats[0] == 7 && p->ats[1] == 0x78)
+         return "IBM JCOP41 v2.3.1";
+      return NULL;
+   }
+   if (p->sens_res == 0x0002)
+   {
+      if (p->sel_res == 0x18)
+         return "NXP MIFARE Classic 4k";
+      if (p->sel_res == 0x98)
+         return "Gemplus MPCOS";
+      if (p->sel_res == 0x38)
+         return "Nokia MIFARE Classic 4k - emulated (6212 Classic)";
+      return NULL;
+   }
+   if (p->sens_res == 0x0008)
+   {
+      if (p->sel_res == 0x38)
+         return "Nokia MIFARE Classic 4k - emulated (6131 NFC)";
+      return NULL;
+   }
+   if (p->sens_res == 0x0C00)
+      return "Innovision R&T Jewel";
+   if (p->sens_res == 0x0044)
+   {
+      if (p->sel_res == 0x00)
+         return "NXP MIFARE Ultralight";
+      return NULL;
+   }
+   if (p->sens_res == 0x0344)
+   {
+      if (p->sel_res == 0x20)
+         return "MIFARE DESFire EV1";
+      return NULL;
+   }
+   if (p->sens_res == 0x0304)
+   {
+      if (p->sel_res == 0x28)
+         return "IBM JCOP31";
+      return NULL;
+   }
+   if (p->sens_res == 0x0048)
+   {
+      if (p->sel_res == 0x20 && p->ats[0] == 7 && p->ats[1] == 0x20)
+         return "IBM JCOP31 v2.2";
+      if (p->sel_res == 0x20 && p->ats[0] == 7 && p->ats[1] == 0x78)
+         return "IBM JCOP31 v2.4.1";
+      return NULL;
+   }
+   return "";
+}
+
 uint16_t
 pn532_atqa (pn532_t *p)
 {
