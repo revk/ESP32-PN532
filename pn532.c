@@ -603,7 +603,7 @@ pn532_tx_mutex (pn532_t *p, uint8_t cmd, int len1, const uint8_t *data1, int len
    if (buf[0] == 0xFF && !buf[1])
       return -(p->lasterr = PN532_ERR_NACK);
    if (buf[0] || buf[1] != 0xFF)
-      return -(p->lasterr = PN532_ERR_ERROR); 
+      return -(p->lasterr = PN532_ERR_ERROR);
    p->pending = cmd + 1;
    return len1 + len2;
 }
@@ -998,8 +998,47 @@ pn532_Cards (pn532_t *p)
    return p->cards;
 }
 
+
 int
-pn532_get_data (pn532_t *p, uint8_t *data, unsigned int max)
+pn532_get_init (pn532_t *p, uint8_t *data, unsigned int max, int secs)
+{
+   if (!p)
+      return -PN532_ERR_NULL;
+   if (!data || !max)
+      return -(p->lasterr = PN532_ERR_NULL);
+   int l = pn532_tx (p, 0x88, 0, NULL, 0, NULL);
+   uint8_t status;
+   if (l >= 0)
+      l = pn532_rx (p, 1, &status, max, data, secs * 1000);
+   if (!l)
+      l = -PN532_ERR_SHORT;
+   else if (l >= 1 && status)
+      l = -PN532_ERR_STATUS - status;
+   if (l > 0)
+      l--;
+   return l;
+}
+
+int
+pn532_set_init (pn532_t *p, unsigned int len, const uint8_t *data)
+{
+   if (!p)
+      return -PN532_ERR_NULL;
+   if (!data)
+      return -(p->lasterr = PN532_ERR_NULL);
+   int l = pn532_tx (p, 0x90, 0, NULL, len, data);
+   uint8_t status;
+   if (l >= 0)
+      l = pn532_rx (p, 0, NULL, 1, &status, 50);
+   if (!l)
+      l = -PN532_ERR_SHORT;
+   else if (l >= 1 && status)
+      l = -PN532_ERR_STATUS - status;
+   return l;
+}
+
+int
+pn532_get_data (pn532_t *p, uint8_t *data, unsigned int max, int secs)
 {
    if (!p)
       return -PN532_ERR_NULL;
@@ -1008,7 +1047,7 @@ pn532_get_data (pn532_t *p, uint8_t *data, unsigned int max)
    int l = pn532_tx (p, 0x86, 0, NULL, 0, NULL);
    uint8_t status;
    if (l >= 0)
-      l = pn532_rx (p, 1, &status, max, data, 10000);
+      l = pn532_rx (p, 1, &status, max, data, secs * 1000);
    if (!l)
       l = -PN532_ERR_SHORT;
    else if (l >= 1 && status)
@@ -1037,18 +1076,25 @@ pn532_set_data (pn532_t *p, unsigned int len, const uint8_t *data)
 }
 
 int
-pn532_target (pn532_t *p, uint16_t atqa, uint8_t sak, uint8_t *nfcid, uint8_t *data, unsigned int max)
+pn532_target (pn532_t *p, uint16_t atqa, uint8_t sak, uint8_t *nfcid, uint8_t *gen, uint8_t *his, uint8_t *data, int max, int secs)
 {                               // TgInitAsTarget
    if (!p)
       return -PN532_ERR_NULL;
    if (!nfcid)
       nfcid = p->nfcid;
-   if (!*nfcid || *nfcid > 11)
+   if (!nfcid || !*nfcid || *nfcid > 11)
+      return -(p->lasterr = PN532_ERR_BAD);
+   if (gen && *gen > 47)
+      return -(p->lasterr = PN532_ERR_BAD);
+   if (his && *his > 47)
       return -(p->lasterr = PN532_ERR_BAD);
    uint8_t buf[100];
    memset (buf, 0, sizeof (buf));
    int n = 0;
-   buf[n++] = 0x04;             // PICC
+   if (sak & 0x20)
+      buf[n++] = 0x05;          // PICC+Passive
+   else
+      buf[n++] = 0x01;          // Passive
    buf[n++] = atqa;
    buf[n++] = (atqa >> 8);
    memcpy (buf + n, nfcid + 1, 3);
@@ -1057,14 +1103,28 @@ pn532_target (pn532_t *p, uint16_t atqa, uint8_t sak, uint8_t *nfcid, uint8_t *d
    n += 18;                     // FeliCaParams
    memcpy (buf + n, nfcid + 1, *nfcid);
    n += 10;                     // Why 10?
-   buf[n++] = 0;                // General bytes     (len 0 assuming none of these)
-   buf[n++] = 0;                // Historical bytes (len 0 assuming none of these)
+   if (gen)
+   {
+      memcpy (buf + n, gen, *gen + 1);
+      n += *gen + 1;
+   } else
+      buf[n++] = 0;             // General bytes     (len 0 assuming none of these)
+   if (his)
+   {
+      memcpy (buf + n, his, *his + 1);
+      n += *his + 1;
+   } else
+      buf[n++] = 0;             // Historical bytes (len 0 assuming none of these)
    int l = pn532_tx (p, 0x8C, n, buf, 0, NULL);
+   uint8_t mode;
    if (l >= 0)
-      l = pn532_rx (p, 0, NULL, max, data, 10000);
+      l = pn532_rx (p, 1, &mode, max, data, secs * 1000);
    if (!l)
       l = -PN532_ERR_SHORT;
-   if (data && max && l > 0)
-      l = pn532_get_data (p, data, max);
+   else if (l > 0)
+   {
+      l--;
+      p->cards = 1;
+   }
    return l;
 }

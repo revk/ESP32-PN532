@@ -108,8 +108,10 @@ int pn532_Cards (pn532_t * p);  // How many cards present (does pn532_ILPT_Send 
 int pn532_Present (pn532_t * p);        // Check if present still
 
 // Higher level target functions
-int pn532_target (pn532_t * p, uint16_t atqa, uint8_t sak, uint8_t * nfcid, uint8_t *data,unsigned int max);     // Wait for host
-int pn532_get_data(pn532_t*p,uint8_t *data, unsigned int max);
+int pn532_target (pn532_t *p, uint16_t atqa, uint8_t sak, uint8_t *nfcid, uint8_t *gen,uint8_t*his,uint8_t*data,int max,int secs);
+int pn532_get_data(pn532_t*p,uint8_t *data, unsigned int max,int secs);
 int pn532_set_data(pn532_t*p,unsigned int len,const uint8_t *data);
+int pn532_get_init(pn532_t*p,uint8_t *data, unsigned int max,int secs);
+int pn532_set_init(pn532_t*p,unsigned int len,const uint8_t *data);
 
 #endif
